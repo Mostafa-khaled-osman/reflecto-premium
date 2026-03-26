@@ -238,9 +238,6 @@ const AdminClients = () => {
             </div>
           ))}
         </div>
-          ))}
-        </div>
-
       </div>
     </div>
   );
