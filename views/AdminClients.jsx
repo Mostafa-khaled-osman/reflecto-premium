@@ -39,7 +39,7 @@ const AdminClients = () => {
             
             {/* Current Project Info */}
             <div className={highlightedCardStyle}>
-              <div className="flex justify-between items-start mb-12">
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-12">
                 <div className="flex items-center gap-4">
                   <div className="p-3 border border-[#FF4500]/30 rounded-xl">
                     <svg className="w-6 h-6 text-[#FF4500]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,14 +67,14 @@ const AdminClients = () => {
               </div>
 
               {/* Estimated Delivery */}
-              <div className="flex justify-between items-end">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2 sm:gap-0">
                 <div className="flex items-center gap-2 text-gray-400">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="text-[11px] font-light tracking-widest">Estimated Delivery</span>
                 </div>
-                <div className="text-right">
+                <div className="text-left sm:text-right">
                   <div className="text-lg font-display text-[#FF4500] tracking-widest">1d/21h /57m</div>
                   <div className="text-[9px] text-gray-500 tracking-widest">11/2/2026</div>
                 </div>
@@ -83,7 +83,7 @@ const AdminClients = () => {
 
             {/* Service Checklists */}
             <div className={`${highlightedCardStyle} py-4`}>
-              <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center justify-start sm:justify-between gap-y-3 gap-x-4">
                 {[
                   { label: 'Paint Protection', checked: true },
                   { label: 'Nano Ceramic', checked: false },
@@ -200,12 +200,12 @@ const AdminClients = () => {
               <div className="space-y-4 shadow-inner">
                 {[1, 2, 3].map((item, idx) => (
                   <div key={idx} className="bg-[#1e1e1e] border border-white/5 p-4 rounded-xl flex flex-col gap-2">
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-2">
                       <div>
                         <div className="text-[10px] text-white font-bold tracking-widest">Paint Protction Film Full bpdy</div>
                         <div className="text-[8px] text-gray-500 tracking-wider">Mercedes-Banz s-class</div>
                       </div>
-                      <span className="px-2 py-0.5 border border-[#FF4500]/50 text-[#FF4500] text-[8px] rounded-full uppercase tracking-wider relative overflow-hidden bg-[#FF4500]/5">
+                      <span className="px-2 py-0.5 border border-[#FF4500]/50 text-[#FF4500] text-[8px] rounded-full uppercase tracking-wider relative overflow-hidden bg-[#FF4500]/5 self-start sm:self-auto">
                         <span className="relative z-10">+1823 pts</span>
                       </span>
                     </div>
@@ -222,20 +222,22 @@ const AdminClients = () => {
         </div>
 
         {/* Bottom Stats Row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {[
             { amount: '3', label: 'Total Services', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /> },
             { amount: '10', label: 'Total Warranty', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /> },
             { amount: '2.228', label: 'Total Points', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /> },
             { amount: 'SAR 24.500', label: 'Total Spent', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /> },
           ].map((stat, i) => (
-            <div key={i} className="bg-[#1a1a1a] rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-xl">
-              <svg className="w-8 h-8 text-[#FF4500] mb-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div key={i} className="bg-[#1a1a1a] rounded-2xl p-6 sm:p-10 flex flex-col items-center justify-center text-center shadow-xl">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-[#FF4500] mb-4 sm:mb-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {stat.icon}
               </svg>
-              <div className="text-3xl font-display text-white tracking-widest font-light mb-4">{stat.amount}</div>
+              <div className="text-2xl sm:text-3xl font-display text-white tracking-widest font-light mb-2 sm:mb-4">{stat.amount}</div>
               <div className="text-[9px] text-gray-500 uppercase tracking-widest">{stat.label}</div>
             </div>
+          ))}
+        </div>
           ))}
         </div>
 
