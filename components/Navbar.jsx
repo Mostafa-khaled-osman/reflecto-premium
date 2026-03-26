@@ -80,7 +80,7 @@ const Navbar = () => {
         {/* Mobile Hamburger Icon */}
         <div className="md:hidden flex-1 flex justify-end items-center gap-4 z-50">
           <button
-            onClick={() => handleNav('/admin')}
+            onClick={() => handleNav('/admin/clients')}
             className="px-4 py-1.5 border border-[#FF5C35] text-[#FF5C35] font-bold text-xs rounded hover:bg-[#FF5C35] hover:text-white transition-all">
             Dashboard
           </button>

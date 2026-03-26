@@ -222,19 +222,23 @@ const AdminClients = () => {
         </div>
 
         {/* Bottom Stats Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {[
             { amount: '3', label: 'Total Services', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /> },
             { amount: '10', label: 'Total Warranty', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /> },
             { amount: '2.228', label: 'Total Points', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /> },
             { amount: 'SAR 24.500', label: 'Total Spent', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /> },
           ].map((stat, i) => (
-            <div key={i} className="bg-[#1a1a1a] rounded-2xl p-6 sm:p-10 flex flex-col items-center justify-center text-center shadow-xl">
-              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-[#FF4500] mb-4 sm:mb-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {stat.icon}
-              </svg>
-              <div className="text-2xl sm:text-3xl font-display text-white tracking-widest font-light mb-2 sm:mb-4">{stat.amount}</div>
-              <div className="text-[9px] text-gray-500 uppercase tracking-widest">{stat.label}</div>
+            <div key={i} className="bg-[#1a1a1a] rounded-2xl p-5 sm:p-6 lg:p-10 flex flex-row sm:flex-col items-center sm:justify-center justify-start text-left sm:text-center shadow-xl gap-4 sm:gap-0">
+              <div className="p-3 sm:p-0 bg-[#FF4500]/5 sm:bg-transparent border border-[#FF4500]/20 sm:border-transparent rounded-xl flex-shrink-0 mb-0 sm:mb-4 lg:mb-8">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-[#FF4500]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {stat.icon}
+                </svg>
+              </div>
+              <div className="flex flex-col flex-1">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-display text-white tracking-widest font-light md:mb-2 lg:mb-4">{stat.amount}</div>
+                <div className="text-[10px] sm:text-[9px] text-gray-500 uppercase tracking-widest mt-0.5">{stat.label}</div>
+              </div>
             </div>
           ))}
         </div>
