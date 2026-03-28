@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PRICING_TIERS } from '../constants';
+import { PRICING_TIERS } from '../../constants';
 
 const PricingView = () => {
   const navigate = useNavigate();

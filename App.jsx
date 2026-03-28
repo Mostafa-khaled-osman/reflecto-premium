@@ -1,22 +1,22 @@
 
 import React, { useState } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import HomeView from './views/HomeView';
-import PricingView from './views/PricingView';
-import DashboardView from './views/DashboardView';
-import LoginView from './views/LoginView';
-import OTPView from './views/OTPView';
-import Contact from './views/Contact';
-import Service1View from './views/Service1View';
-import Service2View from './views/Service2View';
-import Service3View from './views/Service3View';
-import Service4View from './views/Service4View';
-import Service5View from './views/Service5View';
-import AdminOverview from './views/AdminOverview';
-import AdminScheduling from './views/AdminScheduling';
-import AdminClients from './views/AdminClients';
+import Navbar from './views/components/Navbar';
+import Footer from './views/components/Footer';
+import HomeView from './views/pages/HomeView';
+import PricingView from './views/pages/PricingView';
+import DashboardView from './views/pages/DashboardView';
+import LoginView from './views/pages/LoginView';
+import OTPView from './views/pages/OTPView';
+import Contact from './views/pages/Contact';
+import Service1View from './views/pages/Service1View';
+import Service2View from './views/pages/Service2View';
+import Service3View from './views/pages/Service3View';
+import Service4View from './views/pages/Service4View';
+import Service5View from './views/pages/Service5View';
+import AdminOverview from './views/pages/AdminOverview';
+import AdminScheduling from './views/pages/AdminScheduling';
+import AdminClients from './views/pages/AdminClients';
 
 const App = () => {
   const [userPhone, setUserPhone] = useState('');

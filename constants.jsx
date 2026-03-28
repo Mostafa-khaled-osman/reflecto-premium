@@ -14,7 +14,7 @@ export const SERVICES = [
     title: 'Paint Protection',
     description: 'Military-grade self-healing protection for your vehicle\'s paint',
     features: ['Self-Healing Technology', '10-Year Warranty', 'US/Canadian Film'],
-    imageUrl: '/photo/landing services.jpeg',
+    imageUrl: '/assets/photo/landing services.jpeg',
     icon: '🛡️'
   },
   {
@@ -22,7 +22,7 @@ export const SERVICES = [
     title: 'Nano Ceramic Coating',
     description: 'Professional-grade hydrophobic coating for ultimate shine',
     features: ['9H Hardness', 'Hydrophobic effect', '5-Year protection'],
-    imageUrl: '/photo/landaig services.jpeg',
+    imageUrl: '/assets/photo/landaig services.jpeg',
     icon: '💧'
   },
   {
@@ -30,7 +30,7 @@ export const SERVICES = [
     title: 'Paint Correction-Polishing',
     description: 'Restore factory finish with multi-stage paint correction',
     features: ['Swirl Removal', 'Scratch Correction', 'Mirror Finish'],
-    imageUrl: '/photo/landing servicesss.jpeg',
+    imageUrl: '/assets/photo/landing servicesss.jpeg',
     icon: '⭐'
   },
   {
@@ -38,7 +38,7 @@ export const SERVICES = [
     title: 'Thermal Insulation',
     description: 'Premium window tinting for heat rejection and privacy',
     features: ['UV Protection', 'Heat Rejection', 'Factory Look finish'],
-    imageUrl: '/photo/landing servicess.jpeg',
+    imageUrl: '/assets/photo/landing servicess.jpeg',
     icon: '☀️'
   },
   {
@@ -46,7 +46,7 @@ export const SERVICES = [
     title: 'Dash Cam Systems',
     description: 'Capture every moment on the road with high definition recording and 24/7 parking',
     features: ['4K resolution', 'cloud connectivity'],
-    imageUrl: '/photo/dash-came.jpeg',
+    imageUrl: '/assets/photo/dash-came.jpeg',
     icon: '⭐'
   },
   {
@@ -54,7 +54,7 @@ export const SERVICES = [
     title: 'Window Tinting',
     description: 'Capture every moment on the road with high definition recording and 24/7 parking',
     features: ['99% UV rejection', 'Heat reduction'],
-    imageUrl: '/photo/car.jpg',
+    imageUrl: '/assets/photo/car.jpg',
     icon: '☀️'
   }
 ];

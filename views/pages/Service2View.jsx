@@ -14,7 +14,7 @@ const Service2View = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32 items-center">
           <div className="relative rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
-            <img src="/photo/window-tint.jpg" alt="G-Wagon" className="w-full aspect-[4/3] object-cover" />
+            <img src="/assets/photo/window-tint.jpg" alt="G-Wagon" className="w-full aspect-[4/3] object-cover" />
           </div>
           <div className="bg-[#262626] p-10 rounded-3xl border border-white/5">
             <h2 className="text-4xl font-display font-bold mb-4 tracking-tighter uppercase leading-tight">Window Tint Protection</h2>
@@ -60,7 +60,7 @@ const Service2View = () => {
               { p: '70%', l: 'Clear' }
             ].map((item, i) => (
               <div key={i} className="text-center group cursor-pointer">
-                <div className="w-[140px] h-[140px] rounded-full border-2 border-white/100 mb-4 p-1 group-hover:border-[#FF5C35] transition-all bg-[url('/photo/view-3d-car.jpg')] bg-cover">
+                <div className="w-[140px] h-[140px] rounded-full border-2 border-white/100 mb-4 p-1 group-hover:border-[#FF5C35] transition-all bg-[url('/assets/photo/view-3d-car.jpg')] bg-cover">
                   <div className="w-full h-full rounded-full flex items-center justify-center" style={{ opacity: (parseInt(item.p) / 100) }}></div>
                 </div>
                 <div className="text-xl font-display font-bold mb-1">{item.p}</div>
@@ -94,7 +94,7 @@ const Service2View = () => {
           >
             {/* Background Image (After - Right Side) */}
             <div className="absolute inset-0">
-              <img src="/photo/after.png" alt="Exterior" className="w-full h-full object-cover" />
+              <img src="/assets/photo/after.png" alt="Exterior" className="w-full h-full object-cover" />
               <div className="absolute top-6 right-6 px-4 py-1.5 bg-[#111]/80 backdrop-blur-md rounded text-[10px] font-bold tracking-widest text-white uppercase border border-white/10">After</div>
             </div>
 
@@ -103,7 +103,7 @@ const Service2View = () => {
               className="absolute inset-0 border-r-2 border-white shadow-[10px_0_15px_-3px_rgba(0,0,0,0.5)]"
               style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
             >
-              <img src="/photo/landing services.jpeg" alt="Interior" className="w-full h-full object-cover" />
+              <img src="/assets/photo/landing services.jpeg" alt="Interior" className="w-full h-full object-cover" />
               <div className="absolute top-6 left-6 px-4 py-1.5 bg-[#111]/80 backdrop-blur-md rounded text-[10px] font-bold tracking-widest text-white uppercase border border-white/10">Before</div>
             </div>
 

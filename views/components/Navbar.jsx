@@ -23,7 +23,7 @@ const Navbar = () => {
             onClick={() => handleNav('/')}
           >
             <div className="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full group-hover:bg-[#FF5C35]/20 transition-colors">
-              <img src="/photo/logo.png" alt="Logo" className="w-full h-full object-cover" />
+              <img src="/assets/photo/logo.png" alt="Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-xl font-bold tracking-tight text-[#FF5C35]">Reflecto</span>
           </div>

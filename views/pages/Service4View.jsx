@@ -1,24 +1,24 @@
 import React from 'react';
 
 const availablePhotos = [
-  '/photo/22536460-00db-44a2-a51c-6657fb1feec0.jpg',
-  '/photo/357d613a-59c8-4fed-a7d5-f0f11f5ea01e.jpg',
-  '/photo/4bc12624-9958-4238-bb78-cec5753fbd47.jpg',
-  '/photo/6c7ba9c5-ee8b-4082-8133-7cee8cf621b2.jpg',
-  '/photo/9394f893-7173-4229-9c39-d77c961e4e09.jpg',
-  '/photo/car.jpg',
-  '/photo/dash came.jpeg',
-  '/photo/dash came.jpg',
-  '/photo/dash came1.jpeg',
-  '/photo/dash came (5).jpeg',
-  '/photo/dash-came.jpeg',
-  '/photo/landing services.jpg',
-  '/photo/WhatsApp Image 2026-02-08 at 3.58.07 PM.jpeg',
-  '/photo/WhatsApp Image 2026-02-14 at 9.22.07 PM.jpeg',
-  '/photo/after heat protection.jpeg',
-  '/photo/levels heat protection.jpeg',
-  '/photo/nano-services.jpg',
-  '/photo/window-tint.jpg'
+  '/assets/photo/22536460-00db-44a2-a51c-6657fb1feec0.jpg',
+  '/assets/photo/357d613a-59c8-4fed-a7d5-f0f11f5ea01e.jpg',
+  '/assets/photo/4bc12624-9958-4238-bb78-cec5753fbd47.jpg',
+  '/assets/photo/6c7ba9c5-ee8b-4082-8133-7cee8cf621b2.jpg',
+  '/assets/photo/9394f893-7173-4229-9c39-d77c961e4e09.jpg',
+  '/assets/photo/car.jpg',
+  '/assets/photo/dash came.jpeg',
+  '/assets/photo/dash came.jpg',
+  '/assets/photo/dash came1.jpeg',
+  '/assets/photo/dash came (5).jpeg',
+  '/assets/photo/dash-came.jpeg',
+  '/assets/photo/landing services.jpg',
+  '/assets/photo/WhatsApp Image 2026-02-08 at 3.58.07 PM.jpeg',
+  '/assets/photo/WhatsApp Image 2026-02-14 at 9.22.07 PM.jpeg',
+  '/assets/photo/after heat protection.jpeg',
+  '/assets/photo/levels heat protection.jpeg',
+  '/assets/photo/nano-services.jpg',
+  '/assets/photo/window-tint.jpg'
 ];
 
 // Instead of Math.random which causes layout shift on re-render, we map a steady index

@@ -14,7 +14,7 @@ const Service3View = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32 items-center">
           <div className="rounded-3xl overflow-hidden border border-white/5 shadow-2xl relative h-full">
-            <img src="/photo/landing  services.jpg" alt="Polishing" className="w-full h-[570px] object-cover" />
+            <img src="/assets/photo/landing  services.jpg" alt="Polishing" className="w-full h-[570px] object-cover" />
             <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-[10px] font-bold uppercase">Before / After</div>
           </div>
           <div className="bg-[#262626] p-10 rounded-3xl border border-white/5">
@@ -56,7 +56,7 @@ const Service3View = () => {
               { l: 'Multi-Stage Restoration' }
             ].map((item, i) => (
               <div key={i} className="group">
-                <div className="w-[140px] h-[140px] rounded-full border-2 border-white/5 mx-auto mb-6 flex items-center justify-center text-3xl group-hover:border-[#FF5C35] transition-all bg-[#262626] bg-[url('/photo/view-3d-car.jpg')] bg-cover">
+                <div className="w-[140px] h-[140px] rounded-full border-2 border-white/5 mx-auto mb-6 flex items-center justify-center text-3xl group-hover:border-[#FF5C35] transition-all bg-[#262626] bg-[url('/assets/photo/view-3d-car.jpg')] bg-cover">
 
                 </div>
                 <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400">{item.l}</div>
@@ -86,7 +86,7 @@ const Service3View = () => {
           >
             {/* Background Image (After - Right Side) */}
             <div className="absolute inset-0">
-              <img src="/photo/after.png" alt="Exterior" className="w-full h-full object-cover" />
+              <img src="/assets/photo/after.png" alt="Exterior" className="w-full h-full object-cover" />
               <div className="absolute top-6 right-6 px-4 py-1.5 bg-[#111]/80 backdrop-blur-md rounded text-[10px] font-bold tracking-widest text-white uppercase border border-white/10">After</div>
             </div>
 
@@ -95,7 +95,7 @@ const Service3View = () => {
               className="absolute inset-0 border-r-2 border-white shadow-[10px_0_15px_-3px_rgba(0,0,0,0.5)]"
               style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
             >
-              <img src="/photo/landing services.jpeg" alt="Interior" className="w-full h-full object-cover" />
+              <img src="/assets/photo/landing services.jpeg" alt="Interior" className="w-full h-full object-cover" />
               <div className="absolute top-6 left-6 px-4 py-1.5 bg-[#111]/80 backdrop-blur-md rounded text-[10px] font-bold tracking-widest text-white uppercase border border-white/10">Before</div>
             </div>
 
@@ -124,7 +124,7 @@ const Service3View = () => {
 
         <div className="container w-full flex flex-col lg:flex-row items-center justify-between gap-10 mb-10">
           <div className="card rounded-2xl border-2 border-[#FF5C35] w-full">
-            <img src="/photo/view-3d-car.jpg" className='rounded-2xl w-full object-cover max-h-[250px]' alt="" />
+            <img src="/assets/photo/view-3d-car.jpg" className='rounded-2xl w-full object-cover max-h-[250px]' alt="" />
             <div className="card-content p-6 ">
               <h2 className='my-3 text-2xl text-white'>Standard Polish</h2>
               <p>A single stage machine polish designed to increase gloss and remove
@@ -133,7 +133,7 @@ const Service3View = () => {
             </div>
           </div>
           <div className="card border-2 border-[#FF5C35] rounded-2xl w-full">
-            <img src="/photo/view-3d-car.jpg" className='rounded-2xl w-full object-cover max-h-[250px]' alt="" />
+            <img src="/assets/photo/view-3d-car.jpg" className='rounded-2xl w-full object-cover max-h-[250px]' alt="" />
             <div className="card-content p-6 ">
               <h2 className='my-3 text-2xl text-white'>Premium Paint Correction</h2>
               <p>Our signature multi-stage process. We measure paint depth,
@@ -143,9 +143,9 @@ const Service3View = () => {
           </div>
         </div>
 
-          <div className=" w-full flex items-center justify-center m-10 ">
-            <h2 className='my-3 text-4xl text-white '><span className='text-[#FF5C35]'>Select</span> Your <span className='text-[#FF5C35]'>Package</span></h2>
-          </div>
+        <div className=" w-full flex items-center justify-center m-10 ">
+          <h2 className='my-3 text-4xl text-white '><span className='text-[#FF5C35]'>Select</span> Your <span className='text-[#FF5C35]'>Package</span></h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[1, 2, 3, 4].map(i => (
             <div key={i} className="bg-[#262626] border border-white/5 rounded-2xl p-6 flex flex-col">

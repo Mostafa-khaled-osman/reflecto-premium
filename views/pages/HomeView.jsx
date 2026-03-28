@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { SERVICES } from '../constants';
+import { SERVICES } from '../../constants';
 
 const HomeView = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="w-full">
@@ -12,8 +12,7 @@ const HomeView = () => {
       <section className="relative h-[85vh] flex items-center justify-center bg-black overflow-hidden">
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="/photo/landing-page.jpeg"
+          <img src="/assets/photo/landing-page.jpeg"
             className="w-full h-full object-cover opacity-40 "
             alt="Hero Background"
           />
@@ -21,7 +20,7 @@ const HomeView = () => {
         </div>
 
         <div className="relative z-10 text-center max-w-4xl px-6">
-          <h1 className="text-4xl md:text-7xl font-display font-bold tracking-tighter mb-4 leading-tight">
+          <h1 className="text-4xl tracking-[2px] md:text-7xl font-display font-bold tracking-tighter mb-4 leading-tight">
             PREMIUM CAR <br />
             <span className="text-[#FF5C35]">PROTECTION</span>
           </h1>
@@ -30,14 +29,14 @@ const HomeView = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              // onClick={() => navigate('/Contact')}
+              onClick={() => navigate('/Contact')}
               className="w-full sm:w-auto px-10 py-4 bg-[#FF5C35] text-white font-bold rounded flex items-center justify-center gap-2 group hover:brightness-110 transition-all rounded-2xl"
             >
               Book Your Service
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6" /></svg>
             </button>
             <button
-              // onClick={() => navigate('/pricing')}
+              onClick={() => navigate('/pricing')}
               className="w-full sm:w-auto px-10 py-4 border border-[#FF5C35] hover:border-white/40 text-white font-bold rounded flex items-center justify-center gap-2 transition-all rounded-2xl"
             >
               Explore Services
@@ -127,14 +126,14 @@ const HomeView = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              // onClick={() => navigate('/Contact')}
+              onClick={() => navigate('/Contact')}
               className="w-full sm:w-auto px-10 py-4 bg-[#FF5C35] text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:brightness-110 transition-all"
             >
               Get Started Now
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
             </button>
             <button
-              // onClick={() => navigate('/pricing')}
+              onClick={() => navigate('/pricing')}
               className="w-full sm:w-auto px-10 py-4 border border-[#FF5C35] hover:border-white/40 text-white font-bold rounded-2xl flex items-center justify-center gap-2 transition-all"
             >
               View Pricing

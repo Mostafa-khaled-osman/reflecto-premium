@@ -20,7 +20,7 @@ const Service1View = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           <div className="w-full relative rounded-2xl overflow-hidden border border-[#FF5C35]/30 shadow-2xl shadow-[#FF5C35]/10">
             <img
-              src="/photo/nano-services.jpg"
+              src="/assets/photo/nano-services.jpg"
               alt="Thermal Defense Car Heatmap"
               className="w-full h-full object-cover aspect-[4/3] mix-blend-screen"
               onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800"; e.target.className = "w-full h-full object-cover aspect-[4/3] grayscale" }}
@@ -130,7 +130,7 @@ const Service1View = () => {
           >
             {/* Background Image (After - Right Side) */}
             <div className="absolute inset-0">
-              <img src="/photo/after.png" alt="Exterior" className="w-full h-full object-cover" />
+              <img src="/assets/photo/after.png" alt="Exterior" className="w-full h-full object-cover" />
               <div className="absolute top-6 right-6 px-4 py-1.5 bg-[#111]/80 backdrop-blur-md rounded text-[10px] font-bold tracking-widest text-white uppercase border border-white/10">After</div>
             </div>
 
@@ -139,7 +139,7 @@ const Service1View = () => {
               className="absolute inset-0 border-r-2 border-white shadow-[10px_0_15px_-3px_rgba(0,0,0,0.5)]"
               style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
             >
-              <img src="/photo/landing services.jpeg" alt="Interior" className="w-full h-full object-cover" />
+              <img src="/assets/photo/landing services.jpeg" alt="Interior" className="w-full h-full object-cover" />
               <div className="absolute top-6 left-6 px-4 py-1.5 bg-[#111]/80 backdrop-blur-md rounded text-[10px] font-bold tracking-widest text-white uppercase border border-white/10">Before</div>
             </div>
 
@@ -249,7 +249,7 @@ const Service1View = () => {
 
               <div className="flex items-center justify-center relative bg-[#0a0a0a] rounded-2xl p-4 overflow-hidden border border-white/5">
                 {/* Decorative Layer Stack Image Simulation */}
-                <img src="/photo/nano servicesss.jpg" className="w-[80%] rounded-xl object-cover mix-blend-screen opacity-80" alt="Film Stack Layers" />
+                <img src="/assets/photo/nano servicesss.jpg" className="w-[80%] rounded-xl object-cover mix-blend-screen opacity-80" alt="Film Stack Layers" />
 
                 {/* Fake Labels pointing to stack */}
                 <div className="absolute top-1/4 right-[10%] text-right">

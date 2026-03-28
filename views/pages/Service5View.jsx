@@ -1,19 +1,19 @@
 import React from 'react';
 
 const availablePhotos = [
-  '/photo/after heat protection.jpeg',
-  '/photo/levels heat protection.jpeg',
-  '/photo/nano-services.jpg',
-  '/photo/window-tint.jpg',
-  '/photo/22536460-00db-44a2-a51c-6657fb1feec0.jpg',
-  '/photo/357d613a-59c8-4fed-a7d5-f0f11f5ea01e.jpg',
-  '/photo/4bc12624-9958-4238-bb78-cec5753fbd47.jpg',
-  '/photo/6c7ba9c5-ee8b-4082-8133-7cee8cf621b2.jpg',
-  '/photo/9394f893-7173-4229-9c39-d77c961e4e09.jpg',
-  '/photo/car.jpg',
-  '/photo/landing services.jpg',
-  '/photo/WhatsApp Image 2026-02-08 at 3.58.07 PM.jpeg',
-  '/photo/WhatsApp Image 2026-02-14 at 9.22.07 PM.jpeg',
+  '/assets/photo/after heat protection.jpeg',
+  '/assets/photo/levels heat protection.jpeg',
+  '/assets/photo/nano-services.jpg',
+  '/assets/photo/window-tint.jpg',
+  '/assets/photo/22536460-00db-44a2-a51c-6657fb1feec0.jpg',
+  '/assets/photo/357d613a-59c8-4fed-a7d5-f0f11f5ea01e.jpg',
+  '/assets/photo/4bc12624-9958-4238-bb78-cec5753fbd47.jpg',
+  '/assets/photo/6c7ba9c5-ee8b-4082-8133-7cee8cf621b2.jpg',
+  '/assets/photo/9394f893-7173-4229-9c39-d77c961e4e09.jpg',
+  '/assets/photo/car.jpg',
+  '/assets/photo/landing services.jpg',
+  '/assets/photo/WhatsApp Image 2026-02-08 at 3.58.07 PM.jpeg',
+  '/assets/photo/WhatsApp Image 2026-02-14 at 9.22.07 PM.jpeg',
 ];
 
 const getRandomPhoto = (index) => {
@@ -45,16 +45,16 @@ const Service5View = () => {
             <img src={mainImage} alt="Thermal Insulation" className="w-full h-full object-cover" />
           </div>
           <div className="bg-[#1a1a1a] border border-[#FF4500]/50 p-8 rounded-xl shadow-lg flex flex-col justify-center relative">
-            <h2 className="text-3xl lg:text-4xl font-display font-light tracking-widest uppercase text-white mb-4 leading-tight">ADVANCED THERMAL<br/>INSULATION PROTECT.</h2>
+            <h2 className="text-3xl lg:text-4xl font-display font-light tracking-widest uppercase text-white mb-4 leading-tight">ADVANCED THERMAL<br />INSULATION PROTECT.</h2>
             <p className="text-gray-400 text-sm mb-8 leading-relaxed font-light">
               Advanced nano-ceramic tint technology that reduces heat, blocks UV rays, improves privacy, and enhances driving comfort without affecting visibility.
             </p>
-            
+
             <div className="flex justify-between items-center mb-6">
               <span className="text-xs text-white font-bold tracking-widest uppercase">Select Tint Level</span>
               <span className="text-[9px] bg-[#FF4500] text-black font-bold px-3 py-1 rounded-full uppercase tracking-widest">Premium Film Technology</span>
             </div>
-            
+
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
               {['Medium 50%', 'High 30%', 'Premium 10%', 'Ultra 5%'].map(t => (
                 <div key={t} className={`py-2 text-[10px] rounded border border-white/20 text-center uppercase tracking-wider text-gray-400 ${t === 'Premium 10%' ? 'bg-[#333] text-white border-white/40 font-bold' : ''}`}>
@@ -69,20 +69,20 @@ const Service5View = () => {
             </div>
 
             <div className="space-y-4">
-               {[
-                 { l: 'Heat Rejection', v: '98%', width: '98%' },
-                 { l: 'UV Protection', v: '99%', width: '99%' },
-                 { l: 'Cabin Cooling', v: '75%', width: '75%' },
-                 { l: 'Durability', v: '10 Years', width: '85%' },
-               ].map(s => (
-                 <div key={s.l} className="flex grid grid-cols-[110px_1fr_50px] gap-4 items-center">
-                   <div className="text-[10px] text-gray-400 tracking-wider uppercase whitespace-nowrap">{s.l}</div>
-                   <div className="h-1.5 w-full bg-[#333] rounded-full overflow-hidden">
-                     <div className="h-full bg-[#FF4500]" style={{ width: s.width }}></div>
-                   </div>
-                   <div className="text-[10px] text-white text-right">{s.v}</div>
-                 </div>
-               ))}
+              {[
+                { l: 'Heat Rejection', v: '98%', width: '98%' },
+                { l: 'UV Protection', v: '99%', width: '99%' },
+                { l: 'Cabin Cooling', v: '75%', width: '75%' },
+                { l: 'Durability', v: '10 Years', width: '85%' },
+              ].map(s => (
+                <div key={s.l} className="flex grid grid-cols-[110px_1fr_50px] gap-4 items-center">
+                  <div className="text-[10px] text-gray-400 tracking-wider uppercase whitespace-nowrap">{s.l}</div>
+                  <div className="h-1.5 w-full bg-[#333] rounded-full overflow-hidden">
+                    <div className="h-full bg-[#FF4500]" style={{ width: s.width }}></div>
+                  </div>
+                  <div className="text-[10px] text-white text-right">{s.v}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
