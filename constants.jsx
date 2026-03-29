@@ -15,6 +15,7 @@ export const SERVICES = [
     description: 'Military-grade self-healing protection for your vehicle\'s paint',
     features: ['Self-Healing Technology', '10-Year Warranty', 'US/Canadian Film'],
     imageUrl: '/assets/photo/landing services.jpeg',
+    path : '/services/paint-correction',
     icon: '🛡️'
   },
   {
@@ -23,6 +24,7 @@ export const SERVICES = [
     description: 'Professional-grade hydrophobic coating for ultimate shine',
     features: ['9H Hardness', 'Hydrophobic effect', '5-Year protection'],
     imageUrl: '/assets/photo/landaig services.jpeg',
+    path : '/services/thermal-defense',
     icon: '💧'
   },
   {
@@ -31,6 +33,7 @@ export const SERVICES = [
     description: 'Restore factory finish with multi-stage paint correction',
     features: ['Swirl Removal', 'Scratch Correction', 'Mirror Finish'],
     imageUrl: '/assets/photo/landing servicesss.jpeg',
+    path : '/services/paint-correction',
     icon: '⭐'
   },
   {
@@ -39,6 +42,7 @@ export const SERVICES = [
     description: 'Premium window tinting for heat rejection and privacy',
     features: ['UV Protection', 'Heat Rejection', 'Factory Look finish'],
     imageUrl: '/assets/photo/landing servicess.jpeg',
+    path : '/services/thermal-defense',
     icon: '☀️'
   },
   {
@@ -47,6 +51,7 @@ export const SERVICES = [
     description: 'Capture every moment on the road with high definition recording and 24/7 parking',
     features: ['4K resolution', 'cloud connectivity'],
     imageUrl: '/assets/photo/dash-came.jpeg',
+    path : '/services/dash-cam',
     icon: '⭐'
   },
   {
@@ -55,6 +60,7 @@ export const SERVICES = [
     description: 'Capture every moment on the road with high definition recording and 24/7 parking',
     features: ['99% UV rejection', 'Heat reduction'],
     imageUrl: '/assets/photo/car.jpg',
+    path : '/services/window-tint',
     icon: '☀️'
   }
 ];
