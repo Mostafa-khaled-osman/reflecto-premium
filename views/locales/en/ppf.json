@@ -1,0 +1,88 @@
+{
+  "hero_highlight": "Self-Healing",
+  "hero_rest": "Shield",
+  "hero_tagline": "The ultimate invisible barrier against road hazards,\nengineered with advanced self-healing technology.",
+
+  "annotations": {
+    "top_coat": "Self-Healing Top Coat",
+    "impact_core": "Impact Absorbing Core",
+    "nano_adhesive": "Nano-Adhesive Layer",
+    "thickness_8": "8-mil Thickness",
+    "thickness_10": "10-mil Thickness"
+  },
+
+  "anatomy_title_highlight": "PPF",
+  "anatomy_title_rest": " Anatomy",
+  "anatomy_subtitle": "10-mil thermoplastic urethane engineered for extreme impact resistance. Invisible armor for your vehicle's most vulnerable surfaces.",
+  "anatomy_layers": [
+    {
+      "title": "Self-Healing Top Coat",
+      "desc": "Elastomeric polymers heat-heal scratches. 10-mil."
+    },
+    {
+      "title": "Impact Core",
+      "desc": "Absorbs rock chips and road debris energy. 8-mil."
+    },
+    {
+      "title": "Nano-Adhesive",
+      "desc": "Repositionable, non-yellowing bonding agent. 2-mil."
+    }
+  ],
+  "anatomy_overlay_labels": [
+    "Paint Protection Top Coat",
+    "Drop-Dry Adhesive / Polyurethane Layer"
+  ],
+  "anatomy_bottom_label": "Custom-Adhesive Urethane/Automotive",
+
+  "visual_title_prefix": "Visual",
+  "visual_title_highlight": "Impact",
+  "visual_subtitle": "See the difference OnyShield makes for privacy and aesthetics.",
+  "gloss_finish": "GLOSS FINISH",
+  "matte_finish": "MATTE FINISH",
+
+  "packages_title_prefix": "Package",
+  "packages_title_highlight": "Selection",
+  "packages": [
+    {
+      "name": "Premium PPF & Nano Front-End",
+      "price": "3000–2500 SAR",
+      "features": [
+        "American thermal insulation (3yr warranty)",
+        "Full front and PPF (Self healing, 5yr warranty)",
+        "3-layer Nano coating for wheels",
+        "Certified maintenance"
+      ]
+    },
+    {
+      "name": "Ultimate PPF & Interior Shield",
+      "price": "6000–6500 SAR",
+      "features": [
+        "American thermal insulation (3yr warranty)",
+        "Full exterior body PPF (Self healing, 5yr warranty)",
+        "Full interior nano coating (Dashboards etc)",
+        "Nano coating for wheels"
+      ]
+    },
+    {
+      "name": "Quarter PPF & Nano Body",
+      "price": "2000–2500 SAR",
+      "features": [
+        "American thermal insulation (3yr warranty)",
+        "Quarter front PPF (Self healing, 5yr warranty)",
+        "5-layer Nano body coating (3yr warranty)"
+      ]
+    },
+    {
+      "name": "Essential Protection & Nano",
+      "price": "1500+ SAR",
+      "features": [
+        "American thermal insulation (3yr warranty)",
+        "Headlights/Edge flawless protection",
+        "5-layer Nano ceramic (3yr warranty)",
+        "Nano coating for wheels"
+      ]
+    }
+  ],
+
+  "book_service": "BOOK SERVICE"
+}

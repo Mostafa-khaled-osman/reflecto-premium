@@ -1,0 +1,17 @@
+{
+  "hero_line1": "PREMIUM CAR",
+  "hero_line2": "PROTECTION",
+  "hero_subtitle": "Transform your vehicle with military-grade protection and showroom finish",
+  "services_subtitle_highlight": "Premium",
+  "services_subtitle_rest": " protection packages tailored to your needs",
+  "standards_prefix": "The ",
+  "standards_highlight": "Reflecto",
+  "standards_suffix": " Standard",
+  "standards_subtitle": "Why thousands of car enthusiasts trust us with their vehicles",
+  "standards": {
+    "iso": "ISO-Certified Dust-Free Environment",
+    "warranty": "10-Year Comprehensive Warranty",
+    "materials": "US & Canadian Premium Materials Only",
+    "installers": "Certified Master Installers"
+  }
+}

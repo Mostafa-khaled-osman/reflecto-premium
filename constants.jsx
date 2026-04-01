@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export const COLORS = {
@@ -11,110 +10,128 @@ export const COLORS = {
 export const SERVICES = [
   {
     id: 'paint-protection',
-    title: 'Paint Protection',
-    description: 'Military-grade self-healing protection for your vehicle\'s paint',
-    features: ['Self-Healing Technology', '10-Year Warranty', 'US/Canadian Film'],
+    titleKey: 'services:paint_protection_title',
+    descriptionKey: 'services:paint_protection_description',
+    featuresKeys: [
+      'services:paint_protection_feature_0',
+      'services:paint_protection_feature_1',
+      'services:paint_protection_feature_2'
+    ],
     imageUrl: '/assets/photo/landing services.jpeg',
-    path : '/services/paint-correction',
+    path: '/services/paint-correction',
     icon: '🛡️'
   },
   {
     id: 'nano-ceramic',
-    title: 'Nano Ceramic Coating',
-    description: 'Professional-grade hydrophobic coating for ultimate shine',
-    features: ['9H Hardness', 'Hydrophobic effect', '5-Year protection'],
+    titleKey: 'services:nano_ceramic_title',
+    descriptionKey: 'services:nano_ceramic_description',
+    featuresKeys: [
+      'services:nano_ceramic_feature_0',
+      'services:nano_ceramic_feature_1',
+      'services:nano_ceramic_feature_2'
+    ],
     imageUrl: '/assets/photo/landaig services.jpeg',
-    path : '/services/thermal-defense',
+    path: '/services/advanced-insulation',
     icon: '💧'
   },
   {
     id: 'paint-correction',
-    title: 'Paint Correction-Polishing',
-    description: 'Restore factory finish with multi-stage paint correction',
-    features: ['Swirl Removal', 'Scratch Correction', 'Mirror Finish'],
+    titleKey: 'services:paint_correction_title',
+    descriptionKey: 'services:paint_correction_description',
+    featuresKeys: [
+      'services:paint_correction_feature_0',
+      'services:paint_correction_feature_1',
+      'services:paint_correction_feature_2'
+    ],
     imageUrl: '/assets/photo/landing servicesss.jpeg',
-    path : '/services/paint-correction',
+    path: '/services/paint-correction',
     icon: '⭐'
   },
   {
     id: 'thermal-insulation',
-    title: 'Thermal Insulation',
-    description: 'Premium window tinting for heat rejection and privacy',
-    features: ['UV Protection', 'Heat Rejection', 'Factory Look finish'],
+    titleKey: 'services:thermal_insulation_title',
+    descriptionKey: 'services:thermal_insulation_description',
+    featuresKeys: [
+      'services:thermal_insulation_feature_0',
+      'services:thermal_insulation_feature_1',
+      'services:thermal_insulation_feature_2'
+    ],
     imageUrl: '/assets/photo/landing servicess.jpeg',
-    path : '/services/thermal-defense',
+    path: '/services/thermal-defense',
     icon: '☀️'
   },
   {
     id: 'dash-cam-systems',
-    title: 'Dash Cam Systems',
-    description: 'Capture every moment on the road with high definition recording and 24/7 parking',
-    features: ['4K resolution', 'cloud connectivity'],
+    titleKey: 'services:dash_cam_title',
+    descriptionKey: 'services:dash_cam_description',
+    featuresKeys: [
+      'services:dash_cam_feature_0',
+      'services:dash_cam_feature_1',
+      'services:dash_cam_feature_2'
+    ],
     imageUrl: '/assets/photo/dash-came.jpeg',
-    path : '/services/dash-cam',
-    icon: '⭐'
+    path: '/services/dash-cam',
+    icon: '📹'
   },
   {
     id: 'window-tinting',
-    title: 'Window Tinting',
-    description: 'Capture every moment on the road with high definition recording and 24/7 parking',
-    features: ['99% UV rejection', 'Heat reduction'],
+    titleKey: 'services:window_tinting_title',
+    descriptionKey: 'services:window_tinting_description',
+    featuresKeys: [
+      'services:window_tinting_feature_0',
+      'services:window_tinting_feature_1',
+      'services:window_tinting_feature_2'
+    ],
     imageUrl: '/assets/photo/car.jpg',
-    path : '/services/window-tint',
-    icon: '☀️'
+    path: '/services/window-tint',
+    icon: '🚗'
   }
 ];
 
 export const PRICING_TIERS = [
   {
     id: 'basic',
-    name: 'Basic',
+    nameKey: 'pricing:tiers.basic.name',
     price: '1,200',
-    tagline: 'Essential protection for daily drivers',
-    features: [
-      '9H Hardness',
-      'Hydrophobic effect',
-      '5-Year protection',
-      '9H Hardness',
-      'Hydrophobic effect',
-      '5-Year protection',
-      '9H Hardness',
-      'Hydrophobic effect',
-      '5-Year protection'
+    taglineKey: 'pricing:tiers.basic.tagline',
+    isPopular: false,
+    featuresKeys: [
+      'pricing:tiers.basic.features.0',
+      'pricing:tiers.basic.features.1',
+      'pricing:tiers.basic.features.2',
+      'pricing:tiers.basic.features.3',
+      'pricing:tiers.basic.features.4'
     ]
   },
   {
     id: 'silver',
-    name: 'Silver',
+    nameKey: 'pricing:tiers.silver.name',
     price: '1,400',
-    tagline: 'Enhanced protection for daily drivers',
+    taglineKey: 'pricing:tiers.silver.tagline',
     isPopular: true,
-    features: [
-      '9H Hardness',
-      'Hydrophobic effect',
-      '5-Year protection',
-      '9H Hardness',
-      'Hydrophobic effect',
-      '5-Year protection',
-      '9H Hardness',
-      'Hydrophobic effect'
+    featuresKeys: [
+      'pricing:tiers.silver.features.0',
+      'pricing:tiers.silver.features.1',
+      'pricing:tiers.silver.features.2',
+      'pricing:tiers.silver.features.3',
+      'pricing:tiers.silver.features.4',
+      'pricing:tiers.silver.features.5'
     ]
   },
   {
     id: 'diamond',
-    name: 'Diamond',
+    nameKey: 'pricing:tiers.diamond.name',
     price: '1,800',
-    tagline: 'Premium protection for luxury vehicles',
-    features: [
-      '9H Hardness',
-      'Hydrophobic effect',
-      '5-Year protection',
-      '9H Hardness',
-      'Hydrophobic effect',
-      '5-Year protection',
-      '9H Hardness',
-      'Hydrophobic effect',
-      '5-Year protection'
+    taglineKey: 'pricing:tiers.diamond.tagline',
+    isPopular: false,
+    featuresKeys: [
+      'pricing:tiers.diamond.features.0',
+      'pricing:tiers.diamond.features.1',
+      'pricing:tiers.diamond.features.2',
+      'pricing:tiers.diamond.features.3',
+      'pricing:tiers.diamond.features.4',
+      'pricing:tiers.diamond.features.5',
+      'pricing:tiers.diamond.features.6'
     ]
   }
 ];
@@ -131,17 +148,44 @@ export const SERVICE_HISTORY = [
   {
     id: '2',
     service: 'Paint Protection Film Full Body',
-    car: 'Mercedes-Benz S-Class',
+    car: 'BMW 7 Series',
     date: '11/12/2024',
-    price: 'SAR 12,500',
-    points: '+1823 pts'
+    price: 'SAR 11,800',
+    points: '+1721 pts'
   },
   {
     id: '3',
-    service: 'Paint Protection Film Full Body',
-    car: 'Mercedes-Benz S-Class',
+    service: 'Nano Ceramic Coating',
+    car: 'Toyota Land Cruiser',
     date: '11/12/2024',
-    price: 'SAR 12,500',
-    points: '+1823 pts'
+    price: 'SAR 4,200',
+    points: '+1123 pts'
+  },
+  {
+    id: '4',
+    service: 'Window Tinting',
+    car: 'Chevrolet Silverado',
+    date: '10/12/2024',
+    price: 'SAR 1,800',
+    points: '+534 pts'
+  },
+  {
+    id: '5',
+    service: 'Paint Correction',
+    car: 'Ford Mustang',
+    date: '10/12/2024',
+    price: 'SAR 3,500',
+    points: '+921 pts'
+  },
+  {
+    id: '6',
+    service: 'Paint Protection Film Full Body',
+    car: 'Porsche 911',
+    date: '10/12/2024',
+    price: 'SAR 15,500',
+    points: '+2301 pts'
   }
 ];
+
+export const USER_POINTS = 5847;
+export const USER_LEVEL = 'Gold';

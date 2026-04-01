@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '../../hooks/useLanguage';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation(['common', 'services']);
+  const { language, toggleLanguage, isRTL } = useLanguage();
+  const dropdownRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
   const handleNav = (path) => {
     navigate(path);
@@ -13,49 +19,105 @@ const Navbar = () => {
     setShowDropdown(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setShowDropdown(false);
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, []);
+
+  const NavButton = ({ label, path }) => (
+    <button
+      onClick={() => handleNav(path)}
+      aria-current={location.pathname === path ? 'page' : undefined}
+      className={`whitespace-nowrap text-sm font-medium transition-colors hover:text-[#FF5C35] ${location.pathname === path ? 'text-[#FF5C35]' : 'text-gray-400'}`}
+    >
+      {label}
+    </button>
+  );
+
+  const LangToggle = ({ className = "" }) => (
+    <button
+      onClick={toggleLanguage}
+      aria-label={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
+      className={`flex items-center gap-2 px-3 py-1.5 border border-white/10 rounded-lg text-[10px] font-bold text-gray-400 hover:text-white hover:border-[#FF5C35]/50 transition-all uppercase tracking-widest ${className}`}
+    >
+      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      {language === 'en' ? 'Arabic' : 'English'}
+    </button>
+  );
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-xl border-b border-white/5 h-20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-xl border-b border-white/5 h-20" role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-        {/* Left Side: Logo */}
         <div className="flex-1 flex justify-start">
           <div
             className="flex items-center gap-2 cursor-pointer group z-50"
             onClick={() => handleNav('/')}
+            role="link"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && handleNav('/')}
+            aria-label="Reflecto Home"
           >
             <div className="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full group-hover:bg-[#FF5C35]/20 transition-colors">
-              <img src="/assets/photo/logo.png" alt="Logo" className="w-full h-full object-cover" />
+              <img src="/assets/photo/logo.png" alt="" className="w-full h-full object-cover" aria-hidden="true" />
             </div>
             <span className="text-xl font-bold tracking-tight text-[#FF5C35]">Reflecto</span>
           </div>
         </div>
 
-        {/* Center: Desktop Nav Links */}
-        <div className="hidden md:flex flex-1 justify-center items-center gap-8">
-          <button onClick={() => navigate('/')} className={`whitespace-nowrap text-sm font-medium transition-colors hover:text-[#FF5C35] ${location.pathname === '/' ? 'text-[#FF5C35]' : 'text-gray-400'}`}>Home</button>
-          <button onClick={() => navigate('/pricing')} className={`whitespace-nowrap text-sm font-medium transition-colors hover:text-[#FF5C35] ${location.pathname === '/pricing' ? 'text-[#FF5C35]' : 'text-gray-400'}`}>Pricing</button>
+        <div className="hidden md:flex flex-1 justify-center items-center gap-8" role="menubar">
+          <NavButton label={t('common:nav_home')} path="/" />
+          <NavButton label={t('common:nav_pricing')} path="/pricing" />
 
-          <div className="relative group">
+          <div className="relative" ref={dropdownRef} role="menuitem">
             <button
               onMouseEnter={() => setShowDropdown(true)}
+              onFocus={() => setShowDropdown(true)}
+              aria-expanded={showDropdown}
+              aria-haspopup="true"
               className="text-sm font-medium text-gray-400 hover:text-[#FF5C35] flex items-center gap-1 transition-colors whitespace-nowrap"
             >
-              Services
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6" /></svg>
+              {t('common:nav_services')}
+              <svg className={`transition-transform duration-200 ${showDropdown ? 'rotate-180' : ''}`} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </button>
 
             <div
-              onMouseLeave={() => setShowDropdown(false)}
-              className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-[#262626] border border-white/10 rounded-xl shadow-2xl py-2 transition-all duration-200 ${showDropdown ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible'}`}
+              role="menu"
+              aria-orientation="vertical"
+              className={`absolute top-full ${isRTL ? 'right-0' : 'left-1/2 -translate-x-1/2'} mt-2 w-48 bg-[#262626] border border-white/10 rounded-xl shadow-2xl py-2 transition-all duration-200 z-50 ${showDropdown ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible'}`}
             >
               {[
-                { label: 'Thermal Defense', path: '/services/thermal-defense' },
-                { label: 'Window Tint', path: '/services/window-tint' },
-                { label: 'Paint Correction', path: '/services/paint-correction' },
-                { label: 'Dash Cam', path: '/services/dash-cam' },
-                { label: 'Advanced Insulation', path: '/services/advanced-insulation' }
+                { label: t('services:thermal_insulation_title'), path: '/services/thermal-defense' },
+                { label: t('services:window_tinting_title'), path: '/services/window-tint' },
+                { label: t('services:paint_correction_title'), path: '/services/paint-correction' },
+                { label: t('services:dash_cam_title'), path: '/services/dash-cam' },
+                { label: t('services:nano_ceramic_title'), path: '/services/advanced-insulation' }
               ].map((item) => (
                 <button
                   key={item.label}
+                  role="menuitem"
                   onClick={() => handleNav(item.path)}
                   className="w-full text-left px-4 py-2 text-xs font-medium text-gray-400 hover:text-white hover:bg-[#FF5C35]/10 transition-colors"
                 >
@@ -65,52 +127,63 @@ const Navbar = () => {
             </div>
           </div>
 
-          <button onClick={() => navigate('/Contact')} className="whitespace-nowrap text-sm font-medium text-gray-400 hover:text-[#FF5C35] transition-colors">Contact</button>
+          <NavButton label={t('common:nav_contact')} path="/Contact" />
         </div>
 
-        {/* Right Side: Desktop Dashboard Button */}
-        <div className="hidden md:flex flex-1 justify-end items-center">
+        <div className="hidden md:flex flex-1 justify-end items-center gap-4">
+          <LangToggle />
           <button
             onClick={() => navigate('/admin/clients')}
-            className="px-6 py-2 border border-[#FF5C35] text-[#FF5C35] font-bold text-sm rounded hover:bg-[#FF5C35] hover:text-white transition-all shadow-lg shadow-[#FF5C35]/10 whitespace-nowrap">
-            Dashboard
+            className="px-6 py-2 border border-[#FF5C35] text-[#FF5C35] font-bold text-sm rounded hover:bg-[#FF5C35] hover:text-white transition-all shadow-lg shadow-[#FF5C35]/10 whitespace-nowrap flex items-center gap-1">
+            {t('common:nav_dashboard')}
+            <img src="/assets/icons/profileIcon.png" alt="" className="w-6 h-6 d-inline-block" />
           </button>
         </div>
 
-        {/* Mobile Hamburger Icon */}
-        <div className="md:hidden flex-1 flex justify-end items-center gap-4 z-50">
+        <div className="md:hidden flex-1 flex justify-end items-center gap-3 z-50">
+          <LangToggle className="px-2 py-1" />
           <button
-            onClick={() => handleNav('/admin/clients')}
-            className="px-4 py-1.5 border border-[#FF5C35] text-[#FF5C35] font-bold text-xs rounded hover:bg-[#FF5C35] hover:text-white transition-all">
-            Dashboard
+            onClick={() => navigate('/admin/clients')}
+            className="px-4 py-1.5 border border-[#FF5C35] text-[#FF5C35] font-bold text-[10px] rounded hover:bg-[#FF5C35] hover:text-white transition-all">
+            {t('common:nav_dashboard')}
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-white p-2 focus:outline-none"
+            onKeyDown={(e) => e.key === 'Escape' && setIsMobileMenuOpen(false)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            className="text-white p-2 focus:outline-none focus:ring-2 focus:ring-[#FF5C35] rounded"
           >
             {isMobileMenuOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
             ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      <div className={`md:hidden absolute top-20 left-0 right-0 bg-[#1a1a1a] border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div
+        id="mobile-menu"
+        ref={mobileMenuRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation menu"
+        className={`md:hidden absolute top-20 left-0 right-0 bg-[#1a1a1a] border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+      >
         <div className="flex flex-col p-6 gap-4">
-          <button onClick={() => handleNav('/')} className={`text-left text-lg font-medium ${location.pathname === '/' ? 'text-[#FF5C35]' : 'text-white'}`}>Home</button>
-          <button onClick={() => handleNav('/pricing')} className={`text-left text-lg font-medium ${location.pathname === '/pricing' ? 'text-[#FF5C35]' : 'text-white'}`}>Pricing</button>
+          <button onClick={() => handleNav('/')} className={`text-left text-lg font-medium ${location.pathname === '/' ? 'text-[#FF5C35]' : 'text-white'}`}>{t('common:nav_home')}</button>
+          <button onClick={() => handleNav('/pricing')} className={`text-left text-lg font-medium ${location.pathname === '/pricing' ? 'text-[#FF5C35]' : 'text-white'}`}>{t('common:nav_pricing')}</button>
 
           <div className="border-y border-white/5 py-4 my-2 flex flex-col gap-3">
-            <span className="text-sm font-bold text-gray-500 uppercase tracking-widest">Services</span>
+            <span className="text-sm font-bold text-gray-500 uppercase tracking-widest">{t('common:nav_services')}</span>
             {[
-              { label: 'Thermal Defense', path: '/services/thermal-defense' },
-              { label: 'Window Tint', path: '/services/window-tint' },
-              { label: 'Paint Correction', path: '/services/paint-correction' },
-              { label: 'Dash Cam', path: '/services/dash-cam' },
-              { label: 'Advanced Insulation', path: '/services/advanced-insulation' }
+              { label: t('services:thermal_insulation_title'), path: '/services/thermal-defense' },
+              { label: t('services:window_tinting_title'), path: '/services/window-tint' },
+              { label: t('services:paint_correction_title'), path: '/services/paint-correction' },
+              { label: t('services:dash_cam_title'), path: '/services/dash-cam' },
+              { label: t('services:nano_ceramic_title'), path: '/services/advanced-insulation' }
             ].map((item) => (
               <button
                 key={item.label}
@@ -122,7 +195,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <button onClick={() => handleNav('/Contact')} className="text-left text-lg font-medium text-white mb-4">Book Now</button>
+          <button onClick={() => handleNav('/Contact')} className="text-left text-lg font-medium text-white mb-4">{t('common:nav_contact')}</button>
         </div>
       </div>
     </nav>

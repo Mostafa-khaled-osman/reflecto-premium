@@ -1,0 +1,87 @@
+{
+  "hero_highlight": "تصحيح الطلاء الاحترافي",
+  "hero_rest": " والتلميع",
+  "hero_subtitle": "استعد لمسة نهائية بمظهر صالة العرض لسيارتك مع تقنياتنا المتقدمة متعددة المراحل.",
+
+  "premium_services_prefix": "",
+  "premium_services_highlight": "خدماتنا",
+  "premium_services_suffix": " المميزة",
+
+  "service_cards": [
+    { "icon": "🪑", "title": "تلميع داخلي", "subtitle": "(Interior Polishing)" },
+    { "icon": "🚗", "title": "تلميع خارجي", "subtitle": "(Exterior Polishing)" },
+    { "icon": "✨", "title": "تلميع داخلي وخارجي", "subtitle": "(Full Interior & Exterior)" }
+  ],
+
+  "technical_highlight": "الأداء",
+  "technical_rest": " التقني",
+  "stat_bars": [
+    { "label": "إزالة الخدوش الدائرية", "value": "90%+", "numericValue": 90 },
+    { "label": "مستوى اللمعان", "value": "85%+", "numericValue": 85 },
+    { "label": "تحسين الوضوح", "value": "93%+", "numericValue": 93 }
+  ],
+
+  "intensity_title_1_highlight": "شدة",
+  "intensity_title_1_rest": " التلميع ",
+  "intensity_title_2": "المستويات",
+  "intensity_title_3": " باستخدام ",
+  "intensity_title_4_highlight": "تقنية",
+  "intensity_title_4_rest": " النانو",
+  "intensity_subtitle": "من تحسين لمعان خفيف إلى استعادة كاملة متعددة المراحل، نقدم مستويات تصحيح متنوعة تناسب احتياجات سيارتك.",
+  "intensity_levels": [
+    { "label": "تلميع خفيف" },
+    { "label": "تصحيح متوسط" },
+    { "label": "استعادة عميقة" },
+    { "label": "لمسة المرآة المميزة" }
+  ],
+
+  "slider_title_prefix": "",
+  "slider_title_highlight_1": "الفرق",
+  "slider_title_rest": " ",
+  "slider_title_highlight_2": "واضح",
+  "slider_after": "بعد",
+  "slider_before": "قبل",
+
+  "packages_title_highlight": "اختر",
+  "packages_title_rest": " باقتك",
+
+  "packages": [
+    {
+      "name": "حماية وتلميع بريميوم",
+      "features": [
+        "عزل حراري أمريكي (ضمان 3 سنوات)",
+        "PPF كامل للواجهة والهيكل (ذاتي الترميم، ضمان 5 سنوات)",
+        "طلاء نانو 5 طبقات للجنوط",
+        "صيانة معتمدة من عبد اللطيف جميل"
+      ]
+    },
+    {
+      "name": "درع السيارة النهائي",
+      "features": [
+        "عزل حراري أمريكي (ضمان 3 سنوات)",
+        "PPF كامل للهيكل الخارجي (ذاتي الترميم، ضمان 5 سنوات)",
+        "طلاء نانو كامل للداخلية (لوحة القيادة وغيرها)",
+        "طلاء نانو للجنوط"
+      ]
+    },
+    {
+      "name": "حماية أساسية",
+      "features": [
+        "عزل حراري أمريكي (ضمان 3 سنوات)",
+        "PPF ربع أمامي (ذاتي الترميم، ضمان 5 سنوات)",
+        "طلاء نانو 5 طبقات للهيكل (ضمان 3 سنوات)"
+      ]
+    },
+    {
+      "name": "تفصيل ودرع سيراميك",
+      "features": [
+        "عزل حراري أمريكي (ضمان 3 سنوات)",
+        "حماية المصابيح والحواف",
+        "نانو سيراميك 5 طبقات (ضمان 3 سنوات)",
+        "طلاء نانو للجنوط"
+      ]
+    }
+  ],
+
+  "book_service": "احجز الخدمة"
+}

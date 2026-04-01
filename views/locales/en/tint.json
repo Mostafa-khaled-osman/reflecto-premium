@@ -1,0 +1,84 @@
+{
+  "hero_welcome_prefix": "Welcome to",
+  "hero_welcome_name": "Omar in",
+  "hero_welcome_highlight": "Services",
+
+  "tint_title": "Window Tint Protection",
+  "tint_subtitle": "Advanced nano-ceramic technology that reduces heat, blocks UV rays, and enhances driving comfort.",
+  "select_tint_level": "Select Tint Level",
+  "premium_film": "Premium Film",
+
+  "tint_levels": {
+    "light_70": "Light 70%",
+    "light_65": "Light 65%",
+    "medium_50": "Medium 50%",
+    "dark_30": "Dark 30%"
+  },
+
+  "stats": {
+    "heat_reduction": "Heat Reduction",
+    "uv_protection": "UV Protection",
+    "privacy_level": "Privacy Level",
+    "protection": "Protection"
+  },
+
+  "visual_guide": "Visual Guide",
+  "transparency_scale_highlight": "Transparency",
+  "transparency_scale_rest": " Scale (VLT)",
+  "transparency_desc": "Visible Light Transmission (VLT) percentages determine how dark your tint appears.",
+
+  "vlt_levels": [
+    { "p": "5%", "l": "Limo Tint" },
+    { "p": "20%", "l": "Dark" },
+    { "p": "35%", "l": "Medium" },
+    { "p": "50%", "l": "Light" },
+    { "p": "70%", "l": "Clear" }
+  ],
+
+  "visual_impact_prefix": "Visual",
+  "visual_impact_highlight": "Impact",
+  "visual_impact_subtitle": "See the difference our premium products make on your vehicle's interior and exterior.",
+  "slider_after": "After",
+  "slider_before": "Before",
+
+  "thermal_tint_title": "Thermal Tint",
+  "thermal_tint_subtitle": "Nano-Ceramic Film",
+  "recommended": "Recommended",
+  "thermal_features": [
+    "Maximum heat rejection",
+    "99% UV protection",
+    "Clear visibility",
+    "Long lifespan",
+    "Premium finish"
+  ],
+  "thermal_stats": {
+    "heat_block": "Heat Block",
+    "uv_protection": "UV Protection",
+    "privacy": "Privacy"
+  },
+
+  "regular_tint_title": "Regular Tint",
+  "regular_tint_subtitle": "Dyed Film",
+  "regular_features": [
+    "Basic heat reduction",
+    "Standard UV protection",
+    "Dark appearance",
+    "Budget friendly"
+  ],
+
+  "packages_title_highlight_1": "Select",
+  "packages_title_rest": " Your ",
+  "packages_title_highlight_2": "Package",
+
+  "pkg_title": "Enhancement",
+  "pkg_price": "$350+",
+  "pkg_features": [
+    "Deep Wheel Cleaning",
+    "Quality Hand Wash",
+    "1 Stage Correction",
+    "Interior Sanitation",
+    "No Paint Prep"
+  ],
+  "pkg_select": "SELECT",
+  "book_service": "Book Service"
+}

@@ -1,0 +1,84 @@
+{
+  "hero_welcome_prefix": "مرحباً بك في",
+  "hero_welcome_name": "عمر في",
+  "hero_welcome_highlight": "الخدمات",
+
+  "tint_title": "حماية تظليل النوافذ",
+  "tint_subtitle": "تقنية نانو سيراميك متقدمة تقلل الحرارة وتحجب الأشعة فوق البنفسجية وتعزز راحة القيادة.",
+  "select_tint_level": "اختر مستوى التظليل",
+  "premium_film": "فيلم مميز",
+
+  "tint_levels": {
+    "light_70": "فاتح 70%",
+    "light_65": "فاتح 65%",
+    "medium_50": "متوسط 50%",
+    "dark_30": "غامق 30%"
+  },
+
+  "stats": {
+    "heat_reduction": "تقليل الحرارة",
+    "uv_protection": "حماية الأشعة فوق البنفسجية",
+    "privacy_level": "مستوى الخصوصية",
+    "protection": "الحماية"
+  },
+
+  "visual_guide": "دليل بصري",
+  "transparency_scale_highlight": "مقياس",
+  "transparency_scale_rest": " الشفافية (VLT)",
+  "transparency_desc": "نسب نقل الضوء المرئي (VLT) تحدد مدى قتامة التظليل.",
+
+  "vlt_levels": [
+    { "p": "5%", "l": "تظليل ليموزين" },
+    { "p": "20%", "l": "غامق" },
+    { "p": "35%", "l": "متوسط" },
+    { "p": "50%", "l": "فاتح" },
+    { "p": "70%", "l": "شفاف" }
+  ],
+
+  "visual_impact_prefix": "التأثير",
+  "visual_impact_highlight": "البصري",
+  "visual_impact_subtitle": "شاهد الفرق الذي تحدثه منتجاتنا المميزة على داخلية وخارجية سيارتك.",
+  "slider_after": "بعد",
+  "slider_before": "قبل",
+
+  "thermal_tint_title": "تظليل حراري",
+  "thermal_tint_subtitle": "فيلم نانو سيراميك",
+  "recommended": "موصى به",
+  "thermal_features": [
+    "أقصى مقاومة للحرارة",
+    "حماية 99% من الأشعة فوق البنفسجية",
+    "رؤية واضحة",
+    "عمر افتراضي طويل",
+    "لمسة نهائية مميزة"
+  ],
+  "thermal_stats": {
+    "heat_block": "حجب الحرارة",
+    "uv_protection": "حماية UV",
+    "privacy": "الخصوصية"
+  },
+
+  "regular_tint_title": "تظليل عادي",
+  "regular_tint_subtitle": "فيلم مصبوغ",
+  "regular_features": [
+    "تقليل حرارة أساسي",
+    "حماية UV قياسية",
+    "مظهر غامق",
+    "اقتصادي"
+  ],
+
+  "packages_title_highlight_1": "اختر",
+  "packages_title_rest": " ",
+  "packages_title_highlight_2": "باقتك",
+
+  "pkg_title": "تحسين",
+  "pkg_price": "$350+",
+  "pkg_features": [
+    "تنظيف عميق للجنوط",
+    "غسيل يدوي عالي الجودة",
+    "تصحيح مرحلة واحدة",
+    "تعقيم داخلي",
+    "بدون تحضير طلاء"
+  ],
+  "pkg_select": "اختيار",
+  "book_service": "احجز الخدمة"
+}

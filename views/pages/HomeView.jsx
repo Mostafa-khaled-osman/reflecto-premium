@@ -1,10 +1,12 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { SERVICES } from '../../constants';
 
 const HomeView = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation(['home', 'common', 'services']);
 
   return (
     <div className="w-full">
@@ -20,26 +22,26 @@ const HomeView = () => {
         </div>
 
         <div className="relative z-10 text-center max-w-4xl px-6">
-          <h1 className="text-4xl tracking-[2px] md:text-7xl font-display font-bold tracking-tighter mb-4 leading-tight">
-            PREMIUM CAR <br />
-            <span className="text-[#FF5C35]">PROTECTION</span>
+          <h1 className="text-4xl tracking-[2px] md:text-7xl font-display font-bold mb-4 leading-tight">
+            {t('home:hero_line1')} <br />
+            <span className="text-[#FF5C35]">{t('home:hero_line2')}</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light font-michroma">
-            Transform your vehicle with military-grade protection and showroom finish
+            {t('home:hero_subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => navigate('/Contact')}
               className="w-full sm:w-auto px-10 py-4 bg-[#FF5C35] text-white font-bold rounded flex items-center justify-center gap-2 group hover:brightness-110 transition-all rounded-2xl"
             >
-              Book Your Service
+              {t('common:book_service')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6" /></svg>
             </button>
             <button
               onClick={() => navigate('/pricing')}
               className="w-full sm:w-auto px-10 py-4 border border-[#FF5C35] hover:border-white/40 text-white font-bold rounded flex items-center justify-center gap-2 transition-all rounded-2xl"
             >
-              Explore Services
+              {t('common:explore_services')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
             </button>
           </div>
@@ -58,9 +60,9 @@ const HomeView = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-              Our <span className="text-[#FF5C35]">Services</span>
+              {t('common:our_services')}
             </h2>
-            <p className="text-gray-400 text-lg"><span className='text-[#FF5C35]'>Premium</span> protection packages tailored to your needs</p>
+            <p className="text-gray-400 text-lg"><span className='text-[#FF5C35]'>{t('home:services_subtitle_highlight')}</span>{t('home:services_subtitle_rest')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -77,20 +79,20 @@ const HomeView = () => {
                   </div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-display font-bold mb-2">{service.title}</h3>
-                  <p className="text-gray-400 text-sm mb-6">{service.description}</p>
+                  <h3 className="text-2xl font-display font-bold mb-2">{t(service.titleKey)}</h3>
+                  <p className="text-gray-400 text-sm mb-6">{t(service.descriptionKey)}</p>
                   <ul className="space-y-2 mb-8">
-                    {service.features.map(f => (
-                      <li key={f} className="text-xs text-gray-300 flex items-center gap-2">
+                    {service.featuresKeys.map(fk => (
+                      <li key={fk} className="text-xs text-gray-300 flex items-center gap-2">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF5C35" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
-                        {f}
+                        {t(fk)}
                       </li>
                     ))}
                   </ul>
                   <button
                   onClick={() => navigate(`${service.path}`)}
                   className="text-[#FF5C35] font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all">
-                    Learn More
+                    {t('common:learn_more')}
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
                   </button>
                 </div>
@@ -105,17 +107,17 @@ const HomeView = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-              The <span className="text-[#FF5C35]">Reflecto</span> Standard
+              {t('home:standards_prefix')}<span className="text-[#FF5C35]">{t('home:standards_highlight')}</span>{t('home:standards_suffix')}
             </h2>
-            <p className="text-gray-400">Why thousands of car enthusiasts trust us with their vehicles</p>
+            <p className="text-gray-400">{t('home:standards_subtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             {[
-              { title: 'ISO-Certified Dust-Free Environment', icon: '🛡️' },
-              { title: '10-Year Comprehensive Warranty', icon: '⏱️' },
-              { title: 'US & Canadian Premium Materials Only', icon: '🇺🇸' },
-              { title: 'Certified Master Installers', icon: '✅' }
+              { title: t('home:standards.iso'), icon: '🛡️' },
+              { title: t('home:standards.warranty'), icon: '⏱️' },
+              { title: t('home:standards.materials'), icon: '🇺🇸' },
+              { title: t('home:standards.installers'), icon: '✅' }
             ].map((item, idx) => (
               <div key={idx} className="bg-[#262626] p-8 border border-white/5 rounded-xl flex items-center gap-6 group hover:border-[#FF5C35]/30 transition-all">
                 <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-white/5 text-2xl group-hover:bg-[#FF5C35]/10 transition-colors">
@@ -131,14 +133,14 @@ const HomeView = () => {
               onClick={() => navigate('/Contact')}
               className="w-full sm:w-auto px-10 py-4 bg-[#FF5C35] text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:brightness-110 transition-all"
             >
-              Get Started Now
+              {t('common:get_started')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
             </button>
             <button
               onClick={() => navigate('/pricing')}
               className="w-full sm:w-auto px-10 py-4 border border-[#FF5C35] hover:border-white/40 text-white font-bold rounded-2xl flex items-center justify-center gap-2 transition-all"
             >
-              View Pricing
+              {t('common:view_pricing')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
             </button>
           </div>

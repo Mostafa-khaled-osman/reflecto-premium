@@ -1,0 +1,17 @@
+{
+  "hero_line1": "حماية فائقة",
+  "hero_line2": "للسيارات",
+  "hero_subtitle": "حوّل سيارتك مع حماية بمستوى عسكري ولمسة صالة العرض",
+  "services_subtitle_highlight": "باقات",
+  "services_subtitle_rest": " حماية متميزة مصممة لتلبية احتياجاتك",
+  "standards_prefix": "معايير ",
+  "standards_highlight": "ريفليكتو",
+  "standards_suffix": " الفائقة",
+  "standards_subtitle": "لماذا يثق الآلاف من عشاق السيارات بسياراتهم لدينا",
+  "standards": {
+    "iso": "بيئة خالية من الغبار معتمدة من آيزو",
+    "warranty": "ضمان شامل لمدة 10 سنوات",
+    "materials": "مواد أمريكية وكندية متميزة فقط",
+    "installers": "سيارون خبراء معتمدون"
+  }
+}

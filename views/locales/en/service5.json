@@ -1,0 +1,109 @@
+{
+  "hero_highlight": "The Molecular",
+  "hero_rest": "Shield",
+  "hero_subtitle": "Advanced Nano-Technology for Ultimate Vehicle Protection",
+  "metrics_title": "Protection Metrics",
+  "metrics": {
+    "9h": {
+      "badge": "9H",
+      "title": "9H Hardness",
+      "subtitle": "Scratch Resistance",
+      "desc": "Scratch resistance increases in magnitude, healing with the wettest disturbances."
+    },
+    "hydro": {
+      "badge": "SUPER HYDROPHOBIC",
+      "title": "Hydrophobic Level",
+      "subtitle": "Contact Angle 110°+",
+      "desc": "Hydrophobic level is sustained or even more moist to correct hydrophobic needs."
+    },
+    "uv": {
+      "badge": "MAXIMUM SHIELD",
+      "title": "UV Protection",
+      "subtitle": "Fade & Oxidation Block",
+      "desc": "Obtek 5 dust and articles to ensure lower infection and onware visibility."
+    }
+  },
+  "tiers_title_highlight": "Nano",
+  "tiers_title_rest": " Ceramic Tiers",
+  "tiers": {
+    "lite": {
+      "years": "1-Year Lite",
+      "name": "Entry Level",
+      "desc": "Basic ceramic maintenance and nationwide warranty coating."
+    },
+    "pro": {
+      "years": "3-Year Pro",
+      "name": "Advanced",
+      "desc": "Advanced nano ceramics coating to complement vehicle coating."
+    },
+    "ultra": {
+      "years": "5-Year Ultra",
+      "name": "Premium",
+      "desc": "Advanced nano ceramic technology and levels to ensure premium vehicle."
+    },
+    "elite": {
+      "years": "9-Year Lifetime",
+      "name": "Elite",
+      "desc": "Best year of highest automotive protection, protection stability and durability."
+    }
+  },
+  "slider": {
+    "before": "Before",
+    "vs": "vs",
+    "after": "After",
+    "subtitle": "The Transformation is Clear",
+    "btn_before": "BEFORE",
+    "btn_after": "AFTER",
+    "slide_to_compare": "SLIDE TO COMPARE"
+  },
+  "packages_title_1": "Nano Ceramic",
+  "packages_title_2": "PPF",
+  "packages_title_rest": " Protection Packages",
+  "packages_subtitle": "Choose the tier that best protects your investment",
+  "pkg_book": "BOOK SERVICE",
+  "packages": [
+    {
+      "label": "Package 1",
+      "price": "3000 – 3500",
+      "note": "(tax exclusive)",
+      "features": [
+        "American thermal insulation (3-year warranty)",
+        "Full front and American PPF (self-healing, 5yr warranty)",
+        "5 layers nano coating for wheels",
+        "Certified maintenance by Abdul Latif Jameel"
+      ]
+    },
+    {
+      "label": "Package 2",
+      "price": "6000 (minimum) / 6500",
+      "note": "(page)",
+      "features": [
+        "American thermal insulation (3-year warranty)",
+        "Full exterior body American self-healing PPF (5yr warranty)",
+        "Full interior nano coating (Dashboard and seats)",
+        "Nano coating for wheels"
+      ]
+    },
+    {
+      "label": "Package 3",
+      "price": "2000 – 2500",
+      "note": "(tax invoice included)",
+      "features": [
+        "American thermal insulation (3-year warranty)",
+        "Quarter front American self-healing PPF (3yr warranty)",
+        "3 layers nano coating for entire car body (3yr warranty)"
+      ]
+    },
+    {
+      "label": "Package 4",
+      "price": "1500 – 2800",
+      "note": "(tax invoice included)",
+      "features": [
+        "American thermal insulation (3-year warranty)",
+        "Protection for headlights, edges, and door hostile areas",
+        "5 layers nano ceramic coating (2-coating, Dashboard and doors)",
+        "Nano coating for wheels"
+      ]
+    }
+  ]
+}

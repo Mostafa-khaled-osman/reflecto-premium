@@ -1,0 +1,87 @@
+{
+  "hero_highlight": "Expert Paint Correction",
+  "hero_rest": " & Polishing",
+  "hero_subtitle": "Restore your vehicle's finish to a showroom shine with our advanced multi-stage techniques.",
+
+  "premium_services_prefix": "Our",
+  "premium_services_highlight": "Premium",
+  "premium_services_suffix": " Services",
+
+  "service_cards": [
+    { "icon": "🪑", "title": "Interior Polishing", "subtitle": "(تلميع داخلي)" },
+    { "icon": "🚗", "title": "Exterior Polishing", "subtitle": "(تلميع خارجي)" },
+    { "icon": "✨", "title": "Full Interior & Exterior", "subtitle": "(تلميع داخلي وخارجي)" }
+  ],
+
+  "technical_highlight": "Technical",
+  "technical_rest": " Performance",
+  "stat_bars": [
+    { "label": "Swirl Removal", "value": "90%+", "numericValue": 90 },
+    { "label": "Gloss Level", "value": "85%+", "numericValue": 85 },
+    { "label": "Clarity Enhancement", "value": "93%+", "numericValue": 93 }
+  ],
+
+  "intensity_title_1_highlight": "Polishing",
+  "intensity_title_1_rest": " Intensity ",
+  "intensity_title_2": "Levels",
+  "intensity_title_3": " Using ",
+  "intensity_title_4_highlight": "Nano",
+  "intensity_title_4_rest": " Technology",
+  "intensity_subtitle": "From a light gloss enhancement to complete multi-stage restoration, we offer varying levels of correction to suit your vehicle's needs.",
+  "intensity_levels": [
+    { "label": "Light Polish" },
+    { "label": "Medium Correction" },
+    { "label": "Deep Restoration" },
+    { "label": "Signature Mirror Finish" }
+  ],
+
+  "slider_title_prefix": "The ",
+  "slider_title_highlight_1": "Difference",
+  "slider_title_rest": " is ",
+  "slider_title_highlight_2": "Clear",
+  "slider_after": "AFTER",
+  "slider_before": "BEFORE",
+
+  "packages_title_highlight": "Select",
+  "packages_title_rest": " Your Package",
+
+  "packages": [
+    {
+      "name": "Premium Protection & Shine",
+      "features": [
+        "American thermal insulation (3yr warranty)",
+        "Full front and body PPF (Self healing, 5yr warranty)",
+        "5-layer Nano coating for wheels",
+        "Certified maintenance by Abdul Lati Jameel"
+      ]
+    },
+    {
+      "name": "Ultimate Car Armor",
+      "features": [
+        "American thermal insulation (3yr warranty)",
+        "Full exterior body PPF (Self healing, 5yr warranty)",
+        "Full interior nano coating (Dashboards etc)",
+        "Nano coating for wheels"
+      ]
+    },
+    {
+      "name": "Essential Protection",
+      "features": [
+        "American thermal insulation (3yr warranty)",
+        "Quarter front PPF (Self healing, 5yr warranty)",
+        "5-layer Nano body coating (3yr warranty)"
+      ]
+    },
+    {
+      "name": "Detail & Ceramic Shield",
+      "features": [
+        "American thermal insulation (3yr warranty)",
+        "Headlights/Edge flawless protection",
+        "5-layer Nano ceramic (3yr warranty)",
+        "Nano coating for wheels"
+      ]
+    }
+  ],
+
+  "book_service": "BOOK SERVICE"
+}
