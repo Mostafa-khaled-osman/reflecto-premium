@@ -116,7 +116,7 @@ const Navbar = () => {
                   to={item.path}
                   role="menuitem"
                   onClick={closeMenus}
-                  className="w-full text-left px-4 py-2 text-xs font-medium text-gray-400 hover:text-white hover:bg-[#FF5C35]/10 transition-colors"
+                  className="block w-full text-left px-4 py-2 text-xs font-medium text-gray-400 hover:text-white hover:bg-[#FF5C35]/10 transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -173,8 +173,8 @@ const Navbar = () => {
           <Link to="/" onClick={closeMenus} className={`text-left text-lg font-medium ${location.pathname === '/' ? 'text-[#FF5C35]' : 'text-white'}`}>{t('common:nav_home')}</Link>
           <Link to="/pricing" onClick={closeMenus} className={`text-left text-lg font-medium ${location.pathname === '/pricing' ? 'text-[#FF5C35]' : 'text-white'}`}>{t('common:nav_pricing')}</Link>
 
-          <div className="border-y border-white/5 py-4 my-2 flex flex-col gap-3 w-fit-content ">
-            <span className="text-sm font-bold text-gray-500 uppercase tracking-widest">{t('common:nav_services')}</span>
+          <div className="border-y border-white/5 py-4 my-2 flex flex-col gap-3 ">
+            <span className="text-sm font-bold text-gray-500 uppercase tracking-widest  " >{t('common:nav_services')}</span>
             {[
               { label: t('services:thermal_insulation_title'), path: '/services/thermal-defense' },
               { label: t('services:window_tinting_title'), path: '/services/window-tint' },
@@ -186,7 +186,7 @@ const Navbar = () => {
                 key={item.label}
                 to={item.path}
                 onClick={closeMenus}
-                className="text-left text-gray-300 font-medium pl-4"
+                className="text-left text-gray-300 font-medium pl-4 "
               >
                 {item.label}
               </Link>
