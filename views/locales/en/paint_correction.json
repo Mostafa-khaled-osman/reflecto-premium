@@ -8,9 +8,9 @@
   "premium_services_suffix": " Services",
 
   "service_cards": [
-    { "icon": "🪑", "title": "Interior Polishing", "subtitle": "(تلميع داخلي)" },
-    { "icon": "🚗", "title": "Exterior Polishing", "subtitle": "(تلميع خارجي)" },
-    { "icon": "✨", "title": "Full Interior & Exterior", "subtitle": "(تلميع داخلي وخارجي)" }
+    { "icon": "chair", "title": "Interior Polishing", "subtitle": "(تلميع داخلي)" },
+    { "icon": "directions_car", "title": "Exterior Polishing", "subtitle": "(تلميع خارجي)" },
+    { "icon": "auto_awesome", "title": "Full Interior & Exterior", "subtitle": "(تلميع داخلي وخارجي)" }
   ],
 
   "technical_highlight": "Technical",

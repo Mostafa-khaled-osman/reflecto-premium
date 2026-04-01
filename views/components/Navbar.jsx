@@ -1,20 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../../hooks/useLanguage';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation(['common', 'services']);
   const { language, toggleLanguage, isRTL } = useLanguage();
   const dropdownRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
-  const handleNav = (path) => {
-    navigate(path);
+  const closeMenus = () => {
     setIsMobileMenuOpen(false);
     setShowDropdown(false);
   };
@@ -45,14 +43,14 @@ const Navbar = () => {
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
 
-  const NavButton = ({ label, path }) => (
-    <button
-      onClick={() => handleNav(path)}
-      aria-current={location.pathname === path ? 'page' : undefined}
+  const NavLink = ({ label, path }) => (
+    <Link
+      to={path}
+      onClick={closeMenus}
       className={`whitespace-nowrap text-sm font-medium transition-colors hover:text-[#FF5C35] ${location.pathname === path ? 'text-[#FF5C35]' : 'text-gray-400'}`}
     >
       {label}
-    </button>
+    </Link>
   );
 
   const LangToggle = ({ className = "" }) => (
@@ -72,24 +70,22 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-xl border-b border-white/5 h-20" role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         <div className="flex-1 flex justify-start">
-          <div
+          <Link
+            to="/"
+            onClick={closeMenus}
             className="flex items-center gap-2 cursor-pointer group z-50"
-            onClick={() => handleNav('/')}
-            role="link"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && handleNav('/')}
             aria-label="Reflecto Home"
           >
             <div className="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full group-hover:bg-[#FF5C35]/20 transition-colors">
               <img src="/assets/photo/logo.png" alt="" className="w-full h-full object-cover" aria-hidden="true" />
             </div>
             <span className="text-xl font-bold tracking-tight text-[#FF5C35]">Reflecto</span>
-          </div>
+          </Link>
         </div>
 
         <div className="hidden md:flex flex-1 justify-center items-center gap-8" role="menubar">
-          <NavButton label={t('common:nav_home')} path="/" />
-          <NavButton label={t('common:nav_pricing')} path="/pricing" />
+          <NavLink label={t('common:nav_home')} path="/" />
+          <NavLink label={t('common:nav_pricing')} path="/pricing" />
 
           <div className="relative" ref={dropdownRef} role="menuitem">
             <button
@@ -115,38 +111,39 @@ const Navbar = () => {
                 { label: t('services:dash_cam_title'), path: '/services/dash-cam' },
                 { label: t('services:nano_ceramic_title'), path: '/services/advanced-insulation' }
               ].map((item) => (
-                <button
+                <Link
                   key={item.label}
+                  to={item.path}
                   role="menuitem"
-                  onClick={() => handleNav(item.path)}
+                  onClick={closeMenus}
                   className="w-full text-left px-4 py-2 text-xs font-medium text-gray-400 hover:text-white hover:bg-[#FF5C35]/10 transition-colors"
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
 
-          <NavButton label={t('common:nav_contact')} path="/Contact" />
+          <NavLink label={t('common:nav_contact')} path="/Contact" />
         </div>
 
         <div className="hidden md:flex flex-1 justify-end items-center gap-4">
           <LangToggle />
-          <button
-            onClick={() => navigate('/admin/clients')}
+          <Link
+            to="/admin/clients"
             className="px-6 py-2 border border-[#FF5C35] text-[#FF5C35] font-bold text-sm rounded hover:bg-[#FF5C35] hover:text-white transition-all shadow-lg shadow-[#FF5C35]/10 whitespace-nowrap flex items-center gap-1">
             {t('common:nav_dashboard')}
             <img src="/assets/icons/profileIcon.png" alt="" className="w-6 h-6 d-inline-block" />
-          </button>
+          </Link>
         </div>
 
         <div className="md:hidden flex-1 flex justify-end items-center gap-3 z-50">
           <LangToggle className="px-2 py-1" />
-          <button
-            onClick={() => navigate('/admin/clients')}
+          <Link
+            to="/admin/clients"
             className="px-4 py-1.5 border border-[#FF5C35] text-[#FF5C35] font-bold text-[10px] rounded hover:bg-[#FF5C35] hover:text-white transition-all">
             {t('common:nav_dashboard')}
-          </button>
+          </Link>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             onKeyDown={(e) => e.key === 'Escape' && setIsMobileMenuOpen(false)}
@@ -173,10 +170,10 @@ const Navbar = () => {
         className={`md:hidden absolute top-20 left-0 right-0 bg-[#1a1a1a] border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
       >
         <div className="flex flex-col p-6 gap-4">
-          <button onClick={() => handleNav('/')} className={`text-left text-lg font-medium ${location.pathname === '/' ? 'text-[#FF5C35]' : 'text-white'}`}>{t('common:nav_home')}</button>
-          <button onClick={() => handleNav('/pricing')} className={`text-left text-lg font-medium ${location.pathname === '/pricing' ? 'text-[#FF5C35]' : 'text-white'}`}>{t('common:nav_pricing')}</button>
+          <Link to="/" onClick={closeMenus} className={`text-left text-lg font-medium ${location.pathname === '/' ? 'text-[#FF5C35]' : 'text-white'}`}>{t('common:nav_home')}</Link>
+          <Link to="/pricing" onClick={closeMenus} className={`text-left text-lg font-medium ${location.pathname === '/pricing' ? 'text-[#FF5C35]' : 'text-white'}`}>{t('common:nav_pricing')}</Link>
 
-          <div className="border-y border-white/5 py-4 my-2 flex flex-col gap-3">
+          <div className="border-y border-white/5 py-4 my-2 flex flex-col gap-3 w-fit-content ">
             <span className="text-sm font-bold text-gray-500 uppercase tracking-widest">{t('common:nav_services')}</span>
             {[
               { label: t('services:thermal_insulation_title'), path: '/services/thermal-defense' },
@@ -185,17 +182,18 @@ const Navbar = () => {
               { label: t('services:dash_cam_title'), path: '/services/dash-cam' },
               { label: t('services:nano_ceramic_title'), path: '/services/advanced-insulation' }
             ].map((item) => (
-              <button
+              <Link
                 key={item.label}
-                onClick={() => handleNav(item.path)}
+                to={item.path}
+                onClick={closeMenus}
                 className="text-left text-gray-300 font-medium pl-4"
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
 
-          <button onClick={() => handleNav('/Contact')} className="text-left text-lg font-medium text-white mb-4">{t('common:nav_contact')}</button>
+          <Link to="/Contact" onClick={closeMenus} className="text-left text-lg font-medium text-white mb-4">{t('common:nav_contact')}</Link>
         </div>
       </div>
     </nav>

@@ -19,7 +19,7 @@ export const SERVICES = [
     ],
     imageUrl: '/assets/photo/landing services.jpeg',
     path: '/services/paint-correction',
-    icon: '🛡️'
+    icon: 'shield'
   },
   {
     id: 'nano-ceramic',
@@ -32,7 +32,7 @@ export const SERVICES = [
     ],
     imageUrl: '/assets/photo/landaig services.jpeg',
     path: '/services/advanced-insulation',
-    icon: '💧'
+    icon: 'water_drop'
   },
   {
     id: 'paint-correction',
@@ -45,7 +45,7 @@ export const SERVICES = [
     ],
     imageUrl: '/assets/photo/landing servicesss.jpeg',
     path: '/services/paint-correction',
-    icon: '⭐'
+    icon: 'star'
   },
   {
     id: 'thermal-insulation',
@@ -58,7 +58,7 @@ export const SERVICES = [
     ],
     imageUrl: '/assets/photo/landing servicess.jpeg',
     path: '/services/thermal-defense',
-    icon: '☀️'
+    icon: 'light_mode'
   },
   {
     id: 'dash-cam-systems',
@@ -71,7 +71,7 @@ export const SERVICES = [
     ],
     imageUrl: '/assets/photo/dash-came.jpeg',
     path: '/services/dash-cam',
-    icon: '📹'
+    icon: 'videocam'
   },
   {
     id: 'window-tinting',
@@ -84,7 +84,7 @@ export const SERVICES = [
     ],
     imageUrl: '/assets/photo/car.jpg',
     path: '/services/window-tint',
-    icon: '🚗'
+    icon: 'directions_car'
   }
 ];
 

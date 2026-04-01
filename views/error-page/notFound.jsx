@@ -1,9 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const NotFound = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
   return (
@@ -19,12 +18,12 @@ const NotFound = () => {
       </p>
       
       <div className="flex flex-col sm:flex-row gap-4">
-        <button 
-          onClick={() => navigate('/')}
-          className="px-8 py-3 bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors duration-300"
+        <Link 
+          to="/"
+          className="px-8 py-3 bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors duration-300 text-center"
         >
           {t('return_home', 'Return Home')}
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import Icon from '../components/Icon';
 
 const LoginView = () => {
   const [phone, setPhone] = useState('');
-  const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleSubmit = () => {
     if (!phone.trim()) return;
     login(phone);
-    navigate('/otp');
+    window.location.href = '/otp';
   };
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6">
       <div className="w-full max-w-xl text-center">
-        <div className="w-16 h-16 bg-[#FF5C35]/10 border border-[#FF5C35]/30 rounded-2xl flex items-center justify-center text-2xl text-[#FF5C35] mx-auto mb-10">🛡️</div>
+        <div className="w-16 h-16 bg-[#FF5C35]/10 border border-[#FF5C35]/30 rounded-2xl flex items-center justify-center text-2xl text-[#FF5C35] mx-auto mb-10">
+          <Icon name="shield" />
+        </div>
 
         <h1 className="text-4xl md:text-6xl font-display font-bold mb-4 tracking-tighter">
           CLIENT <span className="text-[#FF5C35]">DASHBOARD</span>

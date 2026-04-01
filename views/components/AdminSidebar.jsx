@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const AdminSidebar = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,14 +39,14 @@ const AdminSidebar = () => {
       {/* Sidebar Container */}
       <div className={`w-64 bg-[#0a0a0a] border-r border-white/5 flex flex-col h-screen fixed left-0 top-0 z-50 transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
         <div className="p-8 pb-12 flex justify-between items-center">
-          <div className="cursor-pointer" onClick={() => navigate('/')}>
+          <Link to="/" className="cursor-pointer">
             <span className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
               <div className="w-8 h-8 flex items-center justify-center bg-white/10 rounded-lg">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               Reflecto<span className="text-[#FF5C35]">.</span>
             </span>
-          </div>
+          </Link>
           {/* Close button for mobile inside sidebar */}
           <button 
             onClick={() => setIsOpen(false)}
@@ -62,10 +61,11 @@ const AdminSidebar = () => {
             <div className="text-[10px] font-bold text-gray-600 uppercase tracking-widest px-4 mb-4">Main Menu</div>
             <div className="space-y-1">
               {menuItems.map(item => (
-                <button
+                <Link
                   key={item.label}
-                  onClick={() => { navigate(item.path); setIsOpen(false); }}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm ${location.pathname === item.path ? 'bg-[#FF5C35]/10 text-[#FF5C35]' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm ${location.pathname === item.path ? 'bg-[#FF5C35]/10 text-[#FF5C35]' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}
                 >
                   <div className="w-5 h-5 flex items-center justify-center">
                     {item.icon === 'grid' && <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>}
@@ -74,7 +74,7 @@ const AdminSidebar = () => {
                     {item.icon === 'image' && <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>}
                   </div>
                   {item.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>

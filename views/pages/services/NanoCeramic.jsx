@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Icon from '../../components/Icon';
 
 const CheckIcon = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FF5C35" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
@@ -12,7 +13,7 @@ const MetricCard = ({ icon, badge, title, subtitle, desc }) => (
   <div className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-6 flex flex-col gap-3 hover:border-[#FF5C35]/30 transition-all">
     <div className="flex items-center gap-3">
       <div className="w-11 h-11 rounded-xl bg-[#FF5C35]/10 border border-[#FF5C35]/20 flex items-center justify-center shrink-0">
-        <span className="text-lg">{icon}</span>
+        <span className="text-lg"><Icon name={icon} /></span>
       </div>
       <div>
         <p className="text-white font-bold text-sm leading-tight">{title}</p>
@@ -29,7 +30,9 @@ const MetricCard = ({ icon, badge, title, subtitle, desc }) => (
 const TierCard = ({ icon, name, years, desc }) => (
   <div className="flex flex-col items-center text-center gap-3 group">
     <div className="w-20 h-20 rounded-full border-2 border-[#FF5C35]/30 bg-[#1a1a1a] flex items-center justify-center group-hover:border-[#FF5C35] transition-all shadow-lg group-hover:shadow-[#FF5C35]/20">
-      <span className="text-3xl">{icon}</span>
+      <span className="text-3xl">
+        <Icon name={icon} />
+      </span>
     </div>
     <div>
       <p className="text-white font-bold text-sm">{years}</p>
@@ -40,7 +43,6 @@ const TierCard = ({ icon, name, years, desc }) => (
 );
 
 const NanoCeramic = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation(['service5', 'common']);
   const [sliderPos, setSliderPos] = useState(50);
 
@@ -93,21 +95,21 @@ const NanoCeramic = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <MetricCard
-              icon="9H"
+              icon="layers"
               badge={t('service5:metrics.9h.badge')}
               title={t('service5:metrics.9h.title')}
               subtitle={t('service5:metrics.9h.subtitle')}
               desc={t('service5:metrics.9h.desc')}
             />
             <MetricCard
-              icon="💧"
+              icon="water_drop"
               badge={t('service5:metrics.hydro.badge')}
               title={t('service5:metrics.hydro.title')}
               subtitle={t('service5:metrics.hydro.subtitle')}
               desc={t('service5:metrics.hydro.desc')}
             />
             <MetricCard
-              icon="☀️"
+              icon="light_mode"
               badge={t('service5:metrics.uv.badge')}
               title={t('service5:metrics.uv.title')}
               subtitle={t('service5:metrics.uv.subtitle')}
@@ -124,25 +126,25 @@ const NanoCeramic = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <TierCard
-              icon="🛡️"
+              icon="shield"
               years={t('service5:tiers.lite.years')}
               name={t('service5:tiers.lite.name')}
               desc={t('service5:tiers.lite.desc')}
             />
             <TierCard
-              icon="💎"
+              icon="diamond"
               years={t('service5:tiers.pro.years')}
               name={t('service5:tiers.pro.name')}
               desc={t('service5:tiers.pro.desc')}
             />
             <TierCard
-              icon="⚡"
+              icon="bolt"
               years={t('service5:tiers.ultra.years')}
               name={t('service5:tiers.ultra.name')}
               desc={t('service5:tiers.ultra.desc')}
             />
             <TierCard
-              icon="♾️"
+              icon="all_inclusive"
               years={t('service5:tiers.elite.years')}
               name={t('service5:tiers.elite.name')}
               desc={t('service5:tiers.elite.desc')}
@@ -235,12 +237,9 @@ const NanoCeramic = () => {
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={() => navigate('/Contact')}
-                  className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20"
-                >
+                <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 text-center">
                   {t('service5:pkg_book')}
-                </button>
+                </Link>
               </div>
             ))}
           </div>

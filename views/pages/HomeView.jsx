@@ -1,11 +1,10 @@
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { SERVICES } from '../../constants';
+import Icon from '../components/Icon';
 
 const HomeView = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation(['home', 'common', 'services']);
 
   return (
@@ -30,20 +29,20 @@ const HomeView = () => {
             {t('home:hero_subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => navigate('/Contact')}
+            <Link
+              to="/Contact"
               className="w-full sm:w-auto px-10 py-4 bg-[#FF5C35] text-white font-bold rounded flex items-center justify-center gap-2 group hover:brightness-110 transition-all rounded-2xl"
             >
               {t('common:book_service')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6" /></svg>
-            </button>
-            <button
-              onClick={() => navigate('/pricing')}
+            </Link>
+            <Link
+              to="/pricing"
               className="w-full sm:w-auto px-10 py-4 border border-[#FF5C35] hover:border-white/40 text-white font-bold rounded flex items-center justify-center gap-2 transition-all rounded-2xl"
             >
               {t('common:explore_services')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -74,8 +73,8 @@ const HomeView = () => {
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute top-4 right-4 bg-[#FF5C35] p-2 rounded-lg shadow-xl">
-                    <span className="text-xl">{service.icon}</span>
+                  <div className="absolute top-4 right-4 bg-[#FF5C35] p-2 rounded-lg shadow-xl flex items-center justify-center">
+                    <Icon name={service.icon} className="text-xl text-white" />
                   </div>
                 </div>
                 <div className="p-8">
@@ -89,12 +88,13 @@ const HomeView = () => {
                       </li>
                     ))}
                   </ul>
-                  <button
-                  onClick={() => navigate(`${service.path}`)}
-                  className="text-[#FF5C35] font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all">
+                  <Link
+                    to={`${service.path}`}
+                    className="text-[#FF5C35] font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all"
+                  >
                     {t('common:learn_more')}
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -114,14 +114,14 @@ const HomeView = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             {[
-              { title: t('home:standards.iso'), icon: '🛡️' },
-              { title: t('home:standards.warranty'), icon: '⏱️' },
-              { title: t('home:standards.materials'), icon: '🇺🇸' },
-              { title: t('home:standards.installers'), icon: '✅' }
+              { title: t('home:standards.iso'), icon: 'shield' },
+              { title: t('home:standards.warranty'), icon: 'timer' },
+              { title: t('home:standards.materials'), icon: 'public' },
+              { title: t('home:standards.installers'), icon: 'check_circle' }
             ].map((item, idx) => (
               <div key={idx} className="bg-[#262626] p-8 border border-white/5 rounded-xl flex items-center gap-6 group hover:border-[#FF5C35]/30 transition-all">
                 <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-white/5 text-2xl group-hover:bg-[#FF5C35]/10 transition-colors">
-                  {item.icon}
+                  <Icon name={item.icon} />
                 </div>
                 <span className="font-bold text-gray-200">{item.title}</span>
               </div>
@@ -129,20 +129,20 @@ const HomeView = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => navigate('/Contact')}
+            <Link
+              to="/Contact"
               className="w-full sm:w-auto px-10 py-4 bg-[#FF5C35] text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:brightness-110 transition-all"
             >
               {t('common:get_started')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-            </button>
-            <button
-              onClick={() => navigate('/pricing')}
+            </Link>
+            <Link
+              to="/pricing"
               className="w-full sm:w-auto px-10 py-4 border border-[#FF5C35] hover:border-white/40 text-white font-bold rounded-2xl flex items-center justify-center gap-2 transition-all"
             >
               {t('common:view_pricing')}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-            </button>
+            </Link>
           </div>
         </div>
       </section>

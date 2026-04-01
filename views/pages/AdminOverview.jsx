@@ -1,9 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AdminSidebar from '../../views/components/AdminSidebar';
 
 const AdminOverview = () => {
-  const navigate = useNavigate();
 
   return (
     <div className="flex bg-[#0a0a0a] min-h-screen text-white">
@@ -32,14 +31,14 @@ const AdminOverview = () => {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
                 <span className="absolute top-2 right-2 w-2 h-2 bg-[#FF5C35] rounded-full"></span>
               </button>
-              <button
-                onClick={() => navigate('/Contact')}
+              <Link
+                to="/Contact"
                 className="px-6 py-3 shrink-0 bg-[#FF5C35] text-white font-bold rounded-xl text-sm flex items-center gap-2 shadow-lg shadow-[#FF5C35]/20 hover:brightness-110 transition-all"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
                 <span className="hidden sm:inline">New Contact</span>
                 <span className="sm:hidden">New</span>
-              </button>
+              </Link>
             </div>
           </header>
 

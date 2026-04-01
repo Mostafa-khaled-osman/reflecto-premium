@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { PRICING_TIERS } from '../../constants';
+import Icon from '../components/Icon';
 
 const PricingView = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation(['pricing', 'common']);
 
   return (
@@ -36,7 +36,7 @@ const PricingView = () => {
 
               <div className="mb-8">
                 <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 text-xl mb-6 ${tier.isPopular ? 'text-[#FF5C35]' : 'text-gray-400'}`}>
-                  {tier.id === 'basic' ? '🛡️' : tier.id === 'silver' ? '⭐' : '💎'}
+                  <Icon name={tier.id === 'basic' ? 'shield' : tier.id === 'silver' ? 'star' : 'diamond'} />
                 </div>
                 <h3 className="text-2xl font-display font-bold mb-2">{t(tier.nameKey)}</h3>
                 <p className="text-gray-500 text-sm mb-6">{t(tier.taglineKey)}</p>
@@ -46,13 +46,13 @@ const PricingView = () => {
                 </div>
               </div>
 
-              <button
-                onClick={() => navigate('/Contact')}
-                className={`w-full py-4 rounded-xl font-bold transition-all mb-10 ${tier.isPopular ? 'bg-[#FF5C35] text-white shadow-lg shadow-[#FF5C35]/20' : 'border border-white/20 text-white hover:bg-white/5'
+              <Link
+                to="/Contact"
+                className={`w-full py-4 rounded-xl font-bold transition-all mb-10 inline-block text-center ${tier.isPopular ? 'bg-[#FF5C35] text-white shadow-lg shadow-[#FF5C35]/20' : 'border border-white/20 text-white hover:bg-white/5'
                   }`}
               >
                 {t('common:select_tier', { tier: t(tier.nameKey) })}
-              </button>
+              </Link>
 
               <div className="space-y-4">
                 {tier.featuresKeys.map((fk, i) => (

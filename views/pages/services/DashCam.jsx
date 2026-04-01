@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const availablePhotos = [
@@ -28,7 +28,6 @@ const getRandomPhoto = (index) => {
 };
 
 const DashCam = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation(['dashcam', 'common']);
 
   const dashLevels = t('dashcam:dash_levels', { returnObjects: true }) || [];
@@ -144,7 +143,9 @@ const DashCam = () => {
                       </li>
                     ))}
                   </ul>
-                  <button onClick={() => navigate('/Contact')} className="w-full py-3 bg-[#FF4500]/90 hover:bg-[#FF4500] text-white text-[10px] font-bold rounded uppercase tracking-[0.2em] transition-colors">{t('dashcam:book_service')}</button>
+                  <Link to="/Contact" className="w-full py-3 bg-[#FF4500]/90 hover:bg-[#FF4500] text-white text-[10px] font-bold rounded uppercase tracking-[0.2em] transition-colors text-center">
+                    {t('dashcam:book_service')}
+                  </Link>
                 </div>
               </div>
             ))}

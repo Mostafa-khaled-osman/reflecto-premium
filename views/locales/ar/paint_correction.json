@@ -8,9 +8,9 @@
   "premium_services_suffix": " المميزة",
 
   "service_cards": [
-    { "icon": "🪑", "title": "تلميع داخلي", "subtitle": "(Interior Polishing)" },
-    { "icon": "🚗", "title": "تلميع خارجي", "subtitle": "(Exterior Polishing)" },
-    { "icon": "✨", "title": "تلميع داخلي وخارجي", "subtitle": "(Full Interior & Exterior)" }
+    { "icon": "chair", "title": "تلميع داخلي", "subtitle": "(تنظيف عميق للمقصورة)" },
+    { "icon": "directions_car", "title": "تلميع خارجي", "subtitle": "(إزالة الخدوش وتصحيح الطلاء)" },
+    { "icon": "auto_awesome", "title": "تلميع داخلي وخارجي شامل", "subtitle": "(تجديد كامل للسيارة)" }
   ],
 
   "technical_highlight": "الأداء",

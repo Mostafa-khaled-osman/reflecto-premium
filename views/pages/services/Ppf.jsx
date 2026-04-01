@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const CheckIcon = () => (
@@ -16,7 +16,6 @@ const Annotation = ({ label, className }) => (
 );
 
 const Ppf = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation(['ppf', 'common']);
   const [sliderPos, setSliderPos] = useState(50);
 
@@ -61,7 +60,7 @@ const Ppf = () => {
           </div>
           <div className="rounded-2xl overflow-hidden border border-[#FF5C35]/20 shadow-[0_0_60px_rgba(255,92,53,0.12)]">
             <img
-              src="/assets/photo/view-3d-car.jpg"
+              src="/assets/photo/ppf.jpeg"
               alt="PPF Self-Healing Shield car diagram"
               className="w-full h-[260px] md:h-[380px] object-cover mix-blend-luminosity opacity-90"
               onError={(e) => {
@@ -188,12 +187,9 @@ const Ppf = () => {
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={() => navigate('/Contact')}
-                  className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20"
-                >
+                <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 text-center block">
                   {t('ppf:book_service')}
-                </button>
+                </Link>
               </div>
             ))}
           </div>

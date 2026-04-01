@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Icon from '../../components/Icon';
 
 const CheckIcon = () => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF5C35" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
@@ -11,7 +12,7 @@ const CheckIcon = () => (
 const ServiceCard = ({ icon, title, subtitle }) => (
   <div className="flex-1 bg-[#1e1e1e] border border-white/10 rounded-xl p-5 flex flex-col items-start gap-3 hover:border-[#FF5C35]/40 transition-all group">
     <div className="w-12 h-12 rounded-lg bg-[#FF5C35]/10 border border-[#FF5C35]/20 flex items-center justify-center text-2xl group-hover:bg-[#FF5C35]/20 transition-all">
-      {icon}
+      <Icon name={icon} />
     </div>
     <div>
       <p className="text-white font-bold text-sm">{title}</p>
@@ -38,7 +39,6 @@ const intensityImages = [
 ];
 
 const PaintCorrection = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation(['paint_correction', 'common']);
   const [sliderPosition, setSliderPosition] = useState(50);
   const sliderRef = useRef(null);
@@ -71,7 +71,7 @@ const PaintCorrection = () => {
           <p className="text-gray-400 text-sm mt-3 max-w-xl mx-auto">{t('paint_correction:hero_subtitle')}</p>
         </div>
         <div className="w-full h-[320px] md:h-[460px] overflow-hidden">
-          <img src="/assets/photo/landing  services.jpg" alt="Paint Correction & Polishing" className="w-full h-full object-cover object-center" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=1400'; }} />
+          <img src="/assets/photo/landing servicesss.jpeg" alt="Paint Correction & Polishing" className="w-full h-full object-cover object-center" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=1400'; }} />
         </div>
       </section>
 
@@ -160,9 +160,9 @@ const PaintCorrection = () => {
                 <ul className="space-y-2 mb-6 flex-grow">
                   {pkg.features.map((f, j) => (<li key={j} className="flex items-start gap-2 text-[11px] text-gray-400 leading-snug"><CheckIcon />{f}</li>))}
                 </ul>
-                <button onClick={() => navigate('/Contact')} className="w-full py-2.5 bg-[#FF5C35] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 mt-auto">
+                <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 mt-auto text-center">
                   {t('paint_correction:book_service')}
-                </button>
+                </Link>
               </div>
             ))}
           </div>

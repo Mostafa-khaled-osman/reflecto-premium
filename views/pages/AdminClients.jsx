@@ -1,16 +1,14 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 
 const AdminClients = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation(['admin_clients', 'common']);
   const { logout } = useAuth();
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    window.location.href = '/';
   };
 
   // Reusable card container styles

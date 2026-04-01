@@ -1,9 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AdminSidebar from '../../views/components/AdminSidebar';
 
 const AdminScheduling = () => {
-  const navigate = useNavigate();
 
   const technicians = [
     { name: 'Mike Ross', status: 'Polishing - Bay 1', active: true, color: 'bg-blue-500' },
@@ -42,14 +41,14 @@ const AdminScheduling = () => {
                 <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
                 <input type="text" placeholder="Search Contact..." className="bg-[#1a1a1a] border border-white/5 rounded-xl pl-12 pr-6 py-3 text-sm w-48 sm:w-64 focus:outline-none focus:border-[#FF5C35]" />
               </div>
-              <button
-                onClick={() => navigate('/Contact')}
+              <Link
+                to="/Contact"
                 className="px-6 py-3 shrink-0 bg-[#FF5C35] text-white font-bold rounded-xl text-sm flex items-center gap-2 hover:brightness-110 shadow-lg shadow-[#FF5C35]/20 transition-all"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
                 <span className="hidden sm:inline">New Contact</span>
                 <span className="sm:hidden">New</span>
-              </button>
+              </Link>
             </div>
           </header>
 

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation(['contact', 'common']);
 
-  // Using state to drive the dynamic summary panel on the right
   const [formData, setFormData] = useState({
     brand: 'Porsche',
     model: '911 GT3 RS',
@@ -27,7 +25,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(t('contact:contact_confirmed'));
-    navigate('/');
+    window.location.href = '/';
   };
 
   // Helper class for inputs

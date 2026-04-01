@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Tint = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation(['tint', 'common']);
   const [sliderPosition, setSliderPosition] = useState(50);
 
@@ -150,12 +149,9 @@ const Tint = () => {
                 </div>
               ))}
             </div>
-            <button
-              onClick={() => navigate('/Contact')}
-              className="w-full py-3 mt-10 bg-[#FF5C35] text-white font-bold uppercase tracking-widest rounded-lg hover:bg-[#d64a28] transition-all"
-            >
+            <Link to="/Contact" className="w-full py-3 mt-10 bg-[#FF5C35] text-white font-bold uppercase tracking-widest rounded-lg hover:bg-[#d64a28] transition-all text-center block">
               {t('tint:book_service')}
-            </button>
+            </Link>
           </div>
 
           <div className="bg-[#262626] p-10 rounded-3xl border border-white/5 opacity-80">
@@ -181,12 +177,9 @@ const Tint = () => {
                   <div className="h-1 w-full bg-white/5 rounded-full"><div className="h-full bg-gray-500" style={{ width: s.v }}></div></div>
                 </div>
               ))}
-              <button
-                onClick={() => navigate('/Contact')}
-                className="w-full py-3 mt-10 bg-[#FF5C35] text-white font-bold uppercase tracking-widest rounded-lg hover:bg-[#d64a28] transition-all"
-              >
+              <Link to="/Contact" className="w-full py-3 mt-10 bg-[#FF5C35] text-white font-bold uppercase tracking-widest rounded-lg hover:bg-[#d64a28] transition-all text-center block">
                 {t('tint:book_service')}
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -216,12 +209,9 @@ const Tint = () => {
                       </li>
                     ))}
                   </ul>
-                  <button
-                    onClick={() => navigate('/Contact')}
-                    className="w-full py-3 bg-[#FF5C35] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 mt-auto"
-                  >
+                  <Link to="/Contact" className="w-full py-3 bg-[#FF5C35] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 mt-auto text-center block">
                     {t('tint:pkg_select')}
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

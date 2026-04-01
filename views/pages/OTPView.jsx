@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import Icon from '../components/Icon';
 
 const OTPView = () => {
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const inputs = useRef([]);
-  const navigate = useNavigate();
   const { login, phone } = useAuth();
 
   const handleChange = (value, index) => {
@@ -28,17 +28,15 @@ const OTPView = () => {
     const code = otp.join('');
     if (code.length !== 6) return;
     login(phone);
-    navigate('/admin');
-  };
-
-  const handleBack = () => {
-    navigate('/login');
+    window.location.href = '/admin';
   };
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6">
       <div className="w-full max-w-xl text-center">
-        <div className="w-16 h-16 bg-[#FF5C35]/10 border border-[#FF5C35]/30 rounded-2xl flex items-center justify-center text-2xl text-[#FF5C35] mx-auto mb-10">🛡️</div>
+        <div className="w-16 h-16 bg-[#FF5C35]/10 border border-[#FF5C35]/30 rounded-2xl flex items-center justify-center text-2xl text-[#FF5C35] mx-auto mb-10">
+          <Icon name="shield" />
+        </div>
 
         <h1 className="text-4xl md:text-6xl font-display font-bold mb-4 tracking-tighter">
           CLIENT <span className="text-[#FF5C35]">DASHBOARD</span>
@@ -76,12 +74,12 @@ const OTPView = () => {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </button>
 
-          <button
-            onClick={handleBack}
+          <Link
+            to="/login"
             className="text-gray-500 text-sm hover:text-white transition-colors"
           >
             Change phone number
-          </button>
+          </Link>
         </div>
       </div>
     </div>
