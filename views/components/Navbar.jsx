@@ -105,11 +105,11 @@ const Navbar = () => {
               className={`absolute top-full ${isRTL ? 'right-0' : 'left-1/2 -translate-x-1/2'} mt-2 w-48 bg-[#262626] border border-white/10 rounded-xl shadow-2xl py-2 transition-all duration-200 z-50 ${showDropdown ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible'}`}
             >
               {[
-                { label: t('services:thermal_insulation_title'), path: '/services/thermal-defense' },
+                { label: t('services:ppf_title'), path: '/services/ppf' },
                 { label: t('services:window_tinting_title'), path: '/services/window-tint' },
                 { label: t('services:paint_correction_title'), path: '/services/paint-correction' },
-                { label: t('services:dash_cam_title'), path: '/services/dash-cam' },
-                { label: t('services:nano_ceramic_title'), path: '/services/advanced-insulation' }
+                { label: t('services:nano_ceramic_title'), path: '/services/nano-ceramic' },
+                { label: t('services:dash_cam_title'), path: '/services/dash-cam' }
               ].map((item) => (
                 <Link
                   key={item.label}
@@ -176,11 +176,11 @@ const Navbar = () => {
           <div className="border-y border-white/5 py-4 my-2 flex flex-col gap-3 ">
             <span className="text-sm font-bold text-gray-500 uppercase tracking-widest  " >{t('common:nav_services')}</span>
             {[
-              { label: t('services:thermal_insulation_title'), path: '/services/thermal-defense' },
+              { label: t('services:ppf_title'), path: '/services/ppf' },
               { label: t('services:window_tinting_title'), path: '/services/window-tint' },
               { label: t('services:paint_correction_title'), path: '/services/paint-correction' },
-              { label: t('services:dash_cam_title'), path: '/services/dash-cam' },
-              { label: t('services:nano_ceramic_title'), path: '/services/advanced-insulation' }
+              { label: t('services:nano_ceramic_title'), path: '/services/nano-ceramic' },
+              { label: t('services:dash_cam_title'), path: '/services/dash-cam' }
             ].map((item) => (
               <Link
                 key={item.label}

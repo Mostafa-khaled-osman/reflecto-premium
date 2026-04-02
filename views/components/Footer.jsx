@@ -24,7 +24,7 @@ const Footer = () => {
               <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/thermal-defense">{t('footer.service_ppf')}</Link></li>
               <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/window-tint">{t('footer.service_nano')}</Link></li>
               <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/paint-correction">{t('footer.service_polishing')}</Link></li>
-              <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/advanced-insulation">{t('footer.service_insulation')}</Link></li>
+              <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/nano-ceramic">{t('footer.service_insulation')}</Link></li>
             </ul>
           </div>
 

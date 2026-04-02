@@ -186,33 +186,31 @@ const Tint = () => {
 
         <div className="mb-32">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display font-light text-gray-300">
-              <span className="text-[#FF5C35]">{t('tint:packages_title_highlight_1')}</span>{t('tint:packages_title_rest')}<span className="text-[#FF5C35] font-bold">{t('tint:packages_title_highlight_2')}</span>
+            <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
+              {t('tint:packages_title_highlight_1')} <span className="text-[#FF5C35]">{t('tint:packages_title_highlight_2')}</span> {t('tint:packages_title_rest')}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[1, 2, 3, 4].map((pkg) => (
-              <div key={pkg} className="bg-[#141414] rounded-2xl overflow-hidden border border-white/5 flex flex-col group hover:border-[#FF5C35]/50 transition-all shadow-xl">
-                <div className="h-32 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMzMzIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIHg9IjQiIHk9IjQiIGZpbGw9IiMzMzMiPjwvcmVjdD4KPHJlY3Qgd2lkdGg9IjQiIGhlaWdodD0iNCIgeD0iMCIgeT0iNCIgZmlsbD0iIzIyMiI+PC9yZWN0Pgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4PSI0IiB5PSIwIiBmaWxsPSIjMjIyIj48L3JlY3Q+Cjwvc3ZnPg==')] flex-shrink-0">
+              <div key={pkg} className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-5 flex flex-col hover:border-[#FF5C35]/40 transition-all group">
+                <div className="mb-4 pb-3 border-b border-white/5">
+                  <h3 className="text-white font-bold text-sm leading-snug mb-1">{t('tint:pkg_title')}</h3>
+                  <span className="text-[#FF5C35] font-bold text-xs">{t('tint:pkg_price')}</span>
                 </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <div className="flex justify-between items-end mb-6 border-b border-white/5 pb-4">
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-white">{t('tint:pkg_title')}</h3>
-                    <span className="text-xl font-display font-bold text-white">{t('tint:pkg_price')}</span>
-                  </div>
-                  <ul className="space-y-4 mb-8 flex-grow">
-                    {Array.isArray(pkgFeatures) && pkgFeatures.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-[11px] text-gray-400 leading-snug">
-                        <svg className="flex-shrink-0 mt-0.5" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF5C35" strokeWidth="3"><path d="M20 6 9 17l-5-5" /></svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to="/Contact" className="w-full py-3 bg-[#FF5C35] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 mt-auto text-center block">
-                    {t('tint:pkg_select')}
-                  </Link>
-                </div>
+                <ul className="space-y-2 mb-6 flex-grow">
+                  {Array.isArray(pkgFeatures) && pkgFeatures.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-[11px] text-gray-400 leading-snug">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FF5C35" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 text-center block">
+                  {t('tint:pkg_select')}
+                </Link>
               </div>
             ))}
           </div>

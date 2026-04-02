@@ -20,7 +20,7 @@ const Ppf = () => {
   const [sliderPos, setSliderPos] = useState(50);
 
   const anatomyLayers = t('ppf:anatomy_layers', { returnObjects: true }) || [];
-  const packages = t('ppf:packages', { returnObjects: true }) || [];
+  const packages = t('service5:packages', { returnObjects: true }) || [];
   const overlayLabels = t('ppf:anatomy_overlay_labels', { returnObjects: true }) || [];
 
   const handleMouseMove = (e) => {

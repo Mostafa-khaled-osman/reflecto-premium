@@ -46,7 +46,7 @@ const PaintCorrection = () => {
   const serviceCards = t('paint_correction:service_cards', { returnObjects: true }) || [];
   const statBars = t('paint_correction:stat_bars', { returnObjects: true }) || [];
   const intensityLevels = t('paint_correction:intensity_levels', { returnObjects: true }) || [];
-  const packages = t('paint_correction:packages', { returnObjects: true }) || [];
+  const packages = t('service5:packages', { returnObjects: true }) || [];
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -152,16 +152,25 @@ const PaintCorrection = () => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {Array.isArray(packages) && packages.map((pkg, i) => (
-              <div key={i} className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-5 flex flex-col hover:border-[#FF5C35]/40 transition-all group">
-                <div className="w-full h-32 rounded-xl overflow-hidden mb-4 bg-[#262626] border border-white/5">
-                  <img src="/assets/photo/landing services.jpeg" alt={pkg.name} className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" onError={(e) => { e.target.style.display = 'none'; }} />
+              <div
+                key={i}
+                className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-5 flex flex-col hover:border-[#FF5C35]/40 transition-all group"
+              >
+                <div className="mb-4 pb-3 border-b border-white/5">
+                  <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">{pkg.label}</p>
+                  <p className="text-[#FF5C35] font-bold text-sm leading-snug">{pkg.price} SAR</p>
+                  <p className="text-gray-600 text-[10px]">{pkg.note}</p>
                 </div>
-                <h3 className="text-white font-bold text-sm mb-3 leading-snug">{pkg.name}</h3>
-                <ul className="space-y-2 mb-6 flex-grow">
-                  {pkg.features.map((f, j) => (<li key={j} className="flex items-start gap-2 text-[11px] text-gray-400 leading-snug"><CheckIcon />{f}</li>))}
+                <ul className="space-y-2.5 mb-6 flex-grow">
+                  {pkg.features.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2 text-[11px] text-gray-400 leading-snug">
+                      <CheckIcon />
+                      {f}
+                    </li>
+                  ))}
                 </ul>
-                <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 mt-auto text-center">
-                  {t('paint_correction:book_service')}
+                <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 text-center">
+                  {t('service5:pkg_book')}
                 </Link>
               </div>
             ))}

@@ -23,6 +23,12 @@ const availablePhotos = [
   '/assets/photo/window-tint.jpg'
 ];
 
+const CheckIcon = () => (
+  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FF5C35" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+);
+
 const getRandomPhoto = (index) => {
   return availablePhotos[index % availablePhotos.length];
 };
@@ -33,7 +39,7 @@ const DashCam = () => {
   const dashLevels = t('dashcam:dash_levels', { returnObjects: true }) || [];
   const stats = t('dashcam:stats', { returnObjects: true }) || [];
   const popularCams = t('dashcam:popular_cams', { returnObjects: true }) || [];
-  const pkgFeatures = t('dashcam:pkg_features', { returnObjects: true }) || [];
+  const packagesList = t('service5:packages', { returnObjects: true }) || [];
 
   const mainImage = getRandomPhoto(6);
   const pop1 = getRandomPhoto(8);
@@ -120,36 +126,34 @@ const DashCam = () => {
         </div>
 
         <div className="mb-12">
-          <h2 className="text-3xl font-display text-center uppercase tracking-widest text-white mb-12">
-            <span className="text-[#FF4500]">{t('dashcam:packages_title_1')}</span> {t('dashcam:packages_title_rest')} <span className="text-[#FF4500]">{t('dashcam:packages_title_2')}</span>
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
+            {t('dashcam:packages_title_1')} <span className="text-[#FF5C35]">{t('dashcam:packages_title_2')}</span> {t('dashcam:packages_title_rest')}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 rounded-2xl">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="bg-[#1a1a1a] flex flex-col border border-white/5 rounded-2xl">
-                <div className="bg-white patterned-bg h-40 mb-4 rounded flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gray-200" style={{ backgroundImage: 'linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc)', backgroundSize: '20px 20px', backgroundPosition: '0 0, 10px 10px' }}></div>
-                  <img src={getRandomPhoto(i + 10)} alt="Dashcam rendering" className="w-full h-full object-contain relative z-10 filter drop-shadow-2xl" />
-                </div>
-                <div className="p-4 flex-grow flex flex-col">
-                  <div className="flex justify-between items-center mb-6">
-                    <h4 className="text-white font-bold tracking-widest uppercase text-[11px]">{t('dashcam:pkg_title')}</h4>
-                    <span className="text-white font-bold text-[11px]">{t('dashcam:pkg_price')}</span>
-                  </div>
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    {Array.isArray(pkgFeatures) && pkgFeatures.map((item, idx) => (
-                      <li key={idx} className="flex items-center text-[10px] text-gray-400 font-light">
-                        <svg className="w-3 h-3 text-[#FF4500] mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to="/Contact" className="w-full py-3 bg-[#FF4500]/90 hover:bg-[#FF4500] text-white text-[10px] font-bold rounded uppercase tracking-[0.2em] transition-colors text-center">
-                    {t('dashcam:book_service')}
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                      {Array.isArray(packagesList) && packagesList.map((pkg, i) => (
+                        <div
+                          key={i}
+                          className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-5 flex flex-col hover:border-[#FF5C35]/40 transition-all group"
+                        >
+                          <div className="mb-4 pb-3 border-b border-white/5">
+                            <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">{pkg.label}</p>
+                            <p className="text-[#FF5C35] font-bold text-sm leading-snug">{pkg.price} SAR</p>
+                            <p className="text-gray-600 text-[10px]">{pkg.note}</p>
+                          </div>
+                          <ul className="space-y-2.5 mb-6 flex-grow">
+                            {pkg.features.map((f, j) => (
+                              <li key={j} className="flex items-start gap-2 text-[11px] text-gray-400 leading-snug">
+                                <CheckIcon />
+                                {f}
+                              </li>
+                            ))}
+                          </ul>
+                          <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 text-center">
+                            {t('service5:pkg_book')}
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
         </div>
       </div>
     </div>

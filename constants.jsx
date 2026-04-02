@@ -31,7 +31,7 @@ export const SERVICES = [
       'services:nano_ceramic_feature_2'
     ],
     imageUrl: '/assets/photo/landaig services.jpeg',
-    path: '/services/advanced-insulation',
+    path: '/services/nano-ceramic',
     icon: 'water_drop'
   },
   {

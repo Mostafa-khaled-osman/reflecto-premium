@@ -47,7 +47,7 @@ const NanoCeramic = () => {
   const [sliderPos, setSliderPos] = useState(50);
 
   const packagesList = t('service5:packages', { returnObjects: true }) || [];
-
+  
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setSliderPos(((e.clientX - rect.left) / rect.width) * 100);
