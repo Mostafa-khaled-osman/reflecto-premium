@@ -21,9 +21,9 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6">{t('footer.services_title')}</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/thermal-defense">{t('footer.service_ppf')}</Link></li>
+              <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/paint-correction">{t('footer.service_ppf')}</Link></li>
               <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/window-tint">{t('footer.service_nano')}</Link></li>
-              <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/paint-correction">{t('footer.service_polishing')}</Link></li>
+              <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/dash-cam">{t('footer.service_dash_cam')}</Link></li>
               <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/services/nano-ceramic">{t('footer.service_insulation')}</Link></li>
             </ul>
           </div>
@@ -34,7 +34,7 @@ const Footer = () => {
               <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/">{t('footer.company_about')}</Link></li>
               <li className="hover:text-[#FF5C35] cursor-pointer">{t('footer.company_standards')}</li>
               <li className="hover:text-[#FF5C35] cursor-pointer"><Link to="/pricing">{t('footer.company_pricing')}</Link></li>
-              <li className="hover:text-[#FF5C35] cursor-pointer">{t('footer.company_contact')}</li>
+              <li className="hover:text-[#FF5C35] cursor-pointer"> <Link to="/contact">{t('footer.company_contact')}</Link> </li>
             </ul>
           </div>
 
