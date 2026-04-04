@@ -31,6 +31,8 @@
     "one": "{{count}} Service",
     "other": "{{count}} Services"
   },
+  "currency": "SAR",
+  "carModel": "Mercedes-Benz S-Class",
   "stats": {
     "totalServices": "Total Services",
     "totalWarranty": "Total Warranty",

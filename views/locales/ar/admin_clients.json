@@ -31,6 +31,8 @@
     "one": "{{count}} خدمة",
     "other": "{{count}} خدمات"
   },
+  "currency": "ر.س",
+  "carModel": "مرسيدس بنز الفئة S",
   "stats": {
     "totalServices": "إجمالي الخدمات",
     "totalWarranty": "إجمالي الضمان",

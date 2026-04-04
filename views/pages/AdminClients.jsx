@@ -24,9 +24,9 @@ const AdminClients = () => {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
           <div>
             <h1 className="text-3xl md:text-5xl font-display tracking-widest text-white font-light">
-              <span className="text-[#FF4500]">{t('admin_clients:welcome_back')}</span> Omar
+              <span className="text-[#FF4500]">{t('admin_clients:welcomeBack')}</span> Omar
             </h1>
-            <p className="text-gray-400 text-[11px] mt-2 tracking-widest font-light">{t('admin_clients:member_since', { date: `${t('admin_clients:months.january')} 2026` })}</p>
+            <p className="text-gray-400 text-[11px] mt-2 tracking-widest font-light">{t('admin_clients:memberSince', { date: `${t('admin_clients:months.january')} 2026` })}</p>
           </div>
           <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg text-[10px] text-white hover:bg-white/5 transition-colors uppercase tracking-[0.2em]">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -54,11 +54,11 @@ const AdminClients = () => {
                     </svg>
                   </div>
                   <div>
-                    <h2 className="text-lg font-display text-white tracking-widest uppercase">Mercedes-Benz S-Class</h2>
+                    <h2 className="text-lg font-display text-white tracking-widest uppercase">{t('admin_clients:carModel')}</h2>
                     <p className="text-gray-500 text-[10px] font-light">{t('admin_clients:checklists.paint_protection')} film</p>
                   </div>
                 </div>
-                <span className="px-3 py-1 border border-[#FF4500]/30 text-[#FF4500] bg-[#FF4500]/10 rounded-full text-[9px] uppercase tracking-widest">{t('admin_clients:in_progress')}</span>
+                <span className="px-3 py-1 border border-[#FF4500]/30 text-[#FF4500] bg-[#FF4500]/10 rounded-full text-[9px] uppercase tracking-widest">{t('admin_clients:inProgress')}</span>
               </div>
 
               {/* Progress Bar Area */}
@@ -79,7 +79,7 @@ const AdminClients = () => {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="text-[11px] font-light tracking-widest">{t('admin_clients:est_delivery')}</span>
+                  <span className="text-[11px] font-light tracking-widest">{t('admin_clients:estimatedDelivery')}</span>
                 </div>
                 <div className="text-left sm:text-right">
                   <div className="text-lg font-display text-[#FF4500] tracking-widest">1d/21h /57m</div>
@@ -123,7 +123,7 @@ const AdminClients = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h2 className="text-xl font-display text-white tracking-widest font-light">{t('admin_clients:active_warranty')}</h2>
+                <h2 className="text-xl font-display text-white tracking-widest font-light">{t('admin_clients:activeWarranty')}</h2>
               </div>
 
               <div className="space-y-4 font-light">
@@ -132,15 +132,15 @@ const AdminClients = () => {
                   <span className="text-white text-[11px] font-bold tracking-widest">PPF Full Body</span>
                 </div>
                 <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                  <span className="text-gray-400 text-[11px] tracking-widest">{t('admin_clients:labels.start_date')}</span>
+                  <span className="text-gray-400 text-[11px] tracking-widest">{t('admin_clients:labels.startDate')}</span>
                   <span className="text-white text-[11px] font-bold tracking-widest">11/2/2024</span>
                 </div>
                 <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                  <span className="text-gray-400 text-[11px] tracking-widest">{t('admin_clients:labels.coverage_period')}</span>
+                  <span className="text-gray-400 text-[11px] tracking-widest">{t('admin_clients:labels.coveragePeriod')}</span>
                   <span className="text-white text-[11px] font-bold tracking-widest">10-Years</span>
                 </div>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-gray-400 text-[11px] tracking-widest">{t('admin_clients:labels.time_remaining')}</span>
+                  <span className="text-gray-400 text-[11px] tracking-widest">{t('admin_clients:labels.timeRemaining')}</span>
                   <span className="text-[#FF4500] text-sm font-display tracking-widest drop-shadow-[0_0_5px_rgba(255,69,0,0.5)]">2.228</span>
                 </div>
               </div>
@@ -159,17 +159,17 @@ const AdminClients = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                   </svg>
                 </div>
-                <h2 className="text-xl font-display text-white tracking-widest font-light">{t('admin_clients:loyalty_points')}</h2>
+                <h2 className="text-xl font-display text-white tracking-widest font-light">{t('admin_clients:loyaltyPoints.title')}</h2>
               </div>
 
               <div className="text-center mb-10">
                 <div className="text-6xl font-display text-[#FF4500] font-light tracking-widest drop-shadow-[0_0_15px_rgba(255,69,0,0.4)]">2.228</div>
-                <div className="text-[9px] text-gray-500 uppercase tracking-widest mt-2">{t('admin_clients:available_points')}</div>
+                <div className="text-[9px] text-gray-500 uppercase tracking-widest mt-2">{t('admin_clients:loyaltyPoints.available')}</div>
               </div>
 
               <div className="mb-10">
                 <div className="flex justify-between items-end mb-2">
-                  <span className="text-gray-500 text-[9px] tracking-widest uppercase">{t('admin_clients:next_reward')}</span>
+                  <span className="text-gray-500 text-[9px] tracking-widest uppercase">{t('admin_clients:loyaltyPoints.nextReward')}</span>
                   <span className="text-white text-[11px] font-bold tracking-widest">58 pts</span>
                 </div>
                 <div className="h-1.5 w-full bg-[#222] rounded-full overflow-hidden">
@@ -179,13 +179,13 @@ const AdminClients = () => {
 
               <div className="flex flex-col gap-3 mt-auto">
                 <button className="w-full py-4 bg-[#FF4500] hover:bg-[#FF4500]/90 text-white text-[11px] font-bold rounded-xl uppercase tracking-[0.2em] transition-all shadow-[0_0_15px_rgba(255,69,0,0.3)] hover:shadow-[0_0_25px_rgba(255,69,0,0.5)]">
-                  {t('admin_clients:redeem_points')}
+                  {t('admin_clients:loyaltyPoints.redeem')}
                 </button>
                 <button className="w-full py-4 bg-[#1a1a1a] border border-white/20 hover:bg-white/5 text-white text-[11px] font-bold rounded-xl flex items-center justify-center gap-2 uppercase tracking-[0.2em] transition-colors">
                   <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                   </svg>
-                  {t('admin_clients:gift_points')}
+                  {t('admin_clients:loyaltyPoints.gift')}
                 </button>
               </div>
             </div>
@@ -199,9 +199,9 @@ const AdminClients = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                   </div>
-                  <h2 className="text-sm font-display text-white tracking-widest font-light">{t('admin_clients:service_history')}</h2>
+                  <h2 className="text-sm font-display text-white tracking-widest font-light">{t('admin_clients:serviceHistory')}</h2>
                 </div>
-                <span className="px-3 py-1 border border-white/20 text-white text-[9px] rounded uppercase tracking-widest">{t('admin_clients:services_count', { count: 3 })}</span>
+                <span className="px-3 py-1 border border-white/20 text-white text-[9px] rounded uppercase tracking-widest">{t('admin_clients:servicesCount.other', { count: 3 })}</span>
               </div>
 
               <div className="space-y-4 shadow-inner">
@@ -210,7 +210,7 @@ const AdminClients = () => {
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-2">
                       <div>
                         <div className="text-[10px] text-white font-bold tracking-widest">{t('admin_clients:checklists.paint_protection')} Film Full Body</div>
-                        <div className="text-[8px] text-gray-500 tracking-wider">Mercedes-Benz S-Class</div>
+                        <div className="text-[8px] text-gray-500 tracking-wider">{t('admin_clients:carModel')}</div>
                       </div>
                       <span className="px-2 py-0.5 border border-[#FF4500]/50 text-[#FF4500] text-[8px] rounded-full uppercase tracking-wider relative overflow-hidden bg-[#FF4500]/5 self-start sm:self-auto">
                         <span className="relative z-10">+1823 pts</span>
@@ -231,10 +231,10 @@ const AdminClients = () => {
         {/* Bottom Stats Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {[
-            { amount: '3', label: t('admin_clients:stats.total_services'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /> },
-            { amount: '10', label: t('admin_clients:stats.total_warranty'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /> },
-            { amount: '2.228', label: t('admin_clients:stats.total_points'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /> },
-            { amount: `${t('admin_clients:currency')} 24.500`, label: t('admin_clients:stats.total_spent'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /> },
+            { amount: '3', label: t('admin_clients:stats.totalServices'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /> },
+            { amount: '10', label: t('admin_clients:stats.totalWarranty'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /> },
+            { amount: '2.228', label: t('admin_clients:stats.totalPoints'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /> },
+            { amount: `${t('admin_clients:currency')} 24.500`, label: t('admin_clients:stats.totalSpent'), icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /> },
           ].map((stat, i) => (
             <div key={i} className="bg-[#1a1a1a] rounded-2xl p-5 sm:p-6 lg:p-10 flex flex-row sm:flex-col items-center sm:justify-center justify-start text-left sm:text-center shadow-xl gap-4 sm:gap-0">
               <div className="p-3 sm:p-0 bg-[#FF4500]/5 sm:bg-transparent border border-[#FF4500]/20 sm:border-transparent rounded-xl flex-shrink-0 mb-0 sm:mb-4 lg:mb-8">
