@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { PRICING_TIERS } from '../../constants';
+import { PRICING_TIERS } from '../constants.jsx';
 import Icon from '../components/Icon';
 
 const PricingView = () => {

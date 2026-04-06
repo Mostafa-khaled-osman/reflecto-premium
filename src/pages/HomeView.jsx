@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { SERVICES } from '../../constants';
+import { SERVICES } from '../constants.jsx';
 import Icon from '../components/Icon';
 
 const HomeView = () => {

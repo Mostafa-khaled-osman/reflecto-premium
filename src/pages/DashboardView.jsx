@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SERVICE_HISTORY } from '../../constants';
+import { SERVICE_HISTORY } from '../constants.jsx';
 import Icon from '../components/Icon';
 
 const DashboardView = () => {

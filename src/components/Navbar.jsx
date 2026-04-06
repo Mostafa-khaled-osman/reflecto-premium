@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useLanguage } from '../../hooks/useLanguage';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);

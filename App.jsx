@@ -1,10 +1,10 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Navbar from './views/components/Navbar';
-import Footer from './views/components/Footer';
-import AppRoutes from './views/routes/routes';
-import { useLanguage } from './hooks/useLanguage';
-import { useAuth } from './contexts/AuthContext';
+import Navbar from './src/components/Navbar';
+import Footer from './src/components/Footer';
+import AppRoutes from './src/routes/routes';
+import { useLanguage } from './src/hooks/useLanguage';
+import { useAuth } from './src/contexts/AuthContext';
 
 const App = () => {
   useLanguage();

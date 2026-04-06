@@ -12,8 +12,8 @@ import AdminOverview from '../pages/AdminOverview';
 import AdminScheduling from '../pages/AdminScheduling';
 import AdminClients from '../pages/AdminClients';
 import NotFound from '../error-page/notFound';
-import ProtectedRoute from '../../components/ProtectedRoute';
-import PageTransition from '../../components/PageTransition';
+import ProtectedRoute from '../components/components/ProtectedRoute';
+import PageTransition from '../components/components/PageTransition';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
