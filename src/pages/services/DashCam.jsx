@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import PackagesCarousel from '../../components/PackagesCarousel';
 
 const availablePhotos = [
   '/assets/photo/22536460-00db-44a2-a51c-6657fb1feec0.jpg',
@@ -34,7 +35,7 @@ const getRandomPhoto = (index) => {
 };
 
 const DashCam = () => {
-  const { t } = useTranslation(['dashcam', 'common']);
+  const { t } = useTranslation(['dashcam', 'service5', 'common']);
 
   const dashLevels = t('dashcam:dash_levels', { returnObjects: true }) || [];
   const stats = t('dashcam:stats', { returnObjects: true }) || [];
@@ -124,38 +125,19 @@ const DashCam = () => {
             </div>
           </div>
         </div>
-
-        <div className="mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
-            {t('dashcam:packages_title_1')} <span className="text-[#FF5C35]">{t('dashcam:packages_title_2')}</span> {t('dashcam:packages_title_rest')}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                      {Array.isArray(packagesList) && packagesList.map((pkg, i) => (
-                        <div
-                          key={i}
-                          className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-5 flex flex-col hover:border-[#FF5C35]/40 transition-all group"
-                        >
-                          <div className="mb-4 pb-3 border-b border-white/5">
-                            <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">{pkg.label}</p>
-                            <p className="text-[#FF5C35] font-bold text-sm leading-snug">{pkg.price} SAR</p>
-                            <p className="text-gray-600 text-[10px]">{pkg.note}</p>
-                          </div>
-                          <ul className="space-y-2.5 mb-6 flex-grow">
-                            {pkg.features.map((f, j) => (
-                              <li key={j} className="flex items-start gap-2 text-[11px] text-gray-400 leading-snug">
-                                <CheckIcon />
-                                {f}
-                              </li>
-                            ))}
-                          </ul>
-                          <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 text-center">
-                            {t('service5:pkg_book')}
-                          </Link>
-                        </div>
-                      ))}
-                    </div>
-        </div>
       </div>
+
+      <PackagesCarousel
+        packages={packagesList}
+        title={
+          <>
+            {t('dashcam:packages_title_1')}{' '}
+            <span className="text-[#FF5C35]">{t('dashcam:packages_title_2')}</span>{' '}
+            {t('dashcam:packages_title_rest')}
+          </>
+        }
+        bookLabel={t('service5:pkg_book')}
+      />
     </div>
   );
 };

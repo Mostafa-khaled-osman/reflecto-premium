@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import PackagesCarousel from '../../components/PackagesCarousel';
 
 const CheckIcon = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FF5C35" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
@@ -165,37 +166,16 @@ const Ppf = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-[#141414]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
-            {t('ppf:packages_title_prefix')} <span className="text-[#FF5C35]">{t('ppf:packages_title_highlight')}</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {Array.isArray(packages) && packages.map((pkg, i) => (
-              <div
-                key={i}
-                className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-5 flex flex-col hover:border-[#FF5C35]/40 transition-all group"
-              >
-                <div className="mb-4 pb-3 border-b border-white/5">
-                  <h3 className="text-white font-bold text-sm leading-snug mb-1">{pkg.name}</h3>
-                  <span className="text-[#FF5C35] font-bold text-xs">{pkg.price}</span>
-                </div>
-                <ul className="space-y-2 mb-6 flex-grow">
-                  {pkg.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2 text-[11px] text-gray-400 leading-snug">
-                      <CheckIcon />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 text-center block">
-                  {t('ppf:book_service')}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PackagesCarousel
+        packages={packages}
+        title={
+          <>
+            {t('ppf:packages_title_prefix')}{' '}
+            <span className="text-[#FF5C35]">{t('ppf:packages_title_highlight')}</span>
+          </>
+        }
+        bookLabel={t('ppf:book_service')}
+      />
     </div>
   );
 };

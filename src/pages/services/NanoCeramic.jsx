@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Icon from '../../components/Icon';
+import PackagesCarousel from '../../components/PackagesCarousel';
 
 const CheckIcon = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FF5C35" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5">
@@ -209,42 +210,18 @@ const NanoCeramic = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-[#141414]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-3">
+      <PackagesCarousel
+        packages={packagesList}
+        title={
+          <>
             <span className="text-[#FF5C35]">{t('service5:packages_title_1')}</span> &amp;{' '}
-            <span className="text-[#FF5C35]">{t('service5:packages_title_2')}</span>{t('service5:packages_title_rest')}
-          </h2>
-          <p className="text-gray-500 text-sm text-center mb-12">
-            {t('service5:packages_subtitle')}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {Array.isArray(packagesList) && packagesList.map((pkg, i) => (
-              <div
-                key={i}
-                className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-5 flex flex-col hover:border-[#FF5C35]/40 transition-all group"
-              >
-                <div className="mb-4 pb-3 border-b border-white/5">
-                  <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">{pkg.label}</p>
-                  <p className="text-[#FF5C35] font-bold text-sm leading-snug">{pkg.price} SAR</p>
-                  <p className="text-gray-600 text-[10px]">{pkg.note}</p>
-                </div>
-                <ul className="space-y-2.5 mb-6 flex-grow">
-                  {pkg.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2 text-[11px] text-gray-400 leading-snug">
-                      <CheckIcon />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link to="/Contact" className="w-full py-2.5 bg-[#FF5C35] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-[#FF5C35]/20 text-center">
-                  {t('service5:pkg_book')}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <span className="text-[#FF5C35]">{t('service5:packages_title_2')}</span>
+            {t('service5:packages_title_rest')}
+          </>
+        }
+        subtitle={t('service5:packages_subtitle')}
+        bookLabel={t('service5:pkg_book')}
+      />
     </div>
   );
 };
