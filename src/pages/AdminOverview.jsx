@@ -5,7 +5,7 @@ import AdminSidebar from '../components/AdminSidebar';
 const AdminOverview = () => {
 
   return (
-    <div className="flex bg-[#0a0a0a] min-h-screen text-white">
+    <div className="flex bg-[#0a0a0a] min-h-screen text-white mt-20">
       <AdminSidebar />
 
       <div className="flex-grow lg:pl-64 flex flex-col xl:flex-row">
@@ -19,18 +19,19 @@ const AdminOverview = () => {
             </div>
 
             <div className="flex items-center gap-4 sm:gap-6 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0">
-              <div className="relative shrink-0">
+              {/*<div className="relative shrink-0">
                 <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
-                <input
+                 <input
                   type="text"
                   placeholder="Search client, ID..."
                   className="bg-[#1a1a1a] border border-white/5 rounded-xl pl-12 pr-6 py-3 text-sm w-48 sm:w-80 focus:outline-none focus:border-[#FF5C35] transition-all"
-                />
+                /> 
               </div>
               <button className="w-10 h-10 shrink-0 flex items-center justify-center rounded-xl bg-[#1a1a1a] border border-white/5 text-gray-400 hover:text-white transition-all relative">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
                 <span className="absolute top-2 right-2 w-2 h-2 bg-[#FF5C35] rounded-full"></span>
-              </button>
+              </button>*/}
+              
               <Link
                 to="/Contact"
                 className="px-6 py-3 shrink-0 bg-[#FF5C35] text-white font-bold rounded-xl text-sm flex items-center gap-2 shadow-lg shadow-[#FF5C35]/20 hover:brightness-110 transition-all"
@@ -45,7 +46,7 @@ const AdminOverview = () => {
           {/* Stats Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
-              { label: 'Total Revenue', value: '$124,500', trend: '+12.5% from last month', icon: 'dollar-sign' },
+              
               { label: 'Active Jobs', value: '28', trend: '4 urgent priority', icon: 'briefcase' },
               { label: 'Scheduled', value: '14', trend: 'Next 7 days', icon: 'calendar' },
               { label: 'Client Satisfaction', value: '4.9/5.0', trend: 'Top tier rating', icon: 'star' }
@@ -62,7 +63,7 @@ const AdminOverview = () => {
           </div>
 
           {/* Work Gallery */}
-          <div className="mb-12">
+          {/* <div className="mb-12">
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-xl font-display font-bold">Work Gallery</h3>
               <button className="text-[10px] font-bold text-[#FF5C35] uppercase tracking-widest hover:underline">View All</button>
@@ -80,7 +81,7 @@ const AdminOverview = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Client Table Section */}
           <div className="w-full">
@@ -139,83 +140,7 @@ const AdminOverview = () => {
         </div>
 
         {/* Right Sidebar Insights */}
-        <div className="w-full xl:w-96 p-6 lg:p-10 space-y-12 shrink-0">
-          {/* Active Analytics */}
-          <div>
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-xl font-bold">Active Analytics</h3>
-              <button className="text-gray-500">•••</button>
-            </div>
-
-            <div className="relative flex justify-center py-10">
-              <svg className="w-48 h-48 -rotate-90">
-                <circle cx="96" cy="96" r="88" className="stroke-white/5" strokeWidth="12" fill="none" />
-                <circle cx="96" cy="96" r="88" className="stroke-[#FF5C35]" strokeWidth="12" fill="none" strokeDasharray="552" strokeDashoffset="0" />
-              </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <div className="text-4xl font-bold font-display">100%</div>
-                <div className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Efficiency</div>
-              </div>
-            </div>
-
-            <div className="flex justify-between px-4 mt-8 text-center">
-              <div>
-                <div className="text-2xl font-bold">12</div>
-                <div className="text-[10px] text-gray-500 uppercase font-bold">Projects</div>
-              </div>
-              <div className="w-[1px] h-10 bg-white/5"></div>
-              <div>
-                <div className="text-2xl font-bold">45h</div>
-                <div className="text-[10px] text-gray-500 uppercase font-bold">Logged</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Global Clients Map */}
-          <div>
-            <h3 className="text-xl font-bold mb-8">Global Clients</h3>
-            <div className="bg-[#141414] rounded-2xl border border-white/5 p-6 aspect-video relative flex items-center justify-center overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400" className="w-full opacity-20" alt="Map" />
-              <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-[#FF5C35] rounded-full shadow-lg shadow-[#FF5C35]/50 border-2 border-white animate-pulse"></div>
-            </div>
-          </div>
-
-          {/* Recent Activity */}
-          <div>
-            <h3 className="text-xl font-bold mb-8">Recent Activity</h3>
-            <div className="space-y-6">
-              {[
-                { title: 'Detailing complete', desc: 'Porsche 911 GT3 - 10m ago', color: 'bg-[#FF5C35]' },
-                { title: 'New Contact request', desc: 'Liam Davies - 1h ago', color: 'bg-white/20' },
-                { title: 'Invoice generated', desc: '#INV-2049 - 3h ago', color: 'bg-white/20' }
-              ].map((act, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className={`w-2 h-2 mt-2 rounded-full shrink-0 ${act.color}`}></div>
-                  <div>
-                    <div className="text-sm font-bold text-gray-200">{act.title}</div>
-                    <div className="text-[10px] text-gray-500">{act.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* System Status */}
-          <div className="pt-10">
-            <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
-              <div className="flex justify-between items-center mb-4">
-                <div className="text-[10px] font-bold text-gray-500 uppercase">System Status</div>
-                <div className="text-[10px] font-bold text-gray-500 uppercase">Optimal</div>
-              </div>
-              <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                <div className="h-full bg-[#FF5C35]/50 w-2/3"></div>
-              </div>
-              <div className="flex justify-between mt-2 text-[8px] text-gray-600">
-                <span>Server Load</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
