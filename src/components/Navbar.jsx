@@ -125,6 +125,7 @@ const Navbar = () => {
           </div>
 
           <NavLink label={t('common:nav_contact')} path="/Contact" />
+          <NavLink label={t('common:nav_dashboard')} path="/admin" />
         </div>
 
         <div className="hidden md:flex flex-1 justify-end items-center gap-4">
