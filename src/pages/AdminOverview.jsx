@@ -5,10 +5,10 @@ import AdminSidebar from '../components/AdminSidebar';
 const AdminOverview = () => {
 
   return (
-    <div className="flex bg-[#0a0a0a] min-h-screen text-white overflow-hidden">
+    <div className="flex bg-[#0a0a0a] min-h-screen text-white overflow-hidden pt-20">
       <AdminSidebar />
 
-      <div className="flex-grow lg:pl-64 flex flex-col xl:flex-row overflow-hidden">
+      {/* <div className="flex-grow lg:pl-80 flex flex-col xl:flex-row overflow-hidden"> */}
         {/* BEGIN: Main Content Area */}
         <main className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
           {/* Header (Preserving functional pieces from original) */}
@@ -148,7 +148,7 @@ const AdminOverview = () => {
         <aside className="w-full xl:w-[360px] flex-shrink-0 border-t xl:border-t-0 xl:border-l border-[#333333] bg-[#141414] overflow-y-auto p-4 flex flex-col gap-4">
           
           {/* Analytics Dial Section */}
-          <section className="bg-[#222222] rounded-xl p-5 border border-[#333333] flex items-center justify-between mt-[80px]">
+          <section className="bg-[#222222] rounded-xl p-5 border border-[#333333] flex items-center justify-between">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-[#ff4d4d]"></div>
@@ -265,7 +265,7 @@ const AdminOverview = () => {
         </aside>
         {/* END: Right Sidebar */}
       </div>
-    </div>
+    // </div>
   );
 };
 
