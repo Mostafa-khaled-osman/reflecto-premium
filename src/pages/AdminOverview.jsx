@@ -5,7 +5,7 @@ import AdminSidebar from '../components/AdminSidebar';
 const AdminOverview = () => {
 
   return (
-    <div className="flex bg-[#0a0a0a] min-h-screen text-white">
+    <div className="flex bg-[#0a0a0a] min-h-screen text-white overflow-hidden">
       <AdminSidebar />
 
       <div className="flex-grow lg:pl-64 flex flex-col xl:flex-row overflow-hidden">
@@ -19,19 +19,18 @@ const AdminOverview = () => {
             </div>
 
             <div className="flex items-center gap-4 sm:gap-6 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0">
-              {/*<div className="relative shrink-0">
+              <div className="relative shrink-0">
                 <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
-                 <input
+                <input
                   type="text"
                   placeholder="Search client, ID..."
                   className="bg-[#1a1a1a] border border-white/5 rounded-xl pl-12 pr-6 py-3 text-sm w-48 sm:w-80 focus:outline-none focus:border-[#FF5C35] transition-all"
-                /> 
+                />
               </div>
               <button className="w-10 h-10 shrink-0 flex items-center justify-center rounded-xl bg-[#1a1a1a] border border-white/5 text-gray-400 hover:text-white transition-all relative">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
                 <span className="absolute top-2 right-2 w-2 h-2 bg-[#FF5C35] rounded-full"></span>
-              </button>*/}
-              
+              </button>
               <Link
                 to="/Contact"
                 className="px-6 py-3 shrink-0 bg-[#FF5C35] text-white font-bold rounded-xl text-sm flex items-center gap-2 shadow-lg shadow-[#FF5C35]/20 hover:brightness-110 transition-all"
@@ -43,30 +42,20 @@ const AdminOverview = () => {
             </div>
           </header>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              { label: 'Total Revenue', value: '$124,500', trend: '+12.5% from last month', icon: 'dollar-sign' },
-              { label: 'Active Jobs', value: '28', trend: '4 urgent priority', icon: 'briefcase' },
-              { label: 'Scheduled', value: '14', trend: 'Next 7 days', icon: 'calendar' },
-              { label: 'Client Satisfaction', value: '4.9/5.0', trend: 'Top tier rating', icon: 'star' }
-            ].map((stat, i) => (
-              <div key={i} className="bg-[#141414] p-6 lg:p-8 rounded-2xl border border-white/5">
-                <div className="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-4">{stat.label}</div>
-                <div className="text-3xl font-bold mb-2">{stat.value}</div>
-                <div className="text-[10px] text-gray-400 flex items-center gap-1">
-                  {i === 0 && <svg className="text-green-500 shrink-0" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>}
-                  {stat.trend}
-                </div>
-              </div>
-            ))}
+          {/* Hero Image */}
+          <div className="w-full h-[380px] rounded-xl overflow-hidden relative shadow-2xl shrink-0 mt-2">
+            <img alt="Main Car Hero" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=1200" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
           </div>
 
-          {/* Work Gallery */}
-          <div className="mb-12">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-xl font-display font-bold">Work Gallery</h3>
-              <button className="text-[10px] font-bold text-[#FF5C35] uppercase tracking-widest hover:underline">View All</button>
+          {/* Client Data Table Section */}
+          <section className="bg-[#222222] rounded-xl p-6 border border-[#333333] flex-1 flex flex-col min-h-[400px]">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+              <h2 className="text-white text-lg font-semibold tracking-wide">CLIENT DATA & SCHEDULING</h2>
+              <div className="flex items-center gap-2 text-[#a0a0a0]">
+                <span className="text-xs font-semibold cursor-pointer hover:text-white transition-colors">EXPORT REPORT</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
+              </div>
             </div>
 
             <div className="w-full flex-1 flex flex-col overflow-x-auto">
@@ -149,17 +138,6 @@ const AdminOverview = () => {
                     <div className="col-span-4 text-right text-white font-medium text-sm">TECHNOLOGY2</div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Client Table Section */}
-          <div className="w-full">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-xl font-display font-bold">Client Data & Scheduling</h3>
-              <div className="flex gap-2">
-                <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#1a1a1a] border border-white/5 text-gray-500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg></button>
-                <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#1a1a1a] border border-white/5 text-gray-500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg></button>
               </div>
             </div>
           </section>
@@ -188,84 +166,104 @@ const AdminOverview = () => {
               </div>
             </div>
 
-        {/* Right Sidebar Insights */}
-        <div className="w-full xl:w-96 p-6 lg:p-10 space-y-12 shrink-0">
-          {/* Active Analytics */}
-          <div>
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-xl font-bold">Active Analytics</h3>
-              <button className="text-gray-500">•••</button>
-            </div>
-
-            <div className="relative flex justify-center py-10">
-              <svg className="w-48 h-48 -rotate-90">
-                <circle cx="96" cy="96" r="88" className="stroke-white/5" strokeWidth="12" fill="none" />
-                <circle cx="96" cy="96" r="88" className="stroke-[#FF5C35]" strokeWidth="12" fill="none" strokeDasharray="552" strokeDashoffset="0" />
+            <div className="relative w-32 h-32 flex items-center justify-center shrink-0">
+              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                <path className="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="3"></path>
+                <path className="text-[#333333]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeDasharray="82, 100" strokeWidth="3"></path>
+                <path className="text-[#ff4d4d]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeDasharray="15, 100" strokeDashoffset="-82" strokeWidth="3"></path>
               </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <div className="text-4xl font-bold font-display">100%</div>
-                <div className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Efficiency</div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-2xl font-light text-white">82<span className="text-sm text-gray-400">%</span></span>
               </div>
             </div>
 
-            <div className="flex justify-between px-4 mt-8 text-center">
-              <div>
-                <div className="text-2xl font-bold">12</div>
-                <div className="text-[10px] text-gray-500 uppercase font-bold">Projects</div>
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-2 justify-end">
+                <div className="text-right">
+                  <div className="text-white text-xs font-semibold">ACTIVE</div>
+                  <div className="text-[10px] text-gray-500">Acvie 0000</div>
+                </div>
+                <div className="w-2 h-2 rounded-full bg-gray-500"></div>
               </div>
-              <div className="w-[1px] h-10 bg-white/5"></div>
-              <div>
-                <div className="text-2xl font-bold">45h</div>
-                <div className="text-[10px] text-gray-500 uppercase font-bold">Logged</div>
+              <div className="flex items-center gap-2 justify-end">
+                <div className="text-right">
+                  <div className="text-white text-xs font-semibold">Chkl Develope</div>
+                  <div className="text-[10px] text-gray-500">Waear clases</div>
+                </div>
+                <div className="w-2 h-2 rounded-full bg-[#ff4d4d]"></div>
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* Global Clients Map */}
-          <div>
-            <h3 className="text-xl font-bold mb-8">Global Clients</h3>
-            <div className="bg-[#141414] rounded-2xl border border-white/5 p-6 aspect-video relative flex items-center justify-center overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400" className="w-full opacity-20" alt="Map" />
-              <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-[#FF5C35] rounded-full shadow-lg shadow-[#FF5C35]/50 border-2 border-white animate-pulse"></div>
+          {/* Active Analytics Map */}
+          <section className="bg-[#222222] rounded-xl p-5 border border-[#333333]">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-white text-sm font-semibold tracking-wider">ACTIVE ANALYTICS</h2>
+              <span className="text-[#a0a0a0] cursor-pointer hover:text-white">...</span>
             </div>
-          </div>
+            <div className="w-full h-40 bg-[#141414] rounded-lg flex items-center justify-center relative overflow-hidden border border-[#333333]">
+              <img className="w-full h-full object-cover opacity-50" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400" alt="Map" />
+              <div className="absolute w-2 h-2 bg-[#ff4d4d] rounded-full top-[30%] left-[25%] shadow-[0_0_10px_rgba(255,77,77,0.8)]"></div>
+              <div className="absolute w-2 h-2 bg-[#ff4d4d] rounded-full top-[40%] left-[45%] shadow-[0_0_10px_rgba(255,77,77,0.8)]"></div>
+              <div className="absolute w-2 h-2 bg-[#ff4d4d] rounded-full top-[25%] left-[75%] shadow-[0_0_10px_rgba(255,77,77,0.8)]"></div>
+            </div>
+          </section>
 
-          {/* Recent Activity */}
-          <div>
-            <h3 className="text-xl font-bold mb-8">Recent Activity</h3>
-            <div className="space-y-6">
-              {[
-                { title: 'Detailing complete', desc: 'Porsche 911 GT3 - 10m ago', color: 'bg-[#FF5C35]' },
-                { title: 'New Contact request', desc: 'Liam Davies - 1h ago', color: 'bg-white/20' },
-                { title: 'Invoice generated', desc: '#INV-2049 - 3h ago', color: 'bg-white/20' }
-              ].map((act, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className={`w-2 h-2 mt-2 rounded-full shrink-0 ${act.color}`}></div>
-                  <div>
-                    <div className="text-sm font-bold text-gray-200">{act.title}</div>
-                    <div className="text-[10px] text-gray-500">{act.desc}</div>
+          {/* Recent Content Manager */}
+          <section className="bg-[#222222] rounded-xl p-5 border border-[#333333] flex-1 flex flex-col">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-white text-sm font-semibold tracking-wider">RECENT CONTENT MANAGER</h2>
+              <span className="text-[#a0a0a0] cursor-pointer hover:text-white">...</span>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-3 mb-3">
+              <div className="bg-[#141414] rounded-lg p-2 border border-[#333333] relative overflow-hidden h-24">
+                <img className="absolute inset-0 w-full h-full object-cover opacity-40" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=600" alt="Camaro" />
+                <div className="relative z-10">
+                  <div className="text-[10px] text-gray-400">GALLERY VIEW</div>
+                  <div className="text-xs text-white font-medium">CAMARO SS 2021</div>
+                </div>
+                <div className="absolute bottom-2 right-2 flex gap-1">
+                  <div className="w-2 h-2 bg-[#ff4d4d] rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+                </div>
+              </div>
+              <div className="bg-[#141414] rounded-lg p-2 border border-[#333333] flex flex-col justify-end h-24 relative overflow-hidden">
+                {/* SVG Line Chart Representation */}
+                <svg className="absolute inset-0 w-full h-full opacity-50" preserveAspectRatio="none">
+                  <path d="M0,80 Q20,30 40,60 T80,20 T120,50 T160,10 L200,90" fill="none" stroke="#ff4d4d" strokeWidth="2"></path>
+                  <path d="M0,90 Q20,60 40,80 T80,40 T120,70 T160,30 L200,100" fill="none" stroke="#555" strokeWidth="1"></path>
+                </svg>
+                <div className="flex justify-between items-end relative z-10 w-full">
+                  <div className="text-[10px] text-gray-400">ENGAGEMENT</div>
+                  <div className="flex gap-1 mb-1">
+                    <div className="w-1.5 h-1.5 bg-[#4a4a4a] rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-[#4a4a4a] rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-[#ff4d4d] rounded-full"></div>
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
 
-          {/* System Status */}
-          <div className="pt-10">
-            <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
-              <div className="flex justify-between items-center mb-4">
-                <div className="text-[10px] font-bold text-gray-500 uppercase">System Status</div>
-                <div className="text-[10px] font-bold text-gray-500 uppercase">Optimal</div>
+            <div className="grid grid-cols-4 gap-2 flex-1 min-h-[60px]">
+              <div className="bg-[#141414] rounded border border-[#333333] overflow-hidden relative">
+                <img className="w-full h-full object-cover opacity-80" src="https://images.unsplash.com/photo-1552933529-e359b2477262?auto=format&fit=crop&q=80&w=400" alt="Thumb" />
+                <div className="absolute bottom-1 left-1 bg-[#ff4d4d] text-[8px] text-white px-1 rounded">NEW</div>
               </div>
-              <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                <div className="h-full bg-[#FF5C35]/50 w-2/3"></div>
+              <div className="bg-[#141414] rounded border border-[#333333] overflow-hidden">
+                 <img className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=400" alt="Thumb" />
               </div>
-              <div className="flex justify-between mt-2 text-[8px] text-gray-600">
-                <span>Server Load</span>
+              <div className="bg-[#141414] rounded border border-[#333333] overflow-hidden">
+                <img className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=400" alt="Thumb" />
+              </div>
+              <div className="bg-[#141414] rounded border border-[#333333] overflow-hidden flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors">
+                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
               </div>
             </div>
-          </div>
-        </div>
+          </section>
+
+        </aside>
+        {/* END: Right Sidebar */}
       </div>
     </div>
   );
