@@ -5,14 +5,14 @@ import AdminSidebar from '../components/AdminSidebar';
 const AdminOverview = () => {
 
   return (
-    <div className="flex bg-[#0a0a0a] min-h-screen text-white mt-20">
+    <div className="flex bg-[#0a0a0a] min-h-screen text-white">
       <AdminSidebar />
 
-      <div className="flex-grow lg:pl-64 flex flex-col xl:flex-row">
-        {/* Main Content */}
-        <div className="flex-grow p-6 lg:p-10 border-b xl:border-b-0 xl:border-r border-white/5 w-full">
-          {/* Header */}
-          <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-12 gap-6 pl-12 lg:pl-0 mt-4 lg:mt-0">
+      <div className="flex-grow lg:pl-64 flex flex-col xl:flex-row overflow-hidden">
+        {/* BEGIN: Main Content Area */}
+        <main className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
+          {/* Header (Preserving functional pieces from original) */}
+          <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pl-12 lg:pl-0 mt-4 lg:mt-0 shrink-0">
             <div>
               <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Dashboard / Overview</div>
               <h1 className="text-3xl font-display font-bold">Overview</h1>
@@ -46,7 +46,7 @@ const AdminOverview = () => {
           {/* Stats Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
-              
+              { label: 'Total Revenue', value: '$124,500', trend: '+12.5% from last month', icon: 'dollar-sign' },
               { label: 'Active Jobs', value: '28', trend: '4 urgent priority', icon: 'briefcase' },
               { label: 'Scheduled', value: '14', trend: 'Next 7 days', icon: 'calendar' },
               { label: 'Client Satisfaction', value: '4.9/5.0', trend: 'Top tier rating', icon: 'star' }
@@ -63,25 +63,95 @@ const AdminOverview = () => {
           </div>
 
           {/* Work Gallery */}
-          {/* <div className="mb-12">
+          <div className="mb-12">
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-xl font-display font-bold">Work Gallery</h3>
               <button className="text-[10px] font-bold text-[#FF5C35] uppercase tracking-widest hover:underline">View All</button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                { label: 'Before: Swirl Marks', img: 'https://images.unsplash.com/photo-1552933529-e359b2477262?auto=format&fit=crop&q=80&w=600', badge: 'bg-black/60' },
-                { label: 'After: Mirror Finish', img: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=600', badge: 'bg-[#FF5C35]/80' }
-              ].map((item, i) => (
-                <div key={i} className="relative group rounded-2xl overflow-hidden aspect-video border border-white/5">
-                  <img src={item.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={item.label} />
-                  <div className={`absolute bottom-6 left-6 px-4 py-2 rounded-lg text-[10px] font-bold backdrop-blur-md ${item.badge}`}>
-                    {item.label}
+
+            <div className="w-full flex-1 flex flex-col overflow-x-auto">
+              <div className="min-w-[800px]">
+                {/* Table Header */}
+                <div className="grid grid-cols-12 gap-4 text-[#a0a0a0] text-xs font-semibold tracking-wider pb-3 border-b border-[#333333] mb-3">
+                  <div className="col-span-3">NAME & BATES</div>
+                  <div className="col-span-2">NOTICE / NATURE</div>
+                  <div className="col-span-3">DEVELOPED SERVICE</div>
+                  <div className="col-span-2">SMARTPHONE</div>
+                  <div className="col-span-2 text-right">ACTION / FLEET</div>
+                </div>
+
+                {/* Table Body Rows */}
+                <div className="flex flex-col gap-2">
+                  <div className="grid grid-cols-12 gap-4 items-center bg-[#141414] border border-[#333333] rounded-lg p-3 hover:bg-gray-800 transition-colors">
+                    <div className="col-span-3 flex items-center gap-3">
+                      <img className="w-8 h-8 rounded-full object-cover border border-gray-600" src="https://i.pravatar.cc/150?u=Masstaria" alt="User" />
+                      <span className="text-white text-sm">Masstaria</span>
+                    </div>
+                    <div className="col-span-2 text-gray-400 text-sm">RESION</div>
+                    <div className="col-span-3 flex items-center gap-2">
+                      <span className="text-gray-300 text-sm">TRAK ASH & NGNESS</span>
+                      <svg className="w-3 h-3 text-[#ff4d4d]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
+                    </div>
+                    <div className="col-span-2 text-gray-400 text-sm">PIN SENSIOXE</div>
+                    <div className="col-span-2 text-right text-gray-400 text-sm">DESIGN</div>
+                  </div>
+
+                  <div className="grid grid-cols-12 gap-4 items-center bg-[#141414] border border-[#333333] rounded-lg p-3 hover:bg-gray-800 transition-colors">
+                    <div className="col-span-3 flex items-center gap-3">
+                      <img className="w-8 h-8 rounded-full object-cover border border-gray-600" src="https://i.pravatar.cc/150?u=Phillip" alt="User" />
+                      <span className="text-white text-sm whitespace-nowrap">Phillip Saonatksarsmona</span>
+                    </div>
+                    <div className="col-span-2 text-gray-400 text-sm">RESION</div>
+                    <div className="col-span-3 flex items-center gap-2">
+                      <span className="text-gray-300 text-sm">TRANSFORM OERING SERIES</span>
+                      <svg className="w-3 h-3 text-[#ff4d4d]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
+                    </div>
+                    <div className="col-span-2 text-gray-400 text-sm">PIN CIEEDE</div>
+                    <div className="col-span-2 text-right text-gray-400 text-sm">DESIGN</div>
+                  </div>
+
+                  <div className="grid grid-cols-12 gap-4 items-center bg-[#141414] border border-[#333333] rounded-lg p-3 hover:bg-gray-800 transition-colors">
+                    <div className="col-span-3 flex items-center gap-3">
+                      <img className="w-8 h-8 rounded-full object-cover border border-gray-600" src="https://i.pravatar.cc/150?u=Ptohyer" alt="User" />
+                      <span className="text-white text-sm">Ptohyer Clanirig</span>
+                    </div>
+                    <div className="col-span-2 text-gray-400 text-sm">RGSION</div>
+                    <div className="col-span-3 flex items-center justify-between">
+                      <span className="text-gray-300 text-sm">PLAE RECOVERY</span>
+                      <div className="w-4 h-4 border border-[#ff4d4d] rounded-sm mr-4"></div>
+                    </div>
+                    <div className="col-span-2 text-gray-400 text-sm">FROWARD FOROA</div>
+                    <div className="col-span-2 text-right text-gray-400 text-sm">DESIGN</div>
+                  </div>
+
+                  <div className="grid grid-cols-12 gap-4 items-center bg-[#141414] border border-[#333333] rounded-lg p-3 hover:bg-gray-800 transition-colors">
+                    <div className="col-span-3 flex items-center gap-3">
+                      <img className="w-8 h-8 rounded-full object-cover border border-gray-600" src="https://i.pravatar.cc/150?u=Smwess" alt="User" />
+                      <span className="text-white text-sm">Smwess Clooering</span>
+                    </div>
+                    <div className="col-span-2 text-gray-400 text-sm">RESION</div>
+                    <div className="col-span-3 flex items-center gap-2">
+                      <span className="text-gray-300 text-sm">TRONSXR EXETIVE VISUAL</span>
+                      <svg className="w-3 h-3 text-[#ff4d4d]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
+                    </div>
+                    <div className="col-span-2 text-gray-400 text-sm">PIN STING</div>
+                    <div className="col-span-2 text-right text-gray-400 text-sm">DESIGN</div>
+                  </div>
+
+                  {/* Active highlighted row */}
+                  <div className="grid grid-cols-12 gap-4 items-center bg-[#ff4d4d] rounded-lg p-3 shadow-lg shadow-[#ff4d4d]/20">
+                    <div className="col-span-3 flex items-center gap-3">
+                      <img className="w-8 h-8 rounded-full object-cover border border-white/30" src="https://i.pravatar.cc/150?u=Sacsio" alt="User" />
+                      <span className="text-white font-medium text-sm">Sacsio & Porasslanema</span>
+                    </div>
+                    <div className="col-span-2 text-white/80 text-sm">SERVICE</div>
+                    <div className="col-span-3 text-white/80 text-xs italic pr-4">Transforme nature wihicigclassorit is</div>
+                    <div className="col-span-4 text-right text-white font-medium text-sm">TECHNOLOGY2</div>
                   </div>
                 </div>
               ))}
             </div>
-          </div> */}
+          </div>
 
           {/* Client Table Section */}
           <div className="w-full">
@@ -92,55 +162,110 @@ const AdminOverview = () => {
                 <button className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#1a1a1a] border border-white/5 text-gray-500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg></button>
               </div>
             </div>
+          </section>
+        </main>
+        {/* END: Main Content Area */}
 
-            <div className="bg-[#0a0a0a] border border-white/5 rounded-2xl overflow-x-auto w-full">
-              <table className="w-full text-left text-sm min-w-[800px]">
-                <thead className="text-[10px] font-bold text-gray-500 uppercase tracking-widest border-b border-white/5 bg-white/[0.02]">
-                  <tr>
-                    <th className="px-6 py-4 w-12"><input type="checkbox" className="rounded bg-black border-white/10" /></th>
-                    <th className="px-6 py-4">Client Name</th>
-                    <th className="px-6 py-4">Vehicle</th>
-                    <th className="px-6 py-4">Service Package</th>
-                    <th className="px-6 py-4">Date</th>
-                    <th className="px-6 py-4">Status</th>
-                    <th className="px-6 py-4">Price</th>
-                    <th className="px-6 py-4"></th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/5">
-                  {[
-                    { id: '2', name: 'James Wilson', vehicle: 'Audi RS7 Sportback', service: 'Paint Correction', date: 'Oct 22, 2026', status: 'In Progress', statusColor: 'bg-blue-500/10 text-blue-400', price: '1,450' },
-                    { id: '2', name: 'James Wilson', vehicle: 'Audi RS7 Sportback', service: 'Paint Correction', date: 'Oct 22, 2026', status: 'Pending', statusColor: 'bg-yellow-500/10 text-yellow-400', price: '1,450' },
-                    { id: '3', name: 'James Wilson', vehicle: 'Audi RS7 Sportback', service: 'Paint Correction', date: 'Oct 22, 2026', status: 'Completed', statusColor: 'bg-green-500/10 text-green-400', price: '1,450', active: true },
-                  ].map((job, idx) => (
-                    <tr key={idx} className={`group hover:bg-white/[0.02] transition-colors ${job.active ? 'bg-[#FF5C35]/10' : ''}`}>
-                      <td className="px-6 py-6 text-gray-500 font-bold">{job.id}</td>
-                      <td className="px-6 py-6">
-                        <div className="flex items-center gap-3">
-                          <img src={`https://i.pravatar.cc/150?u=${job.name}`} className="w-8 h-8 rounded-full shrink-0" alt="" />
-                          <div>
-                            <div className="font-bold">{job.name}</div>
-                            <div className="text-[10px] text-gray-600 block sm:hidden">xxxxxxxxxxxxxxx</div>
-                          </div>
-                          <span className="text-[10px] text-gray-600 hidden sm:inline">xxxxxxxxxxxxxxx</span>
-                        </div>
-                      </td>
-                      <td className="px-6 py-6"><span className="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium whitespace-nowrap">{job.vehicle}</span></td>
-                      <td className="px-6 py-6"><span className="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium whitespace-nowrap">{job.service}</span></td>
-                      <td className="px-6 py-6"><span className="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium whitespace-nowrap">{job.date}</span></td>
-                      <td className="px-6 py-6"><span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${job.statusColor}`}>{job.status}</span></td>
-                      <td className="px-6 py-6 font-bold">{job.price}</td>
-                      <td className="px-6 py-6 text-gray-500">•••</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+        {/* BEGIN: Right Sidebar */}
+        <aside className="w-full xl:w-[360px] flex-shrink-0 border-t xl:border-t-0 xl:border-l border-[#333333] bg-[#141414] overflow-y-auto p-4 flex flex-col gap-4">
+          
+          {/* Analytics Dial Section */}
+          <section className="bg-[#222222] rounded-xl p-5 border border-[#333333] flex items-center justify-between mt-[80px]">
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-[#ff4d4d]"></div>
+                <div>
+                  <div className="text-white text-xs font-semibold">ACTRannon</div>
+                  <div className="text-[10px] text-gray-500">Ivorete antites</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-[#ff4d4d]"></div>
+                <div>
+                  <div className="text-white text-xs font-semibold">Derktc clases</div>
+                  <div className="text-[10px] text-gray-500">Deletuler woes</div>
+                </div>
+              </div>
+            </div>
+
+        {/* Right Sidebar Insights */}
+        <div className="w-full xl:w-96 p-6 lg:p-10 space-y-12 shrink-0">
+          {/* Active Analytics */}
+          <div>
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-xl font-bold">Active Analytics</h3>
+              <button className="text-gray-500">•••</button>
+            </div>
+
+            <div className="relative flex justify-center py-10">
+              <svg className="w-48 h-48 -rotate-90">
+                <circle cx="96" cy="96" r="88" className="stroke-white/5" strokeWidth="12" fill="none" />
+                <circle cx="96" cy="96" r="88" className="stroke-[#FF5C35]" strokeWidth="12" fill="none" strokeDasharray="552" strokeDashoffset="0" />
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <div className="text-4xl font-bold font-display">100%</div>
+                <div className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Efficiency</div>
+              </div>
+            </div>
+
+            <div className="flex justify-between px-4 mt-8 text-center">
+              <div>
+                <div className="text-2xl font-bold">12</div>
+                <div className="text-[10px] text-gray-500 uppercase font-bold">Projects</div>
+              </div>
+              <div className="w-[1px] h-10 bg-white/5"></div>
+              <div>
+                <div className="text-2xl font-bold">45h</div>
+                <div className="text-[10px] text-gray-500 uppercase font-bold">Logged</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Global Clients Map */}
+          <div>
+            <h3 className="text-xl font-bold mb-8">Global Clients</h3>
+            <div className="bg-[#141414] rounded-2xl border border-white/5 p-6 aspect-video relative flex items-center justify-center overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400" className="w-full opacity-20" alt="Map" />
+              <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-[#FF5C35] rounded-full shadow-lg shadow-[#FF5C35]/50 border-2 border-white animate-pulse"></div>
+            </div>
+          </div>
+
+          {/* Recent Activity */}
+          <div>
+            <h3 className="text-xl font-bold mb-8">Recent Activity</h3>
+            <div className="space-y-6">
+              {[
+                { title: 'Detailing complete', desc: 'Porsche 911 GT3 - 10m ago', color: 'bg-[#FF5C35]' },
+                { title: 'New Contact request', desc: 'Liam Davies - 1h ago', color: 'bg-white/20' },
+                { title: 'Invoice generated', desc: '#INV-2049 - 3h ago', color: 'bg-white/20' }
+              ].map((act, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className={`w-2 h-2 mt-2 rounded-full shrink-0 ${act.color}`}></div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-200">{act.title}</div>
+                    <div className="text-[10px] text-gray-500">{act.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* System Status */}
+          <div className="pt-10">
+            <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
+              <div className="flex justify-between items-center mb-4">
+                <div className="text-[10px] font-bold text-gray-500 uppercase">System Status</div>
+                <div className="text-[10px] font-bold text-gray-500 uppercase">Optimal</div>
+              </div>
+              <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div className="h-full bg-[#FF5C35]/50 w-2/3"></div>
+              </div>
+              <div className="flex justify-between mt-2 text-[8px] text-gray-600">
+                <span>Server Load</span>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Right Sidebar Insights */}
-        
       </div>
     </div>
   );
