@@ -61,8 +61,7 @@ const Ppf = () => {
           </div>
           <div className="rounded-2xl overflow-hidden border border-[#FF5C35]/20 shadow-[0_0_60px_rgba(255,92,53,0.12)]">
             <img
-              // src="/assets/photo/ppf.jpeg"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2zb6BBqTMFBWNDLogC_THDrhqoWByE7ktNkZwam1Tw6r8TOGzNIpB3SQAhydQt_gIpyhDedEi8V7tX4r0j_otQTOPDcTJ-CJDbeDBm8jFKMf7ZAFA9aO8YkfGhI06vzWjzvhzUNuDUVF1PnSE2B1clDnBQncPx2a0e53AD5h1lomhOmTcYjqx7M5YDTDhZYUee96FZhWUnqYIZ8Xk0eeI6FXh2DZushaBvQev8ASOPehSuBhrqYAOnSUw74ldj--KX99GxiT-S8g"
+              src="/assets/photo/ppf.jpeg"
               alt="PPF Self-Healing Shield car diagram"
               className="w-full h-[260px] md:h-[380px] object-cover mix-blend-luminosity opacity-90"
               onError={(e) => {

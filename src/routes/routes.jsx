@@ -62,9 +62,9 @@ const AppRoutes = () => {
         <Route path="/services/nano-ceramic" element={<AnimatedRoute><NanoCeramic /></AnimatedRoute>} />
         <Route path="/admin" element={
           <AnimatedRoute>
-            <ProtectedRoute>
+            {/* <ProtectedRoute> */}
               <AdminOverview />
-            </ProtectedRoute>
+            {/* </ProtectedRoute> */}
           </AnimatedRoute>
         } />
         <Route path="/admin/scheduling" element={
