@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services &amp; Packages | Executive Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#ffb4a7", outline: "#aa8983", "on-error-container": "#ffdad6", background: "#131313", "on-secondary-fixed": "#1b1c1c", "on-primary-fixed-variant": "#920700", "primary-fixed-dim": "#ffb4a7", "error-container": "#93000a", "on-tertiary-container": "#5a0500", surface: "#131313", "on-surface": "#e5e2e1", error: "#ffb4ab", "on-tertiary-fixed": "#3f0300", "tertiary-fixed-dim": "#ffb4a6", "surface-tint": "#ffb4a7", "inverse-primary": "#b62515", "tertiary-container": "#f2624a", "tertiary-fixed": "#ffdad4", "inverse-surface": "#e5e2e1", "secondary-fixed": "#e4e2e1", "surface-container-high": "#2a2a2a", "surface-container-highest": "#353534", "primary-container": "#fc5841", "on-tertiary": "#660700", "on-error": "#690005", "primary-fixed": "#ffdad4", "on-surface-variant": "#e3beb8", "surface-container": "#201f1f", "outline-variant": "#5b403c", "on-tertiary-fixed-variant": "#8c1808", "surface-variant": "#353534", "surface-bright": "#3a3939", "on-secondary-fixed-variant": "#474747", "on-secondary-container": "#b6b5b4", "on-primary-fixed": "#400100", "on-secondary": "#303030", secondary: "#c8c6c6", "secondary-container": "#474747", "secondary-fixed-dim": "#c8c6c6", tertiary: "#ffb4a6", "inverse-on-surface": "#313030", "on-primary-container": "#5b0300", "surface-dim": "#131313", "surface-container-lowest": "#0e0e0e", "surface-container-low": "#1c1b1b", "on-background": "#e5e2e1", "on-primary": "#680300"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, fontFamily: {headline: ["Inter"], body: ["Inter"], label: ["Inter"], display: "Inter"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ink-pool-gradient {
+            background: linear-gradient(135deg, #000000 0%, #131b2e 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#eceef0] flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl ink-pool-gradient flex items-center justify-center text-white">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-black font-headline">Atelier Admin</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Management Suite</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#e0e3e5] transition-all font-manrope text-sm font-semibold tracking-wide rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Clients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#d5e3fd] text-black rounded-lg font-bold font-manrope text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Services</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#e0e3e5] transition-all font-manrope text-sm font-semibold tracking-wide rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person_edit">person_edit</span>
+<span>Edit Clients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#e0e3e5] transition-all font-manrope text-sm font-semibold tracking-wide rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span>Edit Packages</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#e0e3e5] transition-all font-manrope text-sm font-semibold tracking-wide rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span>Branches</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 space-y-2">
+<button class="w-full ink-pool-gradient text-white py-3 px-4 rounded-xl font-headline font-bold text-sm mb-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                Create New Service
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-[#e0e3e5] transition-all font-manrope text-sm font-semibold rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 transition-all font-manrope text-sm font-semibold rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Top Navigation -->
+<header class="flex justify-between items-center w-full px-8 py-6 bg-[#f7f9fb] sticky top-0 z-40">
+<div class="flex items-center gap-8">
+<h2 class="text-xl font-black tracking-tight text-black font-headline">Executive Atelier</h2>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 font-medium hover:text-black transition-colors" href="#">Analytics</a>
+<a class="text-slate-500 font-medium hover:text-black transition-colors" href="#">Reports</a>
+<a class="text-black font-bold border-b-2 border-black pb-1" href="#">Services</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-black transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold text-black leading-none">Alex Sterling</p>
+<p class="text-[10px] text-slate-500">Administrator</p>
+</div>
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover ring-2 ring-white" data-alt="portrait of a professional male executive with a confident expression, neutral studio background, high-end corporate photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHXwlE0RfhSwXhszX6-kqMMVXCkEZgu6uGOvXdT0215xb3_FIX_MopIksSKsAXKohk2SNNbZBbnFf6H44rR8BAT8HMDnzIYcL6TYw2RRr_rbbgRNPxTqFbX9CIZWYt0bdEyW0yAwb4X7rkf565DnAphBhN-EFp8rJNn0eEBTB8Thaac-8wO9_M11Z7jaVJY50GAPqBKVnNks6FPHacXSku7zrIC0J-leP7nYOPKsu2lxNbCtUqpJ8D6_RjEjF79Hdhz3jhZ1gxtCw2"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="px-8 pb-12">
+<!-- Hero Showcase Section (Asymmetric) -->
+<section class="py-12 flex flex-col md:flex-row gap-12 items-center">
+<div class="flex-1">
+<span class="text-on-tertiary-container font-bold text-xs uppercase tracking-[0.2em] mb-4 block">Catalogue 2024</span>
+<h3 class="text-5xl font-extrabold font-headline leading-[1.1] text-black mb-6">
+                        Curated Offerings for <br/>
+<span class="text-slate-400">Exceptional Results.</span>
+</h3>
+<p class="text-on-surface-variant text-lg max-w-lg leading-relaxed mb-8">
+                        Precision-engineered services and bundled administrative packages designed to scale your operations with editorial elegance.
+                    </p>
+<div class="flex gap-4">
+<button class="px-8 py-4 ink-pool-gradient text-white rounded-xl font-bold font-headline shadow-xl shadow-primary/10">Browse Packages</button>
+<button class="px-8 py-4 border border-outline-variant text-black rounded-xl font-bold font-headline hover:bg-surface-container transition-colors">Download PDF</button>
+</div>
+</div>
+<div class="flex-1 relative w-full aspect-video md:aspect-square">
+<div class="absolute inset-0 bg-secondary-fixed/30 rounded-[2rem] transform rotate-3 -z-10"></div>
+<img alt="Modern Office" class="w-full h-full object-cover rounded-[2rem] shadow-2xl" data-alt="ultra-modern minimalist office interior with floor-to-ceiling windows, high-end furniture, soft morning light, architectural photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClSFmiusjkPZ48w2kURkmZa6Ki_8h5D3OhmcLllSWKxFtOixpJy1B_x-15cYnChlmTAMiowLV1YwZLsYGIDWehStiXIC46-_R2CV8q-xFeE1ku3Sn727J8rhayh0bfuzWW_kD8h22uUeq_9vT2CdsXgGMXmNnTVEBV56AnBqsPCiwIO300ka8itKEHwaU35kj79swWBw6jBeiKXlVuVZDtHx52M26uBM8ByEqABlrAkbW9XGSq3mq9lITLvY2x-xWWvPq8meF1Un7i"/>
+</div>
+</section>
+<!-- Individual Services Section -->
+<div class="mt-20">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h4 class="text-2xl font-black font-headline text-black">Individual Services</h4>
+<p class="text-slate-500 font-medium">Modular solutions for specific administrative needs.</p>
+</div>
+<div class="flex gap-2">
+<span class="px-4 py-2 bg-white rounded-full text-xs font-bold border border-outline-variant/30 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+                            34 Active Services
+                        </span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Service Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-[1.5rem] hover:translate-y-[-4px] transition-all duration-300 group">
+<div class="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h5 class="text-xl font-bold font-headline mb-2">Strategic Analysis</h5>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">In-depth market positioning and data-driven operational audits for modern enterprises.</p>
+<div class="pt-6 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-xl font-black font-headline">$450<span class="text-xs text-slate-400 font-medium italic">/project</span></span>
+<button class="text-primary font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-[1.5rem] hover:translate-y-[-4px] transition-all duration-300 group">
+<div class="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">description</span>
+</div>
+<h5 class="text-xl font-bold font-headline mb-2">Compliance Review</h5>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Full-spectrum regulatory alignment and documentation standardizing for your branch.</p>
+<div class="pt-6 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-xl font-black font-headline">$275<span class="text-xs text-slate-400 font-medium italic">/audit</span></span>
+<button class="text-primary font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-[1.5rem] hover:translate-y-[-4px] transition-all duration-300 group">
+<div class="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">diversity_3</span>
+</div>
+<h5 class="text-xl font-bold font-headline mb-2">Talent Sourcing</h5>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">End-to-end executive recruitment pipeline management and vetting services.</p>
+<div class="pt-6 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-xl font-black font-headline">$890<span class="text-xs text-slate-400 font-medium italic">/hire</span></span>
+<button class="text-primary font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bundled Packages Section -->
+<div class="mt-24">
+<div class="text-center mb-16">
+<h4 class="text-3xl font-black font-headline text-black mb-3">Professional Bundles</h4>
+<p class="text-slate-500 max-w-xl mx-auto">Scale your administrative capabilities with our curated packages designed for growth-stage agencies.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Premium Package Card -->
+<div class="glass-card p-10 rounded-[2rem] border-2 border-primary/5 flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 p-6">
+<span class="px-4 py-1 bg-secondary-fixed text-black text-[10px] font-black uppercase tracking-tighter rounded-full">Most Popular</span>
+</div>
+<div class="mb-8">
+<h5 class="text-2xl font-black font-headline text-black mb-2">Atelier Growth Suite</h5>
+<p class="text-on-surface-variant leading-relaxed">The essential toolkit for boutique agencies expanding their footprint.</p>
+</div>
+<div class="space-y-4 mb-10 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="text-sm font-semibold text-slate-700">Dedicated Account Concierge</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="text-sm font-semibold text-slate-700">Monthly Compliance Dashboard</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="text-sm font-semibold text-slate-700">Unlimited Tier 1 Service Access</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="text-sm font-semibold text-slate-700">Priority 4-Hour Support Window</p>
+</div>
+</div>
+<div class="mt-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+<div>
+<span class="text-4xl font-black font-headline text-black">$1,299<span class="text-sm text-slate-400 font-medium">/mo</span></span>
+</div>
+<button class="w-full sm:w-auto px-10 py-4 ink-pool-gradient text-white rounded-xl font-bold font-headline">Activate Package</button>
+</div>
+</div>
+<!-- Enterprise Package Card -->
+<div class="bg-primary p-10 rounded-[2rem] flex flex-col relative overflow-hidden text-white">
+<div class="absolute -right-10 -bottom-10 w-64 h-64 bg-primary-container/40 rounded-full blur-3xl"></div>
+<div class="mb-8">
+<h5 class="text-2xl font-black font-headline mb-2">Global Enterprise Shield</h5>
+<p class="text-on-primary-container leading-relaxed">Institutional-grade management for multi-branch organizations.</p>
+</div>
+<div class="space-y-4 mb-10 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<p class="text-sm font-semibold">24/7 Strategic Crisis Management</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<p class="text-sm font-semibold">Full Legal &amp; Compliance Indemnity</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<p class="text-sm font-semibold">On-site Staff Training Workshops</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<p class="text-sm font-semibold">Custom API &amp; Integration Suite</p>
+</div>
+</div>
+<div class="mt-auto flex flex-col sm:flex-row items-center justify-between gap-6 z-10">
+<div>
+<span class="text-4xl font-black font-headline text-white">$4,950<span class="text-sm text-on-primary-container font-medium">/mo</span></span>
+</div>
+<button class="w-full sm:w-auto px-10 py-4 bg-white text-black rounded-xl font-bold font-headline hover:bg-slate-100 transition-colors">Inquire Now</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-20 py-12 px-8 bg-surface-container-low">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div>
+<h5 class="font-headline font-black text-black">Executive Atelier</h5>
+<p class="text-xs text-slate-500">© 2024 Atelier Management Suite. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-xs font-bold text-slate-600 hover:text-black uppercase tracking-widest" href="#">Privacy</a>
+<a class="text-xs font-bold text-slate-600 hover:text-black uppercase tracking-widest" href="#">Terms</a>
+<a class="text-xs font-bold text-slate-600 hover:text-black uppercase tracking-widest" href="#">Support</a>
+<a class="text-xs font-bold text-slate-600 hover:text-black uppercase tracking-widest" href="#">API</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- FAB for Admin shortcut -->
+<button class="fixed bottom-8 right-8 w-14 h-14 ink-pool-gradient text-white rounded-full shadow-2xl flex items-center justify-center group">
+<span class="material-symbols-outlined group-hover:rotate-90 transition-transform">add</span>
+</button>
+</body></html>

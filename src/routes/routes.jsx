@@ -11,6 +11,7 @@ import { Ppf, Tint, PaintCorrection, DashCam, NanoCeramic } from '../pages/servi
 import AdminOverview from '../pages/AdminOverview';
 import AdminScheduling from '../pages/AdminScheduling';
 import AdminClients from '../pages/AdminClients';
+import EditClient from '../pages/EditClient';
 import NotFound from '../error-page/notFound';
 import ProtectedRoute from '../components/components/ProtectedRoute';
 import PageTransition from '../components/components/PageTransition';
@@ -63,7 +64,7 @@ const AppRoutes = () => {
         <Route path="/admin" element={
           <AnimatedRoute>
             {/* <ProtectedRoute> */}
-              <AdminOverview />
+            <AdminOverview />
             {/* </ProtectedRoute> */}
           </AnimatedRoute>
         } />
@@ -74,9 +75,14 @@ const AppRoutes = () => {
             </ProtectedRoute>
           </AnimatedRoute>
         } />
-        <Route path="/admin/clients" element={
+        <Route path="/clientsDashboard" element={
           <AnimatedRoute>
             <AdminClients />
+          </AnimatedRoute>
+        } />
+        <Route path="/admin/edit-client" element={
+          <AnimatedRoute>
+            <EditClient />
           </AnimatedRoute>
         } />
         <Route path="*" element={<AnimatedRoute><NotFound /></AnimatedRoute>} />

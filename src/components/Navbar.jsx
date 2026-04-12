@@ -131,7 +131,7 @@ const Navbar = () => {
         <div className="hidden md:flex flex-1 justify-end items-center gap-4">
           <LangToggle />
           <Link
-            to="/admin/clients"
+            to="/clientsDashboard"
             className="px-2 py-2 border border-[#FF5C35] text-[#FF5C35] font-bold text-bold rounded hover:bg-[#FF5C35] hover:text-white transition-all shadow-lg shadow-[#FF5C35]/10 whitespace-nowrap flex items-center gap-1">
             {t('common:nav_dashboard')}
             <img src="/assets/icons/profileIcon.png" alt="" className="w-6 h-6 d-inline-block" />
@@ -141,7 +141,7 @@ const Navbar = () => {
         <div className="md:hidden flex-1 flex justify-end items-center gap-3 z-50">
           <LangToggle className="px-2 py-1" />
           <Link
-            to="/admin/clients"
+            to="/clientsDashboard"
             className="px-2 py-1.5 border border-[#FF5C35] text-[#FF5C35] font-bold text-[13px] rounded hover:bg-[#FF5C35] hover:text-white transition-all w-[110px] flex items-center gap-1">
             {t('common:nav_dashboard')}
             <img src="/assets/icons/profileIcon.png" alt="" className="w-5 h-5" />
