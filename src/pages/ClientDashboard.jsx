@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICE_HISTORY } from '../constants.jsx';
-import Icon from '../components/Icon';
+import Icon from '../components/Icon.jsx';
 
 const DashboardView = () => {
 
@@ -31,11 +31,11 @@ const DashboardView = () => {
               <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#FF5C35" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h10" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /></svg>
             </div>
             <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#FF5C35]/10 rounded-xl flex items-center justify-center text-xl text-[#FF5C35]">
-                    <Icon name="directions_car" />
-                  </div>
-                  <div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-[#FF5C35]/10 rounded-xl flex items-center justify-center text-xl text-[#FF5C35]">
+                  <Icon name="directions_car" />
+                </div>
+                <div>
                   <h3 className="text-xl font-bold text-white">Mercedes-Benz S-Class</h3>
                   <p className="text-gray-400 text-xs">Full paint protection film</p>
                 </div>
@@ -67,12 +67,12 @@ const DashboardView = () => {
 
           {/* Loyalty Points */}
           <div className="bg-[#262626] border border-white/5 rounded-2xl p-8 flex flex-col">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-xl">
-                  <Icon name="redeem" />
-                </div>
-                <h3 className="text-xl font-bold">Loyalty points</h3>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-xl">
+                <Icon name="redeem" />
               </div>
+              <h3 className="text-xl font-bold">Loyalty points</h3>
+            </div>
 
             <div className="mb-8 text-center">
               <div className="text-6xl font-display font-bold text-[#FF5C35] mb-1">2,228</div>

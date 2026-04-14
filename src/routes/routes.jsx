@@ -3,7 +3,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import HomeView from '../pages/HomeView';
 import PricingView from '../pages/PricingView';
-import DashboardView from '../pages/DashboardView';
+import BranchesView from '../pages/Branches';
+import DashboardView from '../pages/ClientDashboard';
 import LoginView from '../pages/LoginView';
 import OTPView from '../pages/OTPView';
 import Contact from '../pages/Contact';
@@ -12,6 +13,8 @@ import AdminOverview from '../pages/AdminOverview';
 import AdminScheduling from '../pages/AdminScheduling';
 import AdminClients from '../pages/AdminClients';
 import EditClient from '../pages/EditClient';
+import EditPackage from '../pages/EditPackage';
+import AllServices from '../pages/AllServices';
 import NotFound from '../error-page/notFound';
 import ProtectedRoute from '../components/components/ProtectedRoute';
 import PageTransition from '../components/components/PageTransition';
@@ -51,11 +54,13 @@ const AppRoutes = () => {
     <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<AnimatedRoute><HomeView /></AnimatedRoute>} />
+        <Route path="/branches" element={<AnimatedRoute><BranchesView /></AnimatedRoute>} />
         <Route path="/pricing" element={<AnimatedRoute><PricingView /></AnimatedRoute>} />
         <Route path="/Contact" element={<AnimatedRoute><Contact /></AnimatedRoute>} />
         <Route path="/login" element={<AnimatedRoute><LoginView /></AnimatedRoute>} />
         <Route path="/otp" element={<AnimatedRoute><OTPView /></AnimatedRoute>} />
-        <Route path="/dashboard" element={<AnimatedRoute><DashboardView /></AnimatedRoute>} />
+        <Route path="/clientDashboard" element={<AnimatedRoute><DashboardView /></AnimatedRoute>} />
+        <Route path="/all-services" element={<AnimatedRoute><AllServices /></AnimatedRoute>} />
         <Route path="/services/ppf" element={<AnimatedRoute><Ppf /></AnimatedRoute>} />
         <Route path="/services/window-tint" element={<AnimatedRoute><Tint /></AnimatedRoute>} />
         <Route path="/services/paint-correction" element={<AnimatedRoute><PaintCorrection /></AnimatedRoute>} />
@@ -83,6 +88,11 @@ const AppRoutes = () => {
         <Route path="/admin/edit-client" element={
           <AnimatedRoute>
             <EditClient />
+          </AnimatedRoute>
+        } />
+        <Route path="/admin/edit-package" element={
+          <AnimatedRoute>
+            <EditPackage />
           </AnimatedRoute>
         } />
         <Route path="*" element={<AnimatedRoute><NotFound /></AnimatedRoute>} />

@@ -14,6 +14,7 @@ import paintCorrectionEn from './src/locales/en/paint_correction.json';
 import dashcamEn from './src/locales/en/dashcam.json';
 import contactEn from './src/locales/en/contact.json';
 import adminClientsEn from './src/locales/en/admin_clients.json';
+import allServicesEn from './src/locales/en/all_services.json';
 
 import commonAr from './src/locales/ar/common.json';
 import homeAr from './src/locales/ar/home.json';
@@ -26,6 +27,7 @@ import paintCorrectionAr from './src/locales/ar/paint_correction.json';
 import dashcamAr from './src/locales/ar/dashcam.json';
 import contactAr from './src/locales/ar/contact.json';
 import adminClientsAr from './src/locales/ar/admin_clients.json';
+import allServicesAr from './src/locales/ar/all_services.json';
 
 const resources = {
   en: {
@@ -39,7 +41,8 @@ const resources = {
     paint_correction: paintCorrectionEn,
     dashcam: dashcamEn,
     contact: contactEn,
-    admin_clients: adminClientsEn
+    admin_clients: adminClientsEn,
+    all_services: allServicesEn
   },
   ar: {
     common: commonAr,
@@ -52,7 +55,8 @@ const resources = {
     paint_correction: paintCorrectionAr,
     dashcam: dashcamAr,
     contact: contactAr,
-    admin_clients: adminClientsAr
+    admin_clients: adminClientsAr,
+    all_services: allServicesAr
   }
 };
 
@@ -67,7 +71,7 @@ i18n
     defaultNS: 'common',
     
     // Allowed namespaces
-    ns: ['common', 'home', 'services', 'service5', 'pricing', 'ppf', 'tint', 'paint_correction', 'dashcam', 'contact', 'admin_clients'],
+    ns: ['common', 'home', 'services', 'service5', 'pricing', 'ppf', 'tint', 'paint_correction', 'dashcam', 'contact', 'admin_clients', 'all_services'],
 
     interpolation: {
       escapeValue: false, 

@@ -7,7 +7,7 @@ const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { t } = useTranslation(['common', 'services']);
+  const { t } = useTranslation(['common', 'services', 'all_services']);
   const { language, toggleLanguage, isRTL } = useLanguage();
   const dropdownRef = useRef(null);
   const mobileMenuRef = useRef(null);
@@ -105,6 +105,7 @@ const Navbar = () => {
               className={`absolute top-full ${isRTL ? 'right-0' : 'left-1/2 -translate-x-1/2'} mt-2 w-48 bg-[#262626] border border-white/10 rounded-xl shadow-2xl py-2 transition-all duration-200 z-50 ${showDropdown ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible'}`}
             >
               {[
+                { label: t('all_services:cta_services', 'All Services'), path: '/all-services' },
                 { label: t('services:ppf_title'), path: '/services/ppf' },
                 { label: t('services:window_tinting_title'), path: '/services/window-tint' },
                 { label: t('services:paint_correction_title'), path: '/services/paint-correction' },
@@ -125,13 +126,14 @@ const Navbar = () => {
           </div>
 
           <NavLink label={t('common:nav_contact')} path="/Contact" />
+          <NavLink label={t('common:nav_branches', 'Branches')} path="/Branches" />
           <NavLink label={t('common:nav_dashboard')} path="/admin" />
         </div>
 
         <div className="hidden md:flex flex-1 justify-end items-center gap-4">
           <LangToggle />
           <Link
-            to="/clientsDashboard"
+            to="/ClientDashboard"
             className="px-2 py-2 border border-[#FF5C35] text-[#FF5C35] font-bold text-bold rounded hover:bg-[#FF5C35] hover:text-white transition-all shadow-lg shadow-[#FF5C35]/10 whitespace-nowrap flex items-center gap-1">
             {t('common:nav_dashboard')}
             <img src="/assets/icons/profileIcon.png" alt="" className="w-6 h-6 d-inline-block" />
@@ -141,7 +143,7 @@ const Navbar = () => {
         <div className="md:hidden flex-1 flex justify-end items-center gap-3 z-50">
           <LangToggle className="px-2 py-1" />
           <Link
-            to="/clientsDashboard"
+            to="/ClientDashboard"
             className="px-2 py-1.5 border border-[#FF5C35] text-[#FF5C35] font-bold text-[13px] rounded hover:bg-[#FF5C35] hover:text-white transition-all w-[110px] flex items-center gap-1">
             {t('common:nav_dashboard')}
             <img src="/assets/icons/profileIcon.png" alt="" className="w-5 h-5" />
@@ -178,6 +180,7 @@ const Navbar = () => {
           <div className="border-y border-white/5 py-4 my-2 flex flex-col gap-3 ">
             <span className="text-sm font-bold text-gray-500 uppercase tracking-widest  " >{t('common:nav_services')}</span>
             {[
+              { label: t('all_services:cta_services', 'All Services'), path: '/all-services' },
               { label: t('services:ppf_title'), path: '/services/ppf' },
               { label: t('services:window_tinting_title'), path: '/services/window-tint' },
               { label: t('services:paint_correction_title'), path: '/services/paint-correction' },
@@ -196,6 +199,7 @@ const Navbar = () => {
           </div>
 
           <Link to="/Contact" onClick={closeMenus} className="text-left text-lg font-medium text-white mb-4">{t('common:nav_contact')}</Link>
+          <Link to="/Branches" onClick={closeMenus} className="text-left text-lg font-medium text-white mb-4">{t('common:nav_branches', 'Branches')}</Link>
         </div>
       </div>
     </nav>

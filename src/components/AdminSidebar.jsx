@@ -9,6 +9,7 @@ const AdminSidebar = () => {
     { label: 'Dashboard', icon: 'grid', path: '/admin' },
     { label: 'Clients Management', icon: 'users', path: '/clientsDashboard' },
     { label: 'Edit Clients', icon: 'edit', path: '/admin/edit-client' },
+    { label: 'Edit Packages', icon: 'edit', path: '/admin/edit-package' },
     { label: 'Scheduling & Calendar', icon: 'calendar', path: '/admin/scheduling' },
     { label: 'Services & Products', icon: 'box', path: '/admin/services' },
     { label: 'Orders & Billing', icon: 'credit-card', path: '/admin/billing' },
