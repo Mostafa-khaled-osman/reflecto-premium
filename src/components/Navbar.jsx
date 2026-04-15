@@ -125,8 +125,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          <NavLink label={t('common:nav_contact')} path="/Contact" />
           <NavLink label={t('common:nav_branches', 'Branches')} path="/Branches" />
+          <NavLink label={t('common:nav_contact')} path="/Contact" />
           <NavLink label={t('common:nav_dashboard')} path="/admin" />
         </div>
 

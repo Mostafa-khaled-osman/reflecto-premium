@@ -18,6 +18,7 @@ import AllServices from '../pages/AllServices';
 import NotFound from '../error-page/notFound';
 import ProtectedRoute from '../components/components/ProtectedRoute';
 import PageTransition from '../components/components/PageTransition';
+import OrdersBilling from '../pages/OrdersBilling';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -93,6 +94,11 @@ const AppRoutes = () => {
         <Route path="/admin/edit-package" element={
           <AnimatedRoute>
             <EditPackage />
+          </AnimatedRoute>
+        } />
+        <Route path="/admin/billing" element={
+          <AnimatedRoute>
+            <OrdersBilling />
           </AnimatedRoute>
         } />
         <Route path="*" element={<AnimatedRoute><NotFound /></AnimatedRoute>} />

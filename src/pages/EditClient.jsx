@@ -11,7 +11,7 @@ const EditClient = () => {
   const labelStyle = "block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2";
 
   return (
-    <div className="flex bg-[#131313] min-h-[calc(100vh-5rem)] font-body text-[#e5e2e1] relative  md:mt-0 ">
+    <div className="flex bg-[#131313] min-h-[calc(100vh-5rem)] font-body text-[#e5e2e1] relative  md:mt-16 ">
       <AdminSidebar />
       {/* Existing Sidebar Integration */}
 
@@ -42,20 +42,20 @@ const EditClient = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className={labelStyle}>Full Legal Name</label>
-                  <input className={inputStyle} type="text" defaultValue="Alexander Sterling" />
+                  <label htmlFor="fullLegalName" className={labelStyle}>Full Legal Name</label>
+                  <input className={inputStyle} id="fullLegalName" type="text" defaultValue="Alexander Sterling" />
                 </div>
                 <div>
-                  <label className={labelStyle}>Email Address</label>
-                  <input className={inputStyle} type="email" defaultValue="a.sterling@vanguard-corp.com" />
+                  <label htmlFor="emailAddress" className={labelStyle}>Email Address</label>
+                  <input className={inputStyle} id="emailAddress" type="email" defaultValue="a.sterling@vanguard-corp.com" />
                 </div>
                 <div>
-                  <label className={labelStyle}>Phone Number</label>
-                  <input className={inputStyle} type="tel" defaultValue="+1 (555) 234-8890" />
+                  <label htmlFor="phoneNumber" className={labelStyle}>Phone Number</label>
+                  <input className={inputStyle} id="phoneNumber" type="tel" defaultValue="+1 (555) 234-8890" />
                 </div>
                 <div>
-                  <label className={labelStyle}>Time Zone</label>
-                  <input className={inputStyle} type="text" defaultValue="Eastern Standard Time (GMT-5)" />
+                  <label htmlFor="timeZone" className={labelStyle}>Time Zone</label>
+                  <input className={inputStyle} id="timeZone" type="text" defaultValue="Eastern Standard Time (GMT-5)" />
                 </div>
               </div>
             </section>
@@ -68,16 +68,16 @@ const EditClient = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className={labelStyle}>Company</label>
-                  <input className={inputStyle} type="text" defaultValue="Vanguard Global Strategy" />
+                  <label htmlFor="company" className={labelStyle}>Company</label>
+                  <input className={inputStyle} id="company" type="text" defaultValue="Vanguard Global Strategy" />
                 </div>
                 <div>
-                  <label className={labelStyle}>Role / Title</label>
-                  <input className={inputStyle} type="text" defaultValue="Chief Strategy Officer" />
+                  <label htmlFor="roleTitle" className={labelStyle}>Role / Title</label>
+                  <input className={inputStyle} id="roleTitle" type="text" defaultValue="Chief Strategy Officer" />
                 </div>
                 <div className="md:col-span-2">
-                  <label className={labelStyle}>Professional Bio</label>
-                  <textarea className={`${inputStyle} resize-none`} rows="4" defaultValue="Managing high-net-worth portfolio movements and long-term expansion strategies for the North American sector." />
+                  <label htmlFor="professionalBio" className={labelStyle}>Professional Bio</label>
+                  <textarea className={`${inputStyle} resize-none`} id="professionalBio" rows="4" defaultValue="Managing high-net-worth portfolio movements and long-term expansion strategies for the North American sector." />
                 </div>
               </div>
             </section>
@@ -109,7 +109,7 @@ const EditClient = () => {
 
                 {/* Toggles */}
                 <div className="space-y-4">
-                  <label className="flex items-center gap-4 cursor-pointer">
+                  <label htmlFor="premiumSupport" className="flex items-center gap-4 cursor-pointer">
                     <div className="relative inline-flex items-center">
                       <input 
                         type="checkbox" 
