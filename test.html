@@ -1,521 +1,361 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Orders &amp; Billing | Kinetic Garage</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet">
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "surface-container-lowest": "#0e0e0e",
-            "secondary-fixed-dim": "#c8c6c6",
-            "on-tertiary-container": "#5a0500",
-            "primary-fixed": "#ffdad4",
-            "on-surface": "#e5e2e1",
-            "surface-container": "#201f1f",
-            "secondary-fixed": "#e4e2e1",
-            "on-secondary-fixed-variant": "#474747",
-            "on-secondary-container": "#b6b5b4",
-            "on-error-container": "#ffdad6",
-            "tertiary": "#ffb4a6",
-            "tertiary-container": "#f2624a",
-            "surface-container-highest": "#353534",
-            "surface-variant": "#353534",
-            "surface": "#131313",
-            "surface-container-low": "#1c1b1b",
-            "on-primary-container": "#5b0300",
-            "on-background": "#e5e2e1",
-            "primary-fixed-dim": "#ffb4a7",
-            "primary-container": "#fc5841",
-            "tertiary-fixed": "#ffdad4",
-            "secondary-container": "#474747",
-            "primary": "#ffb4a7",
-            "on-surface-variant": "#e3beb8",
-            "on-tertiary-fixed-variant": "#8c1808",
-            "surface-bright": "#3a3939",
-            "on-error": "#690005",
-            "surface-dim": "#131313",
-            "outline-variant": "#5b403c",
-            "on-primary-fixed-variant": "#920700",
-            "tertiary-fixed-dim": "#ffb4a6",
-            "secondary": "#c8c6c6",
-            "on-secondary-fixed": "#1b1c1c",
-            "inverse-primary": "#b62515",
-            "on-tertiary": "#660700",
-            "on-secondary": "#303030",
-            "on-primary-fixed": "#400100",
-            "inverse-surface": "#e5e2e1",
-            "error": "#ffb4ab",
-            "on-tertiary-fixed": "#3f0300",
-            "error-container": "#93000a",
-            "outline": "#aa8983",
-            "on-primary": "#680300",
-            "surface-container-high": "#2a2a2a",
-            "inverse-on-surface": "#313030",
-            "background": "#131313",
-            "surface-tint": "#ffb4a7"
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TINT NOIR | Commercial &amp; Residential Window Tinting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-dim": "#f27690",
+                      "surface-tint": "#ff8d87",
+                      "surface-bright": "#2c2c2c",
+                      "on-secondary-fixed": "#6a0a2a",
+                      "on-surface": "#ffffff",
+                      "error-dim": "#d53d18",
+                      "secondary-fixed-dim": "#ffaebb",
+                      "on-tertiary-fixed-variant": "#501b82",
+                      "surface-variant": "#262626",
+                      "tertiary-dim": "#bb86f0",
+                      "tertiary": "#cf9fff",
+                      "tertiary-container": "#c48ef9",
+                      "on-background": "#ffffff",
+                      "primary-container": "#ff7670",
+                      "inverse-on-surface": "#565555",
+                      "on-tertiary-container": "#3d006d",
+                      "tertiary-fixed": "#cd9bff",
+                      "on-primary-fixed-variant": "#600009",
+                      "on-tertiary": "#49117b",
+                      "tertiary-fixed-dim": "#c18cf6",
+                      "error": "#ff7351",
+                      "inverse-primary": "#bb1824",
+                      "primary-fixed": "#ff7670",
+                      "on-tertiary-fixed": "#270049",
+                      "surface-container-low": "#131313",
+                      "error-container": "#b92902",
+                      "on-primary-fixed": "#000000",
+                      "primary-dim": "#ff716b",
+                      "outline": "#767575",
+                      "surface": "#0e0e0e",
+                      "surface-container": "#1a1a1a",
+                      "on-error-container": "#ffd2c8",
+                      "surface-dim": "#0e0e0e",
+                      "on-secondary-fixed-variant": "#912b45",
+                      "on-secondary": "#56001e",
+                      "primary": "#ff8d87",
+                      "on-primary": "#65000a",
+                      "surface-container-high": "#20201f",
+                      "outline-variant": "#484847",
+                      "secondary": "#fc7e98",
+                      "surface-container-lowest": "#000000",
+                      "background": "#0e0e0e",
+                      "inverse-surface": "#fcf9f8",
+                      "on-primary-container": "#4e0006",
+                      "on-secondary-container": "#ffc0c9",
+                      "secondary-container": "#83203c",
+                      "surface-container-highest": "#262626",
+                      "primary-fixed-dim": "#ff5a57",
+                      "secondary-fixed": "#ffc2cb",
+                      "on-surface-variant": "#adaaaa",
+                      "on-error": "#450900"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
           },
-          "borderRadius": {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          },
-          "fontFamily": {
-            "headline": ["Inter"],
-            "body": ["Inter"],
-            "label": ["Inter"]
-          }
         }
-      }
-    }
-  </script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0D0D0D;
-      color: #FFFFFF;
-    }
-
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-
-    .glow-border {
-      border: 1px solid #E64833;
-      box-shadow: 0px 0px 10px rgba(230, 72, 51, 0.4);
-    }
-
-    .subtle-border {
-      border: 1px solid #333333;
-    }
-
-    .heat-gradient {
-      background: linear-gradient(to right, #E64833, #992211);
-    }
-  </style>
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #ff8d87 0%, #ff7670 100%);
+        }
+        .ghost-border {
+            outline: 1px solid rgba(72, 72, 71, 0.15);
+        }
+        .led-glow-error {
+            box-shadow: 0 0 8px #ff7351, 0 0 2px #ff7351;
+        }
+    </style>
 </head>
-
-<body class="bg-surface-container-lowest text-on-surface">
-  <!-- Sidebar Navigation -->
-  <aside
-    class="fixed left-0 top-0 h-full w-64 bg-[#1A1A1A] border-r border-[#333333] shadow-xl flex flex-col py-4 z-50 hidden md:flex">
-    <div class="px-6 mb-8">
-      <h1 class="text-white font-black text-xl tracking-tighter" style="">Kinetic Garage</h1>
-      <p class="text-[#E64833] text-xs font-bold uppercase tracking-widest mt-1" style="">High Performance</p>
-    </div>
-    <nav class="flex-1 space-y-1 px-3">
-      <a class="flex items-center px-3 py-2.5 text-[#9CA3AF] hover:bg-[#262626] hover:text-white transition-all rounded-lg font-inter text-sm group"
-        href="#" style="">
-        <span class="material-symbols-outlined mr-3" style="">group</span>
-        <span class="" style="">Clients</span>
-      </a>
-      <a class="flex items-center px-3 py-2.5 text-[#9CA3AF] hover:bg-[#262626] hover:text-white transition-all rounded-lg font-inter text-sm group"
-        href="#" style="">
-        <span class="material-symbols-outlined mr-3" style="">build</span>
-        <span class="" style="">Services</span>
-      </a>
-      <a class="flex items-center px-3 py-2.5 text-[#9CA3AF] hover:bg-[#262626] hover:text-white transition-all rounded-lg font-inter text-sm group"
-        href="#" style="">
-        <span class="material-symbols-outlined mr-3" style="">person_edit</span>
-        <span class="" style="">Edit Clients</span>
-      </a>
-      <a class="flex items-center px-3 py-2.5 text-[#9CA3AF] hover:bg-[#262626] hover:text-white transition-all rounded-lg font-inter text-sm group"
-        href="#" style="">
-        <span class="material-symbols-outlined mr-3" style="">inventory_2</span>
-        <span class="" style="">Edit Packages</span>
-      </a>
-      <a class="flex items-center px-3 py-2.5 text-[#9CA3AF] hover:bg-[#262626] hover:text-white transition-all rounded-lg font-inter text-sm group"
-        href="#" style="">
-        <span class="material-symbols-outlined mr-3" style="">storefront</span>
-        <span class="" style="">Branches</span>
-      </a>
-      <a class="flex items-center px-3 py-2.5 text-[#E64833] border-r-2 border-[#E64833] bg-[#0D0D0D] font-bold rounded-lg font-inter text-sm ring-1 ring-[#E64833]/20"
-        href="#" style="">
-        <span class="material-symbols-outlined mr-3" style="">receipt_long</span>
-        <span class="" style="">Orders &amp; Billing</span>
-      </a>
-      <a class="flex items-center px-3 py-2.5 text-[#9CA3AF] hover:bg-[#262626] hover:text-white transition-all rounded-lg font-inter text-sm group"
-        href="#" style="">
-        <span class="material-symbols-outlined mr-3" style="">settings_suggest</span>
-        <span class="" style="">Settings</span>
-      </a>
-    </nav>
-    <div class="px-4 mt-auto">
-      <button
-        class="w-full heat-gradient text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 active:scale-95 transition-transform shadow-[0_0_15px_rgba(230,72,51,0.3)]"
-        style="">
-        <span class="material-symbols-outlined" style="">add</span>
-        <span class="" style="">New Order</span>
-      </button>
-    </div>
-  </aside>
-  <!-- Main Content Wrapper -->
-  <main class="md:ml-64 flex flex-col min-h-screen">
-    <!-- Top Navigation Bar -->
-    <header
-      class="bg-[#0D0D0D] border-b border-[#333333] flex justify-between items-center w-full px-6 py-3 sticky top-0 z-40">
-      <div class="flex items-center space-x-4 flex-1">
-        <div class="relative w-full max-w-md hidden lg:block">
-          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-lg"
-            style="">search</span>
-          <input
-            class="w-full bg-[#1A1A1A] border-[#333333] text-sm rounded-lg pl-10 pr-4 py-2 focus:ring-1 focus:ring-[#E64833] focus:border-[#E64833] outline-none transition-all text-white"
-            placeholder="Search invoices or clients..." type="text">
-        </div>
-      </div>
-      <div class="flex items-center space-x-6">
-        <div class="flex space-x-4">
-          <button class="text-[#9CA3AF] hover:text-white transition-colors duration-200 active:scale-95" style="">
-            <span class="material-symbols-outlined" style="">notifications</span>
-          </button>
-          <button class="text-[#9CA3AF] hover:text-white transition-colors duration-200 active:scale-95" style="">
-            <span class="material-symbols-outlined" style="">settings</span>
-          </button>
-        </div>
-        <div class="h-8 w-px bg-[#333333]"></div>
-        <div class="flex items-center space-x-3">
-          <div class="text-right hidden sm:block">
-            <p class="text-white text-xs font-bold" style="">Admin User</p>
-            <p class="text-[#9CA3AF] text-[10px]" style="">Operations Lead</p>
-          </div>
-          <img alt="User profile" class="w-8 h-8 rounded-full border border-[#333333] object-cover"
-            data-alt="Close-up portrait of a professional male operations manager in a dark studio setting with cinematic lighting"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHEQABpy_NXfDxg6ODU_ijJ0HHjisjKdjuuqll1OpFiROO-qqORqDcyln70vcEIa5k3YJmgTkNzqtHTwJC3IKl91kGs-WN4XaVh8RDD0Ye7ls9aX8EVnxSWv57wjr7D0ITpOPhFxfc4LRcuxVXGGIpi2sgEjx_4rRRHVYHK9RiObs_y8N7PolSWebuibfgDXnrbDN7guCZUDBYMSYUcngqAZvVKgKRYmn7olJYQ3kcX9TrHi9sXIm04wQb91G4cNIlCqKWYjRnvDAy"
-            style="">
-        </div>
-      </div>
-    </header>
-    <!-- Dashboard Canvas -->
-    <section class="p-6 space-y-8 flex-1">
-      <!-- Page Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <h2 class="text-3xl font-bold text-white tracking-tight" style="">Orders &amp; Billing</h2>
-          <p class="text-[#9CA3AF] mt-1" style="">Financial performance and transaction monitoring</p>
-        </div>
-        <div class="flex space-x-3">
-          <button
-            class="bg-[#1A1A1A] border border-[#333333] text-white px-4 py-2 rounded-lg text-sm font-medium hover:border-[#E64833] transition-all flex items-center"
-            style=""></button>
-          <button
-            class="heat-gradient text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center shadow-[0_0_10px_rgba(230,72,51,0.2)]"
-            style="">
-            <span class="material-symbols-outlined text-sm mr-2" style="">add_circle</span>
-            Create Invoice
-          </button>
-        </div>
-      </div>
-      <!-- Bento Grid Stats Section -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Total Revenue Card -->
-        <div class="bg-[#1A1A1A] subtle-border rounded-xl p-6 relative overflow-hidden group">
-          <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-            <span class="material-symbols-outlined text-6xl text-[#E64833]" style="">payments</span>
-          </div>
-          <p class="text-[#9CA3AF] text-xs font-bold uppercase tracking-widest" style=""><br></p>
-          <div class="flex items-baseline mt-2 space-x-2">
-            <h3 class="text-3xl font-black text-white" style=""><br></h3>
-            <span class="text-[#E64833] text-sm font-bold" style=""><br></span>
-          </div>
-          <div class="mt-4 flex items-center text-xs text-green-500 font-medium">
-            <span class="material-symbols-outlined text-sm mr-1" style="">trending_up</span>
-            <span class="" style=""><br></span>
-          </div>
-        </div>
-        <!-- Outstanding Invoices Card -->
-        <div class="bg-[#1A1A1A] subtle-border rounded-xl p-6 relative overflow-hidden group">
-          <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-            <span class="material-symbols-outlined text-6xl text-[#E64833]" style="">pending_actions</span>
-          </div>
-          <p class="text-[#9CA3AF] text-xs font-bold uppercase tracking-widest" style="">Outstanding</p>
-          <div class="flex items-baseline mt-2 space-x-2">
-            <h3 class="text-3xl font-black text-white" style="">18,250.00</h3>
-            <span class="text-[#E64833] text-sm font-bold" style="">SAR</span>
-          </div>
-          <div class="mt-4 flex items-center text-xs text-[#E64833] font-medium">
-            <span class="material-symbols-outlined text-sm mr-1" style="">warning</span>
-            <span class="" style="">14 invoices overdue</span>
-          </div>
-        </div>
-        <!-- Total Orders Card -->
-        <div class="bg-[#1A1A1A] subtle-border rounded-xl p-6 relative overflow-hidden group">
-          <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-            <span class="material-symbols-outlined text-6xl text-[#E64833]" style="">shopping_cart</span>
-          </div>
-          <p class="text-[#9CA3AF] text-xs font-bold uppercase tracking-widest" style="">Total Orders</p>
-          <div class="flex items-baseline mt-2 space-x-2">
-            <h3 class="text-3xl font-black text-white" style="">1,284</h3>
-            <span class="text-[#9CA3AF] text-sm font-medium" style="">units</span>
-          </div>
-          <div class="mt-4 flex items-center text-xs text-white/60 font-medium">
-            <span class="material-symbols-outlined text-sm mr-1" style="">schedule</span>
-            <span class="" style="">94 orders in queue</span>
-          </div>
-        </div>
-      </div>
-      <!-- Orders Table Container -->
-      <div class="bg-[#1A1A1A] subtle-border rounded-xl overflow-hidden">
-        <!-- Table Controls -->
-        <div class="p-4 border-b border-[#333333] flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div class="flex items-center space-x-2">
-            <div class="relative">
-              <select
-                class="bg-[#0D0D0D] border border-[#333333] text-white text-xs rounded-lg pl-3 pr-8 py-2 focus:ring-1 focus:ring-[#E64833] appearance-none outline-none">
-                <option>Status: All</option>
-                <option>Paid</option>
-                <option>Pending</option>
-                <option>Overdue</option>
-              </select>
-              <span
-                class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-xs pointer-events-none"
-                style="">expand_more</span>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/80 backdrop-blur-xl">
+<nav class="flex justify-between items-center px-8 h-20 max-w-7xl mx-auto font-['Space_Grotesk'] tracking-tight">
+<div class="text-2xl font-bold tracking-tighter text-[#FF4D4D]">TINT NOIR</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Auto</a>
+<a class="text-[#FF4D4D] border-b-2 border-[#FF4D4D] pb-1" href="#">Residential</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Commercial</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Gallery</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Quotes</a>
+</div>
+<button class="kinetic-gradient text-on-primary-fixed px-6 py-2.5 font-bold tracking-tight rounded-lg hover:scale-95 duration-200 transition-all">
+                Book Now
+            </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[870px] w-full flex items-center overflow-hidden bg-surface-container-lowest">
+<div class="absolute inset-0 z-0">
+<img alt="Luxury modern home with dark tinted windows" class="w-full h-full object-cover opacity-60" data-alt="Ultra-modern architectural villa with expansive glass walls featuring deep charcoal window tinting during twilight with warm interior lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNJsVh5v5_l6wZ0_DtKBpVYuOnX51aRBH0hAczjR9A5hfMJUYiLFi8sfiskkiU4W9DhIV5lNwW0cYbYYWiSlIhzkzL8LbAs_pZFmrGCBQzKH6cEAdZGFqh22EinXyXGnFq3xv-kRCsksiJFLUuG9ik1QgdHRW27JlROO8_3bhfzfRB6uqODbAYnhbCjlN7Dx6Eo33S5mdQdJngzjuZ4rXsK9qTAhlCTXglpgjYpTPSLpRQVMBKqatXQu8HbugGyoUPQIW80KD0EKI"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<span class="text-primary font-headline tracking-[0.3em] text-sm font-bold uppercase mb-4 block">Precision Engineering</span>
+<h1 class="text-6xl md:text-8xl font-headline font-bold leading-[0.9] tracking-tighter text-white mb-6">
+                        ARCHITECTURAL <br/><span class="text-on-surface-variant">OBSIDIAN.</span>
+</h1>
+<p class="text-lg text-on-surface-variant mb-10 max-w-md leading-relaxed">
+                        Superior heat rejection and visual privacy for elite residences and high-stakes commercial environments.
+                    </p>
+<div class="flex gap-4">
+<button class="kinetic-gradient text-on-primary-fixed px-8 py-4 font-bold tracking-tight rounded-none flex items-center gap-3">
+                            EXPLORE SOLUTIONS <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="ghost-border border border-outline-variant/30 text-primary px-8 py-4 font-bold tracking-tight rounded-none hover:bg-surface-bright transition-all">
+                            VIEW CASE STUDIES
+                        </button>
+</div>
+</div>
+</div>
+<!-- Telemetry Stats -->
+<div class="absolute bottom-12 right-8 hidden lg:flex gap-12 font-headline border-l border-outline-variant/20 pl-8">
+<div>
+<div class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Heat Rejection</div>
+<div class="text-4xl font-bold text-white tracking-tighter">98%</div>
+</div>
+<div>
+<div class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">UV Protection</div>
+<div class="text-4xl font-bold text-white tracking-tighter">99.9%</div>
+</div>
+<div>
+<div class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">IR Blocking</div>
+<div class="text-4xl font-bold text-white tracking-tighter">95%</div>
+</div>
+</div>
+</section>
+<!-- Residential Solutions -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-16">
+<div class="lg:col-span-7">
+<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-white mb-6">RESIDENTIAL SOLUTIONS</h2>
+<p class="text-on-surface-variant max-w-xl text-lg">Elevate your living space with films that protect your interior while maintaining perfect clarity. We treat your home like a gallery.</p>
+</div>
+<div class="lg:col-span-5 flex justify-end">
+<div class="h-[1px] w-full bg-outline-variant/20 mb-4"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-low p-8 ghost-border rounded-none hover:bg-surface-bright transition-all group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary mb-8 group-hover:led-glow-error transition-all">
+<span class="material-symbols-outlined" data-icon="thermostat">thermostat</span>
+</div>
+<h3 class="font-headline font-bold text-xl text-white mb-4">HEAT REDUCTION</h3>
+<p class="text-on-surface-variant leading-relaxed">Advanced ceramic technology blocks up to 98% of solar heat, significantly lowering energy costs and increasing comfort.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low p-8 ghost-border rounded-none hover:bg-surface-bright transition-all group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary mb-8 group-hover:led-glow-error transition-all">
+<span class="material-symbols-outlined" data-icon="visibility_off">visibility_off</span>
+</div>
+<h3 class="font-headline font-bold text-xl text-white mb-4">PRIVACY CONTROL</h3>
+<p class="text-on-surface-variant leading-relaxed">Achieve complete visual security during the day without sacrificing your view of the outside world.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low p-8 ghost-border rounded-none hover:bg-surface-bright transition-all group">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary mb-8 group-hover:led-glow-error transition-all">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+</div>
+<h3 class="font-headline font-bold text-xl text-white mb-4">UV PROTECTION</h3>
+<p class="text-on-surface-variant leading-relaxed">Stop 99.9% of harmful UV rays that cause furniture fading and skin damage. Total interior preservation.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Commercial Expertise -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col lg:flex-row-reverse gap-16 items-center">
+<div class="w-full lg:w-1/2">
+<div class="relative aspect-video lg:aspect-square">
+<img alt="Modern glass office building with professional window tint" class="w-full h-full object-cover" data-alt="Sleek glass and steel corporate skyscraper facade with uniform dark tinting reflecting a crisp blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7ph4S-wG6Dv_2VEixlEqBIH0GRCekSNRqPyvnH3NCNPug8wsPT4-4eVH9QmrULi2-O6nK_LTa-D4QbCqGMKnjphEXWadiv_dfaYd1CHBAlUbcP1M5d3cy_O4sQY9cXzqllL8_G5XxXRKPbAeQtbz0VCwIQZrhrwC4BhWxrHE8h0GaM8Vq8ML4uInXwTTihHGQnN2W0hnOsPwT2DSbQvdJLRXydFhrO6PGYE8mRq2zopUT-VmzkDqewhwrlL7gyzheE2ohekK6op8"/>
+<div class="absolute -bottom-6 -left-6 bg-surface-container p-6 border-l-4 border-primary">
+<div class="text-3xl font-headline font-bold text-white tracking-tighter">LEED CERTIFIED</div>
+<div class="text-xs text-on-surface-variant tracking-widest mt-1">ENERGY EFFICIENCY STANDARD</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2">
+<span class="text-primary font-headline tracking-[0.2em] text-xs font-bold uppercase mb-4 block">Enterprise Grade</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-white mb-8">COMMERCIAL <br/>EXPERTISE</h2>
+<div class="space-y-10">
+<div class="flex gap-6">
+<div class="text-primary pt-1">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</div>
+<div>
+<h4 class="text-white font-headline font-bold text-lg mb-2 uppercase tracking-wide">Security &amp; Blast Mitigation</h4>
+<p class="text-on-surface-variant leading-relaxed">Thick safety films designed to hold glass together upon impact, protecting assets and employees from intrusion or natural disasters.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="text-primary pt-1">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+</div>
+<div>
+<h4 class="text-white font-headline font-bold text-lg mb-2 uppercase tracking-wide">Energy Optimization</h4>
+<p class="text-on-surface-variant leading-relaxed">Slash cooling costs by up to 30%. Our films pay for themselves through operational savings within 24-36 months.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="text-primary pt-1">
+<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>
+</div>
+<div>
+<h4 class="text-white font-headline font-bold text-lg mb-2 uppercase tracking-wide">Glare Reduction</h4>
+<p class="text-on-surface-variant leading-relaxed">Eliminate screen glare and eye strain in the workspace, boosting employee productivity and visual comfort.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-12">
+<h2 class="text-4xl font-headline font-bold tracking-tighter text-white uppercase">The Portfolio</h2>
+<div class="w-20 h-1 bg-primary mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[800px]">
+<div class="md:col-span-2 md:row-span-2 relative overflow-hidden group">
+<img alt="Luxury penthouse with floor to ceiling tinted windows" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Luxury penthouse interior with floor to ceiling windows showing a dramatic city skyline through subtle dark tinting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVjP1aszyXrlU97AhPRoaqwRx3dJ7xMa9PtLfq0NyCc233tM7K_6Mj0GNVSnWVmXVP1kurNvmnJsPn39DYyscxFG0XeDcMzZdBjJ7ncxzeAmaWtNgcDAvZph2fyMl_6h3xpvgvoBYXDfIJ2TSRekwkcbUUygijYW-FB0lAK-aN85ixOsxTn0Wq3hPaoBDekv5RON6jGznwFXzyElH88qngN5omrjsa7mqbRWZRm8pkbR_pYv7jFXwMG_QP6S4IZq3RS13PfRSFNFQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6">
+<span class="text-xs text-primary font-bold tracking-[0.2em] uppercase">Private Residence</span>
+<h4 class="text-xl text-white font-headline font-bold uppercase mt-1">THE OBSIDIAN FLAT</h4>
+</div>
+</div>
+<div class="md:col-span-2 relative overflow-hidden group">
+<img alt="Corporate office building reflection" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Wide angle shot of a modern glass office building with deep blue tint reflecting the city surroundings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHlrh-zGodOWG_HSWjl6JPXSzzFrywYqvbF4iZ321aNWb6RydQluaZpKcYsxJlWQ2zOzfIACznkj5K3FOINekKPIoBLbspx_pvHYTqww8F4cvPBiyHDvNYmPyJGi7KXz3oWvH9YZDhZOBlZrDPUjIDhpu68OC3IvuDh4o0lX1ijAe501NuBeXDdUDBpHtilOI7T_YWB9gdX1I3rwKQwCvZ_v_-T-_bb4JrbsnpNbWuU5ZDHshReKFO4rNTuITxDZVHhDDwAdrJnVg"/>
+<div class="absolute bottom-6 left-6">
+<span class="text-xs text-primary font-bold tracking-[0.2em] uppercase">Commercial</span>
+<h4 class="text-xl text-white font-headline font-bold uppercase mt-1">AXON CENTER</h4>
+</div>
+</div>
+<div class="relative overflow-hidden group">
+<img alt="Pool house with privacy tint" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Modern minimalist pool house with mirrored glass windows providing privacy and sleek aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIsB1cmOWmS4cfrkuCQPszuqcnNWrX-tn97GS7RhUKC6gSnSoXMnPQPK_wrBldUSFKv3391uyfTtZ9o9kucga8j-KgNhw7go5W-8jaYcDxLSfGDbgTggKjw4MXubdQ8Wc2uFgkpg0p9NEltS51Qa5h66KMXBneJmfJBmTQ9t9Y9kyYZa5TofpXZarO9-qY3fd20BF1ADh3-TCgdTC1ljSc1-Uv-E1Ffg5L9LAQD6hZdp4ioi9o88bvACRldiGGmBjkKfNoc834nVc"/>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-sm text-white font-headline font-bold uppercase">ZENITH POOLHOUSE</h4>
+</div>
+</div>
+<div class="relative overflow-hidden group">
+<img alt="Tech office with decorative frost" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Modern tech office interior with decorative frosted glass partitions and window tinting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe72YKB8aaDg4MMiu2J6dLy3__J1XwwCtdXI8eegGx1YDQFWxhnp9Bh7ZPpYTomQpqViLAlC9RloNfSFkPvxbYCz-S8R6w4AMZ67CGWaclyVsyX-73Tblik_f5ciyEPKtZP8DGN6E2xBwcGP0HePzW2EJZHNmCTfQUhA7BTmQJcARQ0X-Kcy3pCkibhe0feFdtOTtTK34woSixKIKY-coRQTwGp_U337Ysffe47ou6et4s8zbc4W1OKo_mfkWD7wo4Adk2o-jd6iQ"/>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-sm text-white font-headline font-bold uppercase">VIRTUE LABS</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote CTA Section -->
+<section class="py-24 bg-surface-container">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-surface-container-low border border-outline-variant/10 p-12 lg:p-20 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-5xl font-headline font-bold tracking-tighter text-white mb-6 uppercase">READY FOR <br/><span class="text-primary">PRECISION?</span></h2>
+<p class="text-on-surface-variant text-lg mb-8 leading-relaxed">
+                                Our consultants provide on-site diagnostics and heat-map analysis to determine the optimal film for your specific architecture. 
+                            </p>
+<div class="flex flex-col gap-4 max-w-sm">
+<div class="flex items-center gap-4 text-white font-headline font-bold">
+<span class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center text-primary text-xs">01</span>
+                                    CHOOSE YOUR PACKAGE
+                                </div>
+<div class="flex items-center gap-4 text-white font-headline font-bold">
+<span class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center text-primary text-xs">02</span>
+                                    VIRTUAL CONSULTATION
+                                </div>
+<div class="flex items-center gap-4 text-white font-headline font-bold">
+<span class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center text-primary text-xs">03</span>
+                                    PRECISION INSTALLATION
+                                </div>
+</div>
+</div>
+<div class="glass-panel p-10 ghost-border">
+<h3 class="text-2xl font-headline font-bold text-white mb-8 uppercase tracking-tight text-center">GET A CUSTOM QUOTE</h3>
+<form class="space-y-4">
+<div>
+<input class="w-full bg-surface-container-highest border-none text-on-surface font-headline tracking-widest text-xs p-4 focus:ring-1 focus:ring-primary focus:bg-surface-bright transition-all" placeholder="FULL NAME" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<input class="w-full bg-surface-container-highest border-none text-on-surface font-headline tracking-widest text-xs p-4 focus:ring-1 focus:ring-primary focus:bg-surface-bright transition-all" placeholder="EMAIL ADDRESS" type="email"/>
+<input class="w-full bg-surface-container-highest border-none text-on-surface font-headline tracking-widest text-xs p-4 focus:ring-1 focus:ring-primary focus:bg-surface-bright transition-all" placeholder="PHONE NUMBER" type="tel"/>
+</div>
+<div>
+<select class="w-full bg-surface-container-highest border-none text-on-surface font-headline tracking-widest text-xs p-4 focus:ring-1 focus:ring-primary focus:bg-surface-bright transition-all">
+<option>PROJECT TYPE</option>
+<option>RESIDENTIAL</option>
+<option>COMMERCIAL</option>
+<option>GOVERNMENT</option>
+</select>
+</div>
+<div>
+<textarea class="w-full bg-surface-container-highest border-none text-on-surface font-headline tracking-widest text-xs p-4 focus:ring-1 focus:ring-primary focus:bg-surface-bright transition-all" placeholder="PROJECT DETAILS" rows="4"></textarea>
+</div>
+<button class="w-full kinetic-gradient text-on-primary-fixed py-5 font-bold tracking-[0.2em] uppercase mt-4 hover:scale-[0.98] transition-all">
+                                    REQUEST ANALYSIS
+                                </button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0e0e0e] w-full border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-8 max-w-7xl mx-auto">
+<div class="text-lg font-black text-white mb-6 md:mb-0">TINT NOIR PRECISION</div>
+<div class="flex flex-wrap justify-center gap-8 font-['Space_Grotesk'] uppercase text-xs tracking-widest">
+<a class="text-gray-500 hover:text-[#FF4D4D] transition-colors" href="#">Privacy Policy</a>
+<a class="text-gray-500 hover:text-[#FF4D4D] transition-colors" href="#">Terms of Service</a>
+<a class="text-gray-500 hover:text-[#FF4D4D] transition-colors" href="#">Warranty</a>
+<a class="text-gray-500 hover:text-[#FF4D4D] transition-colors" href="#">Contact</a>
+</div>
+<div class="mt-8 md:mt-0 font-['Space_Grotesk'] uppercase text-[10px] tracking-widest text-gray-500">
+                © 2024 TINT NOIR PRECISION. ALL RIGHTS RESERVED.
             </div>
-            <div class="relative">
-              <select
-                class="bg-[#0D0D0D] border border-[#333333] text-white text-xs rounded-lg pl-3 pr-8 py-2 focus:ring-1 focus:ring-[#E64833] appearance-none outline-none">
-                <option>Time: Last 30 Days</option>
-                <option>Last 3 Months</option>
-                <option>This Year</option>
-              </select>
-              <span
-                class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-xs pointer-events-none"
-                style="">expand_more</span>
-            </div>
-          </div>
-          <div class="flex items-center text-xs text-[#9CA3AF]">
-            <span class="" style="">Showing 10 of 1,284 orders</span>
-          </div>
-        </div>
-        <!-- Table Content -->
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="bg-[#0D0D0D] border-b border-[#333333]">
-                <th class="px-6 py-4 text-[#E64833] text-[10px] font-black uppercase tracking-widest" style="">Order ID
-                </th>
-                <th class="px-6 py-4 text-[#E64833] text-[10px] font-black uppercase tracking-widest" style="">Client
-                  Name</th>
-                <th class="px-6 py-4 text-[#E64833] text-[10px] font-black uppercase tracking-widest" style="">
-                  Service/Package</th>
-                <th class="px-6 py-4 text-[#E64833] text-[10px] font-black uppercase tracking-widest" style="">Date</th>
-                <th class="px-6 py-4 text-[#E64833] text-[10px] font-black uppercase tracking-widest text-right"
-                  style="">Amount</th>
-                <th class="px-6 py-4 text-[#E64833] text-[10px] font-black uppercase tracking-widest" style="">Status
-                </th>
-                <th class="px-6 py-4 text-[#E64833] text-[10px] font-black uppercase tracking-widest text-center"
-                  style="">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-[#333333]">
-              <!-- Row 1 -->
-              <tr class="bg-[#0D0D0D] hover:bg-[#141414] transition-colors group">
-                <td class="px-6 py-4 font-mono text-sm text-white font-medium" style="">#KG-8821</td>
-                <td class="px-6 py-4" style="">
-                  <div class="flex items-center space-x-3">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-[#262626] flex items-center justify-center text-[#E64833] font-bold text-xs"
-                      style="">AA</div>
-                    <span class="text-white text-sm font-semibold" style="">Ahmed Al-Sayed</span>
-                  </div>
-                </td>
-                <td class="px-6 py-4 text-[#9CA3AF] text-sm" style="">Turbo Tune-Up Pro</td>
-                <td class="px-6 py-4 text-[#9CA3AF] text-sm" style="">Oct 24, 2023</td>
-                <td class="px-6 py-4 text-right" style="">
-                  <span class="text-white font-bold text-sm" style="">4,500.00</span>
-                  <span class="text-[#9CA3AF] text-[10px] ml-1" style="">SAR</span>
-                </td>
-                <td class="px-6 py-4" style="">
-                  <span
-                    class="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded uppercase tracking-wider border border-green-500/20"
-                    style="">Paid</span>
-                </td>
-                <td class="px-6 py-4 text-center" style="">
-                  <button class="text-[#9CA3AF] hover:text-white transition-colors" style="">
-                    <span class="material-symbols-outlined text-lg" style="">more_vert</span>
-                  </button>
-                </td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="bg-[#141414] hover:bg-[#1A1A1A] transition-colors group">
-                <td class="px-6 py-4 font-mono text-sm text-white font-medium" style="">#KG-8819</td>
-                <td class="px-6 py-4" style="">
-                  <div class="flex items-center space-x-3">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-[#262626] flex items-center justify-center text-[#E64833] font-bold text-xs"
-                      style="">MB</div>
-                    <span class="text-white text-sm font-semibold" style="">Mark Bennington</span>
-                  </div>
-                </td>
-                <td class="px-6 py-4 text-[#9CA3AF] text-sm" style="">Carbon Ceramic Kit</td>
-                <td class="px-6 py-4 text-[#9CA3AF] text-sm" style="">Oct 23, 2023</td>
-                <td class="px-6 py-4 text-right" style="">
-                  <span class="text-white font-bold text-sm" style="">12,200.00</span>
-                  <span class="text-[#9CA3AF] text-[10px] ml-1" style="">SAR</span>
-                </td>
-                <td class="px-6 py-4" style="">
-                  <span
-                    class="px-2 py-1 bg-[#E64833]/10 text-[#E64833] text-[10px] font-bold rounded uppercase tracking-wider border border-[#E64833]/20"
-                    style="">Pending</span>
-                </td>
-                <td class="px-6 py-4 text-center" style="">
-                  <button class="text-[#9CA3AF] hover:text-white transition-colors" style="">
-                    <span class="material-symbols-outlined text-lg" style="">more_vert</span>
-                  </button>
-                </td>
-              </tr>
-              <!-- Row 3 -->
-              <tr class="bg-[#0D0D0D] hover:bg-[#141414] transition-colors group">
-                <td class="px-6 py-4 font-mono text-sm text-white font-medium" style="">#KG-8815</td>
-                <td class="px-6 py-4" style="">
-                  <div class="flex items-center space-x-3">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-[#262626] flex items-center justify-center text-[#E64833] font-bold text-xs"
-                      style="">SK</div>
-                    <span class="text-white text-sm font-semibold" style="">Sarah Khalid</span>
-                  </div>
-                </td>
-                <td class="px-6 py-4 text-[#9CA3AF] text-sm" style="">Full Custom Wrap</td>
-                <td class="px-6 py-4 text-[#9CA3AF] text-sm" style="">Oct 21, 2023</td>
-                <td class="px-6 py-4 text-right" style="">
-                  <span class="text-white font-bold text-sm" style="">8,750.00</span>
-                  <span class="text-[#9CA3AF] text-[10px] ml-1" style="">SAR</span>
-                </td>
-                <td class="px-6 py-4" style="">
-                  <span
-                    class="px-2 py-1 bg-red-500/10 text-red-500 text-[10px] font-bold rounded uppercase tracking-wider border border-red-500/20"
-                    style="">Overdue</span>
-                </td>
-                <td class="px-6 py-4 text-center" style="">
-                  <button class="text-[#9CA3AF] hover:text-white transition-colors" style="">
-                    <span class="material-symbols-outlined text-lg" style="">more_vert</span>
-                  </button>
-                </td>
-              </tr>
-              <!-- Row 4 -->
-              <tr class="bg-[#141414] hover:bg-[#1A1A1A] transition-colors group">
-                <td class="px-6 py-4 font-mono text-sm text-white font-medium" style="">#KG-8812</td>
-                <td class="px-6 py-4" style="">
-                  <div class="flex items-center space-x-3">
-                    <div
-                      class="w-8 h-8 rounded-lg bg-[#262626] flex items-center justify-center text-[#E64833] font-bold text-xs"
-                      style="">JD</div>
-                    <span class="text-white text-sm font-semibold" style="">James Dawson</span>
-                  </div>
-                </td>
-                <td class="px-6 py-4 text-[#9CA3AF] text-sm" style="">Track Alignment</td>
-                <td class="px-6 py-4 text-[#9CA3AF] text-sm" style="">Oct 20, 2023</td>
-                <td class="px-6 py-4 text-right" style="">
-                  <span class="text-white font-bold text-sm" style="">1,200.00</span>
-                  <span class="text-[#9CA3AF] text-[10px] ml-1" style="">SAR</span>
-                </td>
-                <td class="px-6 py-4" style="">
-                  <span
-                    class="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded uppercase tracking-wider border border-green-500/20"
-                    style="">Paid</span>
-                </td>
-                <td class="px-6 py-4 text-center" style="">
-                  <button class="text-[#9CA3AF] hover:text-white transition-colors" style="">
-                    <span class="material-symbols-outlined text-lg" style="">more_vert</span>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- Table Pagination -->
-        <div class="px-6 py-4 border-t border-[#333333] flex items-center justify-between">
-          <div class="flex space-x-2">
-            <button
-              class="px-3 py-1 bg-[#1A1A1A] border border-[#333333] text-[#9CA3AF] text-xs font-bold rounded hover:text-white transition-colors"
-              style="">Previous</button>
-            <button class="px-3 py-1 bg-[#0D0D0D] border border-[#E64833] text-[#E64833] text-xs font-bold rounded"
-              style="">1</button>
-            <button
-              class="px-3 py-1 bg-[#1A1A1A] border border-[#333333] text-[#9CA3AF] text-xs font-bold rounded hover:text-white transition-colors"
-              style="">2</button>
-            <button
-              class="px-3 py-1 bg-[#1A1A1A] border border-[#333333] text-[#9CA3AF] text-xs font-bold rounded hover:text-white transition-colors"
-              style="">3</button>
-            <button
-              class="px-3 py-1 bg-[#1A1A1A] border border-[#333333] text-[#9CA3AF] text-xs font-bold rounded hover:text-white transition-colors"
-              style="">Next</button>
-          </div>
-          <div class="text-[10px] text-[#9CA3AF] uppercase tracking-widest font-bold" style="">
-            Page 1 of 129
-          </div>
-        </div>
-      </div>
-      <!-- Summary Footnote -->
-      <div class="flex flex-col lg:flex-row gap-6">
-        <div class="flex-1 bg-[#1A1A1A] subtle-border rounded-xl p-6 flex items-center justify-between">
-          <div class="flex items-center space-x-4">
-            <div class="p-3 bg-[#E64833]/10 rounded-full">
-              <span class="material-symbols-outlined text-[#E64833]"
-                style="font-variation-settings: &quot;FILL&quot; 1;">error</span>
-            </div>
-            <div>
-              <p class="text-white font-bold text-sm" style="">System Alert: Billing Reconciliation</p>
-              <p class="text-[#9CA3AF] text-xs" style="">There are 4 transactions requiring manual review in Branch A.
-              </p>
-            </div>
-          </div>
-          <button class="text-xs font-bold text-[#E64833] hover:underline uppercase tracking-widest" style="">Review
-            Now</button>
-        </div>
-        <div
-          class="lg:w-72 bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#333333] rounded-xl p-6 relative">
-          <p class="text-[#9CA3AF] text-[10px] font-bold uppercase tracking-widest mb-4" style="">Quick Stats</p>
-          <div class="space-y-4">
-            <div class="flex justify-between items-center">
-              <span class="text-white/60 text-xs" style="">Avg. Order Value</span>
-              <span class="text-white font-bold text-xs" style="">3,482 SAR</span>
-            </div>
-            <div class="w-full bg-[#262626] h-1.5 rounded-full overflow-hidden">
-              <div class="bg-[#E64833] h-full w-[65%]"></div>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-white/60 text-xs" style="">Billing Success</span>
-              <span class="text-white font-bold text-xs" style="">98.2%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- Mobile Bottom Navigation Shell -->
-  <nav
-    class="md:hidden fixed bottom-0 left-0 right-0 bg-[#0D0D0D] border-t border-[#333333] flex justify-around items-center py-2 z-50">
-    <button class="flex flex-col items-center p-2 text-[#9CA3AF]" style="">
-      <span class="material-symbols-outlined" style="">group</span>
-      <span class="text-[10px] mt-1" style="">Clients</span>
-    </button>
-    <button class="flex flex-col items-center p-2 text-[#9CA3AF]" style="">
-      <span class="material-symbols-outlined" style="">build</span>
-      <span class="text-[10px] mt-1" style="">Services</span>
-    </button>
-    <button class="flex flex-col items-center p-2 text-[#E64833]" style="">
-      <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">receipt_long</span>
-      <span class="text-[10px] mt-1 font-bold" style="">Billing</span>
-    </button>
-    <button class="flex flex-col items-center p-2 text-[#9CA3AF]" style="">
-      <span class="material-symbols-outlined" style="">settings</span>
-      <span class="text-[10px] mt-1" style="">Settings</span>
-    </button>
-  </nav>
-</body>
-
-</html>
+</div>
+</footer>
+</body></html>

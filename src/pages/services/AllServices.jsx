@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const SERVICES_DATA = [
   { id: 'ppf', icon: 'analytics', path: '/services/ppf', titleKey: 'services:paint_protection_title', descKey: 'services:paint_protection_description', price: '$450', unit: '/project' },

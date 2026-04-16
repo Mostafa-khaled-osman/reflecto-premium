@@ -14,11 +14,14 @@ import AdminScheduling from '../pages/AdminScheduling';
 import AdminClients from '../pages/AdminClients';
 import EditClient from '../pages/EditClient';
 import EditPackage from '../pages/EditPackage';
-import AllServices from '../pages/AllServices';
+import AllServices from '../pages/services/AllServices';
 import NotFound from '../error-page/notFound';
 import ProtectedRoute from '../components/components/ProtectedRoute';
 import PageTransition from '../components/components/PageTransition';
 import OrdersBilling from '../pages/OrdersBilling';
+import CommercialTinting from '../pages/services/CommercialTinting';
+
+
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -67,6 +70,7 @@ const AppRoutes = () => {
         <Route path="/services/paint-correction" element={<AnimatedRoute><PaintCorrection /></AnimatedRoute>} />
         <Route path="/services/dash-cam" element={<AnimatedRoute><DashCam /></AnimatedRoute>} />
         <Route path="/services/nano-ceramic" element={<AnimatedRoute><NanoCeramic /></AnimatedRoute>} />
+        <Route path="/services/commercial-tint" element={<AnimatedRoute><CommercialTinting /></AnimatedRoute>} />
         <Route path="/admin" element={
           <AnimatedRoute>
             {/* <ProtectedRoute> */}

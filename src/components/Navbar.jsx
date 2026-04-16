@@ -110,7 +110,8 @@ const Navbar = () => {
                 { label: t('services:window_tinting_title'), path: '/services/window-tint' },
                 { label: t('services:paint_correction_title'), path: '/services/paint-correction' },
                 { label: t('services:nano_ceramic_title'), path: '/services/nano-ceramic' },
-                { label: t('services:dash_cam_title'), path: '/services/dash-cam' }
+                { label: t('services:dash_cam_title'), path: '/services/dash-cam' },
+                { label: 'Commercial Tinting', path: '/services/commercial-tint' }
               ].map((item) => (
                 <Link
                   key={item.label}
@@ -186,7 +187,8 @@ const Navbar = () => {
               { label: t('services:window_tinting_title'), path: '/services/window-tint' },
               { label: t('services:paint_correction_title'), path: '/services/paint-correction' },
               { label: t('services:nano_ceramic_title'), path: '/services/nano-ceramic' },
-              { label: t('services:dash_cam_title'), path: '/services/dash-cam' }
+              { label: t('services:dash_cam_title'), path: '/services/dash-cam' },
+              { label: 'Commercial Tinting', path: '/services/commercial-tint' }
             ].map((item) => (
               <Link
                 key={item.label}
