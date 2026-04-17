@@ -12,8 +12,10 @@ import { Ppf, Tint, PaintCorrection, DashCam, NanoCeramic } from '../pages/servi
 import AdminOverview from '../pages/AdminOverview';
 import AdminScheduling from '../pages/AdminScheduling';
 import AdminClients from '../pages/AdminClients';
+import AddClient from '../pages/AddClient';
 import EditClient from '../pages/EditClient';
 import EditPackage from '../pages/EditPackage';
+import AddPackage from '../pages/AddPackage';
 import AllServices from '../pages/services/AllServices';
 import NotFound from '../error-page/notFound';
 import ProtectedRoute from '../components/components/ProtectedRoute';
@@ -90,6 +92,11 @@ const AppRoutes = () => {
             <AdminClients />
           </AnimatedRoute>
         } />
+        <Route path="/admin/add-client" element={
+          <AnimatedRoute>
+            <AddClient />
+          </AnimatedRoute>
+        } />
         <Route path="/admin/edit-client" element={
           <AnimatedRoute>
             <EditClient />
@@ -98,6 +105,11 @@ const AppRoutes = () => {
         <Route path="/admin/edit-package" element={
           <AnimatedRoute>
             <EditPackage />
+          </AnimatedRoute>
+        } />
+        <Route path="/admin/add-package" element={
+          <AnimatedRoute>
+            <AddPackage />
           </AnimatedRoute>
         } />
         <Route path="/admin/billing" element={

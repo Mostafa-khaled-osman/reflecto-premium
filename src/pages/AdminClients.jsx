@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import AdminSidebar from '../components/AdminSidebar';
 import StatCard from '../components/admin/StatCard';
 import ClientCard from '../components/admin/ClientCard';
@@ -55,6 +56,7 @@ const clientsData = [
 const AdminClients = () => {
   const [viewMode, setViewMode] = useState('grid');
   const { t } = useTranslation(['admin_clients']);
+  const navigate = useNavigate();
 
   return (
     <div className="flex bg-[#131313] min-h-[calc(100vh-5rem)] font-body text-[#e5e2e1] selection:bg-[#c8c6c6] relative mt-16 md:mt-0">
@@ -79,7 +81,10 @@ const AdminClients = () => {
             <button className="px-6 py-3 rounded-xl bg-[#353534] text-[#ffb4a7] font-bold font-headline text-sm hover:bg-[#2a2a2a] transition-colors whitespace-nowrap">
               Export CSV
             </button>
-            <button className="px-6 py-3 rounded-xl ink-pool-gradient text-white font-bold font-headline text-sm shadow-xl shadow-[#ffb4a7]/20 flex items-center gap-2 active:scale-95 transition-transform whitespace-nowrap">
+            <button 
+              onClick={() => navigate('/admin/add-client')}
+              className="px-6 py-3 rounded-xl ink-pool-gradient text-white font-bold font-headline text-sm shadow-xl shadow-[#ffb4a7]/20 flex items-center gap-2 active:scale-95 transition-transform whitespace-nowrap"
+            >
               <span className="material-symbols-outlined text-sm" data-icon="person_add" style={{ fontVariationSettings: "'FILL' 1" }}>
                 person_add
               </span>
