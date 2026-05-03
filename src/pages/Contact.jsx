@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { contactService } from '../services/api';
+import { useToast } from '../contexts/ToastContext';
 
 const Contact = () => {
   const { t } = useTranslation(['contact', 'common']);
+  const { toast } = useToast();
+  const navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     brand: 'Porsche',
     model: '911 GT3 RS',
@@ -22,14 +27,46 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(t('contact:contact_confirmed'));
-    window.location.href = '/';
+
+    if (!formData.fullName || !formData.phone) {
+      toast.warning('Please provide at least your full name and phone number.');
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      // Map frontend state to backend expected payload
+      const payload = {
+        full_name: formData.fullName,
+        phone: formData.phone,
+        email: formData.email || undefined,
+        car_brand: formData.brand,
+        car_model: formData.model,
+        car_year: parseInt(formData.year, 10) || undefined,
+        service_type: formData.serviceType,
+        service_package: formData.servicePackage,
+        preferred_date: formData.date || undefined,
+        preferred_time: formData.time || undefined,
+      };
+
+      await contactService.submitForm(payload);
+      
+      toast.success(t('contact:contact_confirmed') || 'Your request has been submitted successfully!');
+      setTimeout(() => {
+        navigate('/');
+      }, 1500);
+
+    } catch (error) {
+      toast.error(error.message || 'Failed to submit contact form. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Helper class for inputs
-  const inputClass = "w-full bg-[#111111] border border-transparent rounded-lg px-4 py-3 text-white text-sm focus:border-white/10 outline-none transition-colors";
+  const inputClass = "w-full bg-[#111111] border border-transparent rounded-lg px-4 py-3 text-white text-sm focus:border-[#FF4500]/50 outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
   const labelClass = "block text-xs font-bold text-gray-400 mb-2 tracking-wide";
 
   return (
@@ -60,7 +97,7 @@ const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div className="md:col-span-2">
                   <label className={labelClass}>{t('contact:car_brand')}</label>
-                  <select name="brand" value={formData.brand} onChange={handleChange} className={`${inputClass} appearance-none cursor-pointer`}>
+                  <select name="brand" value={formData.brand} onChange={handleChange} disabled={isLoading} className={`${inputClass} appearance-none cursor-pointer`}>
                     <option value="">{t('contact:select_brand')}</option>
                     <option value="Porsche">{t('contact:brands.porsche')}</option>
                     <option value="Audi">{t('contact:brands.audi')}</option>
@@ -71,7 +108,7 @@ const Contact = () => {
 
                 <div>
                   <label className={labelClass}>{t('contact:car_model')}</label>
-                  <select name="model" value={formData.model} onChange={handleChange} className={`${inputClass} appearance-none cursor-pointer`}>
+                  <select name="model" value={formData.model} onChange={handleChange} disabled={isLoading} className={`${inputClass} appearance-none cursor-pointer`}>
                     <option value="">{t('contact:select_model')}</option>
                     <option value="911 GT3 RS">{t('contact:models.gt3')}</option>
                     <option value="R8">{t('contact:models.r8')}</option>
@@ -82,7 +119,7 @@ const Contact = () => {
 
                 <div>
                   <label className={labelClass}>{t('contact:car_year')}</label>
-                  <select name="year" value={formData.year} onChange={handleChange} className={`${inputClass} appearance-none cursor-pointer`}>
+                  <select name="year" value={formData.year} onChange={handleChange} disabled={isLoading} className={`${inputClass} appearance-none cursor-pointer`}>
                     <option value="">{t('contact:select_year')}</option>
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
@@ -94,7 +131,7 @@ const Contact = () => {
               <div className="space-y-6">
                 <div>
                   <label className={labelClass}>{t('contact:select_service')}</label>
-                  <select name="serviceType" value={formData.serviceType} onChange={handleChange} className={`${inputClass} appearance-none cursor-pointer`}>
+                  <select name="serviceType" value={formData.serviceType} onChange={handleChange} disabled={isLoading} className={`${inputClass} appearance-none cursor-pointer`}>
                     <option value="">{t('contact:service_placeholder')}</option>
                     <option value="Full Protection (PPF)">{t('contact:services.ppf')}</option>
                     <option value="Ceramic Coating">{t('contact:services.ceramic')}</option>
@@ -103,7 +140,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className={labelClass}>{t('contact:service_package')}</label>
-                  <select name="servicePackage" value={formData.servicePackage} onChange={handleChange} className={`${inputClass} appearance-none cursor-pointer`}>
+                  <select name="servicePackage" value={formData.servicePackage} onChange={handleChange} disabled={isLoading} className={`${inputClass} appearance-none cursor-pointer`}>
                     <option value="">{t('contact:package_placeholder')}</option>
                     <option value="Ultimate">{t('contact:packages.ultimate')}</option>
                     <option value="Premium">{t('contact:packages.premium')}</option>
@@ -124,27 +161,27 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className={labelClass}>{t('contact:full_name')}</label>
-                  <input type="text" name="fullName" placeholder={t('contact:full_name_placeholder')} value={formData.fullName} onChange={handleChange} className={inputClass} />
+                  <label className={labelClass}>{t('contact:full_name')} *</label>
+                  <input type="text" name="fullName" placeholder={t('contact:full_name_placeholder')} value={formData.fullName} onChange={handleChange} disabled={isLoading} className={inputClass} required />
                 </div>
                 <div>
-                  <label className={labelClass}>{t('contact:phone_number')}</label>
-                  <input type="tel" name="phone" placeholder="+1 (555) 000-0000" value={formData.phone} onChange={handleChange} className={inputClass} />
+                  <label className={labelClass}>{t('contact:phone_number')} *</label>
+                  <input type="tel" name="phone" placeholder="+1 (555) 000-0000" value={formData.phone} onChange={handleChange} disabled={isLoading} className={inputClass} required />
                 </div>
                 <div className="md:col-span-2">
                   <label className={labelClass}>{t('contact:email_address')}</label>
-                  <input type="email" name="email" placeholder={t('contact:email_placeholder')} value={formData.email} onChange={handleChange} className={inputClass} />
+                  <input type="email" name="email" placeholder={t('contact:email_placeholder')} value={formData.email} onChange={handleChange} disabled={isLoading} className={inputClass} />
                 </div>
                 <div>
                   <label className={labelClass}>{t('contact:preferred_date')}</label>
                   <div className="relative">
-                    <input type="date" name="date" value={formData.date} onChange={handleChange} className={`${inputClass} appearance-none`} />
+                    <input type="date" name="date" value={formData.date} onChange={handleChange} disabled={isLoading} className={`${inputClass} appearance-none`} />
                   </div>
                 </div>
                 <div>
                   <label className={labelClass}>{t('contact:preferred_time')}</label>
                   <div className="relative">
-                    <input type="time" name="time" value={formData.time} onChange={handleChange} className={`${inputClass} appearance-none`} />
+                    <input type="time" name="time" value={formData.time} onChange={handleChange} disabled={isLoading} className={`${inputClass} appearance-none`} />
                   </div>
                 </div>
               </div>
@@ -194,8 +231,21 @@ const Contact = () => {
                 </div>
               </div>
 
-              <button type="submit" className="w-full py-4 bg-gradient-to-r from-[#FF4500] to-[#E63E00] hover:from-[#E63E00] hover:to-[#CC3700] text-white text-[11px] font-bold rounded-full uppercase tracking-[0.2em] transition-all flex items-center justify-center shadow-[0_0_20px_rgba(255,69,0,0.3)] hover:shadow-[0_0_30px_rgba(255,69,0,0.5)]">
-                {t('contact:confirm_contact')} <span className="ml-2">→</span>
+              <button 
+                type="submit" 
+                disabled={isLoading}
+                className="w-full py-4 bg-gradient-to-r from-[#FF4500] to-[#E63E00] hover:from-[#E63E00] hover:to-[#CC3700] text-white text-[11px] font-bold rounded-full uppercase tracking-[0.2em] transition-all flex items-center justify-center shadow-[0_0_20px_rgba(255,69,0,0.3)] hover:shadow-[0_0_30px_rgba(255,69,0,0.5)] disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isLoading ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    {t('contact:confirm_contact')} <span className="ml-2">→</span>
+                  </>
+                )}
               </button>
             </div>
           </div>

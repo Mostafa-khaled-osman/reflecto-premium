@@ -1,17 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { adminService, clientService } from '../services/api';
 import AdminSidebar from '../components/AdminSidebar';
 
 const AdminOverview = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const { data: overview, isLoading } = useQuery({
+    queryKey: ['adminOverview'],
+    queryFn: adminService.getOverview,
+  });
+
+  // Search logic (optional: could debounce and use useQuery)
+  const handleSearch = async (e) => {
+    if (e.key === 'Enter' && searchQuery.trim()) {
+      // In a real app, this would route to a search results page or update a local state
+      console.log('Searching for:', searchQuery);
+      try {
+        const res = await clientService.search(searchQuery);
+        console.log('Search results:', res);
+        // Could open a modal or navigate to /admin/clients?q=...
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
+
+  const stats = overview?.stats || { total_revenue: 0, active_jobs: 0 };
+  const shopSnapshot = overview?.shop_snapshot || { contacts_today: 0, bay_capacity: { occupied: 0, total: 10 } };
+  const recentAppointments = overview?.recent_appointments || [];
+
+  const bayPercent = shopSnapshot.bay_capacity.total > 0 
+    ? Math.round((shopSnapshot.bay_capacity.occupied / shopSnapshot.bay_capacity.total) * 100) 
+    : 0;
 
   return (
     <div className="flex bg-[#0a0a0a] min-h-screen text-white overflow-hidden pt-20 ">
       <AdminSidebar />
 
-      {/* <div className="flex-grow lg:pl-80 flex flex-col xl:flex-row overflow-hidden"> */}
-      {/* BEGIN: Main Content Area */}
       <main className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
-        {/* Header (Preserving functional pieces from original) */}
+        {/* Header */}
         <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pl-12 lg:pl-0 mt-4 lg:mt-0 shrink-0">
           <div>
             <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Dashboard / Overview</div>
@@ -24,6 +53,9 @@ const AdminOverview = () => {
               <input
                 type="text"
                 placeholder="Search client, ID..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleSearch}
                 className="bg-[#1a1a1a] border border-white/5 rounded-xl pl-12 pr-6 py-3 text-sm w-48 sm:w-80 focus:outline-none focus:border-[#FF5C35] transition-all"
               />
             </div>
@@ -37,7 +69,6 @@ const AdminOverview = () => {
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
               <span className="hidden sm:inline">New package</span>
-              {/* <span className="sm:hidden">New</span> */}
             </Link>
           </div>
         </header>
@@ -45,106 +76,82 @@ const AdminOverview = () => {
         {/* Hero Image */}
         <div className="w-full h-[380px] rounded-xl overflow-hidden relative shadow-2xl shrink-0 mt-2">
           <img alt="Main Car Hero" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=1200" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+            <div className="text-white">
+              <h2 className="text-4xl font-display font-bold mb-2">SAR {stats.total_revenue.toLocaleString()}</h2>
+              <p className="text-gray-300 tracking-widest text-sm uppercase">Total Revenue (This Month)</p>
+            </div>
+          </div>
         </div>
 
         {/* Client Data Table Section */}
         <section className="bg-[#222222] rounded-xl p-6 border border-[#333333] flex-1 flex flex-col min-h-[400px]">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-            <h2 className="text-white text-lg font-semibold tracking-wide">CLIENT DATA & SCHEDULING</h2>
-            {/* <div className="flex items-center gap-2 text-[#a0a0a0]">
-                <span className="text-xs font-semibold cursor-pointer hover:text-white transition-colors">EXPORT REPORT</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
-              </div> */}
+            <h2 className="text-white text-lg font-semibold tracking-wide flex items-center gap-2">
+              RECENT APPOINTMENTS
+              {isLoading && <div className="w-4 h-4 border-2 border-[#FF5C35] border-t-transparent rounded-full animate-spin"></div>}
+            </h2>
+            <Link to="/clientsDashboard" className="text-xs font-semibold text-gray-400 hover:text-white transition-colors uppercase">
+              View All Clients →
+            </Link>
           </div>
 
           <div className="w-full flex-1 flex flex-col overflow-x-auto">
             <div className="min-w-[800px]">
               {/* Table Header */}
               <div className="grid grid-cols-12 gap-4 text-[#a0a0a0] text-xs font-semibold tracking-wider pb-3 border-b border-[#333333] mb-3">
-                <div className="col-span-3">NAME & BATES</div>
-                <div className="col-span-2">NOTICE / NATURE</div>
-                <div className="col-span-3">DEVELOPED SERVICE</div>
-                <div className="col-span-2">SMARTPHONE</div>
-                <div className="col-span-2 text-right">ACTION / FLEET</div>
+                <div className="col-span-3">CLIENT</div>
+                <div className="col-span-3">VEHICLE</div>
+                <div className="col-span-3">SERVICE</div>
+                <div className="col-span-2">STATUS</div>
+                <div className="col-span-1 text-right">ACTION</div>
               </div>
 
               {/* Table Body Rows */}
               <div className="flex flex-col gap-2">
-                <div className="grid grid-cols-12 gap-4 items-center bg-[#141414] border border-[#333333] rounded-lg p-3 hover:bg-gray-800 transition-colors">
-                  <div className="col-span-3 flex items-center gap-3">
-                    <img className="w-8 h-8 rounded-full object-cover border border-gray-600" src="https://i.pravatar.cc/150?u=Masstaria" alt="User" />
-                    <span className="text-white text-sm">Masstaria</span>
-                  </div>
-                  <div className="col-span-2 text-gray-400 text-sm">RESION</div>
-                  <div className="col-span-3 flex items-center gap-2">
-                    <span className="text-gray-300 text-sm">TRAK ASH & NGNESS</span>
-                    <svg className="w-3 h-3 text-[#ff4d4d]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
-                  </div>
-                  <div className="col-span-2 text-gray-400 text-sm">PIN SENSIOXE</div>
-                  <div className="col-span-2 text-right text-gray-400 text-sm">DESIGN</div>
-                </div>
+                {recentAppointments.length === 0 && !isLoading && (
+                  <div className="text-center py-10 text-gray-500 italic">No recent appointments found.</div>
+                )}
 
-                <div className="grid grid-cols-12 gap-4 items-center bg-[#141414] border border-[#333333] rounded-lg p-3 hover:bg-gray-800 transition-colors">
-                  <div className="col-span-3 flex items-center gap-3">
-                    <img className="w-8 h-8 rounded-full object-cover border border-gray-600" src="https://i.pravatar.cc/150?u=Phillip" alt="User" />
-                    <span className="text-white text-sm whitespace-nowrap">Phillip Saonatksarsmona</span>
+                {recentAppointments.map((apt, idx) => (
+                  <div key={apt.id || idx} className={`grid grid-cols-12 gap-4 items-center ${apt.status === 'in_progress' ? 'bg-[#ff4d4d]/10 border-[#ff4d4d]/30' : 'bg-[#141414] border-[#333333]'} border rounded-lg p-3 hover:bg-gray-800 transition-colors`}>
+                    <div className="col-span-3 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold text-white">
+                        {apt.client_name?.charAt(0) || '?'}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-white text-sm font-medium">{apt.client_name || 'Unknown'}</span>
+                        <span className="text-[10px] text-gray-500">{apt.client_phone}</span>
+                      </div>
+                    </div>
+                    <div className="col-span-3 text-gray-300 text-sm">{apt.vehicle || 'Not specified'}</div>
+                    <div className="col-span-3 text-gray-300 text-sm flex items-center gap-2">
+                      {apt.service_name || 'Standard Service'}
+                      {apt.is_premium && <svg className="w-3 h-3 text-[#ff4d4d]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>}
+                    </div>
+                    <div className="col-span-2">
+                      <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase ${
+                        apt.status === 'in_progress' ? 'bg-[#ff4d4d]/20 text-[#ff4d4d]' : 
+                        apt.status === 'completed' ? 'bg-emerald-500/20 text-emerald-500' : 
+                        'bg-gray-500/20 text-gray-400'
+                      }`}>
+                        {apt.status ? apt.status.replace('_', ' ') : 'Pending'}
+                      </span>
+                    </div>
+                    <div className="col-span-1 text-right">
+                      <Link to={`/admin/edit-client?id=${apt.client_id}`} className="text-gray-400 hover:text-white">
+                        <svg className="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                      </Link>
+                    </div>
                   </div>
-                  <div className="col-span-2 text-gray-400 text-sm">RESION</div>
-                  <div className="col-span-3 flex items-center gap-2">
-                    <span className="text-gray-300 text-sm">TRANSFORM OERING SERIES</span>
-                    <svg className="w-3 h-3 text-[#ff4d4d]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
-                  </div>
-                  <div className="col-span-2 text-gray-400 text-sm">PIN CIEEDE</div>
-                  <div className="col-span-2 text-right text-gray-400 text-sm">DESIGN</div>
-                </div>
-
-                <div className="grid grid-cols-12 gap-4 items-center bg-[#141414] border border-[#333333] rounded-lg p-3 hover:bg-gray-800 transition-colors">
-                  <div className="col-span-3 flex items-center gap-3">
-                    <img className="w-8 h-8 rounded-full object-cover border border-gray-600" src="https://i.pravatar.cc/150?u=Ptohyer" alt="User" />
-                    <span className="text-white text-sm">Ptohyer Clanirig</span>
-                  </div>
-                  <div className="col-span-2 text-gray-400 text-sm">RGSION</div>
-                  <div className="col-span-3 flex items-center justify-between">
-                    <span className="text-gray-300 text-sm">PLAE RECOVERY</span>
-                    <div className="w-4 h-4 border border-[#ff4d4d] rounded-sm mr-4"></div>
-                  </div>
-                  <div className="col-span-2 text-gray-400 text-sm">FROWARD FOROA</div>
-                  <div className="col-span-2 text-right text-gray-400 text-sm">DESIGN</div>
-                </div>
-
-                <div className="grid grid-cols-12 gap-4 items-center bg-[#141414] border border-[#333333] rounded-lg p-3 hover:bg-gray-800 transition-colors">
-                  <div className="col-span-3 flex items-center gap-3">
-                    <img className="w-8 h-8 rounded-full object-cover border border-gray-600" src="https://i.pravatar.cc/150?u=Smwess" alt="User" />
-                    <span className="text-white text-sm">Smwess Clooering</span>
-                  </div>
-                  <div className="col-span-2 text-gray-400 text-sm">RESION</div>
-                  <div className="col-span-3 flex items-center gap-2">
-                    <span className="text-gray-300 text-sm">TRONSXR EXETIVE VISUAL</span>
-                    <svg className="w-3 h-3 text-[#ff4d4d]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
-                  </div>
-                  <div className="col-span-2 text-gray-400 text-sm">PIN STING</div>
-                  <div className="col-span-2 text-right text-gray-400 text-sm">DESIGN</div>
-                </div>
-
-                {/* Active highlighted row */}
-                <div className="grid grid-cols-12 gap-4 items-center bg-[#ff4d4d] rounded-lg p-3 shadow-lg shadow-[#ff4d4d]/20">
-                  <div className="col-span-3 flex items-center gap-3">
-                    <img className="w-8 h-8 rounded-full object-cover border border-white/30" src="https://i.pravatar.cc/150?u=Sacsio" alt="User" />
-                    <span className="text-white font-medium text-sm">Sacsio & Porasslanema</span>
-                  </div>
-                  <div className="col-span-2 text-white/80 text-sm">SERVICE</div>
-                  <div className="col-span-3 text-white/80 text-xs italic pr-4">Transforme nature wihicigclassorit is</div>
-                  <div className="col-span-4 text-right text-white font-medium text-sm">TECHNOLOGY2</div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
       </main>
-      {/* END: Main Content Area */}
 
-      {/* BEGIN: Right Sidebar */}
+      {/* Right Sidebar */}
       <aside className="w-full xl:w-[360px] flex-shrink-0 border-t xl:border-t-0 xl:border-l border-[#333333] bg-[#141414] overflow-y-auto p-4 flex flex-col gap-4">
 
         {/* Analytics Dial Section */}
@@ -153,15 +160,15 @@ const AdminOverview = () => {
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#ff4d4d]"></div>
               <div>
-                <div className="text-white text-xs font-semibold">ACTRannon</div>
-                <div className="text-[10px] text-gray-500">Ivorete antites</div>
+                <div className="text-white text-xs font-semibold">Active Jobs</div>
+                <div className="text-[10px] text-gray-500">{stats.active_jobs} cars</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#ff4d4d]"></div>
+              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
               <div>
-                <div className="text-white text-xs font-semibold">Derktc clases</div>
-                <div className="text-[10px] text-gray-500">Deletuler woes</div>
+                <div className="text-white text-xs font-semibold">New Leads</div>
+                <div className="text-[10px] text-gray-500">{shopSnapshot.contacts_today} contacts today</div>
               </div>
             </div>
           </div>
@@ -169,28 +176,12 @@ const AdminOverview = () => {
           <div className="relative w-32 h-32 flex items-center justify-center shrink-0">
             <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
               <path className="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="3"></path>
-              <path className="text-[#333333]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeDasharray="82, 100" strokeWidth="3"></path>
-              <path className="text-[#ff4d4d]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeDasharray="15, 100" strokeDashoffset="-82" strokeWidth="3"></path>
+              <path className="text-[#333333]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeDasharray={`${bayPercent}, 100`} strokeWidth="3"></path>
+              <path className="text-[#ff4d4d]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeDasharray={`${Math.max(0, bayPercent - 15)}, 100`} strokeWidth="3"></path>
             </svg>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-2xl font-light text-white">82<span className="text-sm text-gray-400">%</span></span>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2 justify-end">
-              <div className="text-right">
-                <div className="text-white text-xs font-semibold">ACTIVE</div>
-                <div className="text-[10px] text-gray-500">Acvie 0000</div>
-              </div>
-              <div className="w-2 h-2 rounded-full bg-gray-500"></div>
-            </div>
-            <div className="flex items-center gap-2 justify-end">
-              <div className="text-right">
-                <div className="text-white text-xs font-semibold">Chkl Develope</div>
-                <div className="text-[10px] text-gray-500">Waear clases</div>
-              </div>
-              <div className="w-2 h-2 rounded-full bg-[#ff4d4d]"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <span className="text-2xl font-light text-white">{bayPercent}<span className="text-sm text-gray-400">%</span></span>
+              <span className="text-[8px] text-gray-500 tracking-widest uppercase">Bay Capacity</span>
             </div>
           </div>
         </section>
@@ -209,63 +200,31 @@ const AdminOverview = () => {
           </div>
         </section>
 
-        {/* Recent Content Manager */}
+        {/* Quick Actions */}
         <section className="bg-[#222222] rounded-xl p-5 border border-[#333333] flex-1 flex flex-col">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-white text-sm font-semibold tracking-wider">RECENT CONTENT MANAGER</h2>
-            <span className="text-[#a0a0a0] cursor-pointer hover:text-white">...</span>
+            <h2 className="text-white text-sm font-semibold tracking-wider">QUICK ACTIONS</h2>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 mb-3">
-            <div className="bg-[#141414] rounded-lg p-2 border border-[#333333] relative overflow-hidden h-24">
-              <img className="absolute inset-0 w-full h-full object-cover opacity-40" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=600" alt="Camaro" />
-              <div className="relative z-10">
-                <div className="text-[10px] text-gray-400">GALLERY VIEW</div>
-                <div className="text-xs text-white font-medium">CAMARO SS 2021</div>
-              </div>
-              <div className="absolute bottom-2 right-2 flex gap-1">
-                <div className="w-2 h-2 bg-[#ff4d4d] rounded-full"></div>
-                <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
-              </div>
-            </div>
-            <div className="bg-[#141414] rounded-lg p-2 border border-[#333333] flex flex-col justify-end h-24 relative overflow-hidden">
-              {/* SVG Line Chart Representation */}
-              <svg className="absolute inset-0 w-full h-full opacity-50" preserveAspectRatio="none">
-                <path d="M0,80 Q20,30 40,60 T80,20 T120,50 T160,10 L200,90" fill="none" stroke="#ff4d4d" strokeWidth="2"></path>
-                <path d="M0,90 Q20,60 40,80 T80,40 T120,70 T160,30 L200,100" fill="none" stroke="#555" strokeWidth="1"></path>
-              </svg>
-              <div className="flex justify-between items-end relative z-10 w-full">
-                <div className="text-[10px] text-gray-400">ENGAGEMENT</div>
-                <div className="flex gap-1 mb-1">
-                  <div className="w-1.5 h-1.5 bg-[#4a4a4a] rounded-full"></div>
-                  <div className="w-1.5 h-1.5 bg-[#4a4a4a] rounded-full"></div>
-                  <div className="w-1.5 h-1.5 bg-[#ff4d4d] rounded-full"></div>
+          <div className="grid grid-cols-2 gap-3 flex-1 min-h-[160px]">
+             <Link to="/admin/add-client" className="bg-[#141414] rounded-lg border border-[#333333] flex flex-col items-center justify-center gap-2 hover:bg-white/5 hover:border-[#FF5C35]/50 transition-all group">
+                <div className="w-10 h-10 rounded-full bg-[#FF5C35]/10 flex items-center justify-center text-[#FF5C35] group-hover:scale-110 transition-transform">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="8.5" cy="7" r="4" /><line x1="20" y1="8" x2="20" y2="14" /><line x1="23" y1="11" x2="17" y2="11" /></svg>
                 </div>
-              </div>
-            </div>
-          </div>
+                <span className="text-xs text-gray-300 font-medium">Add Client</span>
+             </Link>
 
-          <div className="grid grid-cols-4 gap-2 flex-1 min-h-[60px]">
-            <div className="bg-[#141414] rounded border border-[#333333] overflow-hidden relative">
-              <img className="w-full h-full object-cover opacity-80" src="https://images.unsplash.com/photo-1552933529-e359b2477262?auto=format&fit=crop&q=80&w=400" alt="Thumb" />
-              <div className="absolute bottom-1 left-1 bg-[#ff4d4d] text-[8px] text-white px-1 rounded">NEW</div>
-            </div>
-            <div className="bg-[#141414] rounded border border-[#333333] overflow-hidden">
-              <img className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=400" alt="Thumb" />
-            </div>
-            <div className="bg-[#141414] rounded border border-[#333333] overflow-hidden">
-              <img className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=400" alt="Thumb" />
-            </div>
-            <div className="bg-[#141414] rounded border border-[#333333] overflow-hidden flex items-center justify-center cursor-pointer hover:bg-white/5 transition-colors">
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path></svg>
-            </div>
+             <Link to="/admin/scheduling" className="bg-[#141414] rounded-lg border border-[#333333] flex flex-col items-center justify-center gap-2 hover:bg-white/5 hover:border-[#FF5C35]/50 transition-all group">
+                <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+                </div>
+                <span className="text-xs text-gray-300 font-medium">Scheduling</span>
+             </Link>
           </div>
         </section>
 
       </aside>
-      {/* END: Right Sidebar */}
     </div>
-    // </div>
   );
 };
 

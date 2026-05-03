@@ -1,16 +1,48 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { authService } from '../services/api';
+import { useToast } from '../contexts/ToastContext';
 import Icon from '../components/Icon';
 
 const LoginView = () => {
   const [phone, setPhone] = useState('');
-  const { login } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
+  const { setPhone: savePhone } = useAuth();
+  const { toast } = useToast();
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    if (!phone.trim()) return;
-    login(phone);
-    window.location.href = '/otp';
+  const handleSubmit = async () => {
+    const trimmed = phone.trim();
+    if (!trimmed) {
+      toast.warning('Please enter your phone number');
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const res = await authService.sendOTP(trimmed);
+
+      // Save phone to context for OTP page
+      savePhone(trimmed);
+
+      // In dev mode, show the OTP code from the response
+      if (res.dev_otp) {
+        toast.info(`Dev OTP: ${res.dev_otp}`, 10000);
+      } else {
+        toast.success(res.message || 'OTP sent successfully');
+      }
+
+      navigate('/otp');
+    } catch (err) {
+      toast.error(err.message || 'Failed to send OTP. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') handleSubmit();
   };
 
   return (
@@ -35,18 +67,30 @@ const LoginView = () => {
                 type="text"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+                onKeyDown={handleKeyDown}
                 className="w-full bg-[#1a1a1a] border border-white/10 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-[#FF5C35] transition-all"
-                placeholder="+20 (1000000000)"
+                placeholder="+966 501234567"
+                disabled={isLoading}
               />
             </div>
           </div>
 
           <button
             onClick={handleSubmit}
-            className="w-full py-5 bg-[#FF5C35] text-white font-bold rounded-xl flex items-center justify-center gap-3 shadow-lg shadow-[#FF5C35]/20 hover:brightness-110 transition-all"
+            disabled={isLoading}
+            className="w-full py-5 bg-[#FF5C35] text-white font-bold rounded-xl flex items-center justify-center gap-3 shadow-lg shadow-[#FF5C35]/20 hover:brightness-110 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Send OTP
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            {isLoading ? (
+              <>
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                Sending...
+              </>
+            ) : (
+              <>
+                Send OTP
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </>
+            )}
           </button>
         </div>
       </div>

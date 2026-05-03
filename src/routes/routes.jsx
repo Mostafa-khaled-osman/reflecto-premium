@@ -22,8 +22,8 @@ import ProtectedRoute from '../components/components/ProtectedRoute';
 import PageTransition from '../components/components/PageTransition';
 import OrdersBilling from '../pages/OrdersBilling';
 import CommercialTinting from '../pages/services/CommercialTinting';
-
-
+import Checkout from '../pages/Checkout';
+import CheckoutStatus from '../pages/CheckoutStatus';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -65,7 +65,13 @@ const AppRoutes = () => {
         <Route path="/Contact" element={<AnimatedRoute><Contact /></AnimatedRoute>} />
         <Route path="/login" element={<AnimatedRoute><LoginView /></AnimatedRoute>} />
         <Route path="/otp" element={<AnimatedRoute><OTPView /></AnimatedRoute>} />
-        <Route path="/clientDashboard" element={<AnimatedRoute><DashboardView /></AnimatedRoute>} />
+        <Route path="/clientDashboard" element={
+          <AnimatedRoute>
+            <ProtectedRoute requiredRole="client">
+              <DashboardView />
+            </ProtectedRoute>
+          </AnimatedRoute>
+        } />
         <Route path="/all-services" element={<AnimatedRoute><AllServices /></AnimatedRoute>} />
         <Route path="/services/ppf" element={<AnimatedRoute><Ppf /></AnimatedRoute>} />
         <Route path="/services/window-tint" element={<AnimatedRoute><Tint /></AnimatedRoute>} />
@@ -73,48 +79,65 @@ const AppRoutes = () => {
         <Route path="/services/dash-cam" element={<AnimatedRoute><DashCam /></AnimatedRoute>} />
         <Route path="/services/nano-ceramic" element={<AnimatedRoute><NanoCeramic /></AnimatedRoute>} />
         <Route path="/services/commercial-tint" element={<AnimatedRoute><CommercialTinting /></AnimatedRoute>} />
+        <Route path="/checkout" element={<AnimatedRoute><Checkout /></AnimatedRoute>} />
+        <Route path="/checkout/success" element={<AnimatedRoute><CheckoutStatus status="success" /></AnimatedRoute>} />
+        <Route path="/checkout/cancel" element={<AnimatedRoute><CheckoutStatus status="cancel" /></AnimatedRoute>} />
+        
+        {/* Admin Routes */}
         <Route path="/admin" element={
           <AnimatedRoute>
-            {/* <ProtectedRoute> */}
-            <AdminOverview />
-            {/* </ProtectedRoute> */}
+            <ProtectedRoute requiredRole="admin">
+              <AdminOverview />
+            </ProtectedRoute>
           </AnimatedRoute>
         } />
         <Route path="/admin/scheduling" element={
           <AnimatedRoute>
-            <ProtectedRoute>
+            <ProtectedRoute requiredRole="admin">
               <AdminScheduling />
             </ProtectedRoute>
           </AnimatedRoute>
         } />
         <Route path="/clientsDashboard" element={
           <AnimatedRoute>
-            <AdminClients />
+            <ProtectedRoute requiredRole="admin">
+              <AdminClients />
+            </ProtectedRoute>
           </AnimatedRoute>
         } />
         <Route path="/admin/add-client" element={
           <AnimatedRoute>
-            <AddClient />
+            <ProtectedRoute requiredRole="admin">
+              <AddClient />
+            </ProtectedRoute>
           </AnimatedRoute>
         } />
         <Route path="/admin/edit-client" element={
           <AnimatedRoute>
-            <EditClient />
+            <ProtectedRoute requiredRole="admin">
+              <EditClient />
+            </ProtectedRoute>
           </AnimatedRoute>
         } />
         <Route path="/admin/edit-package" element={
           <AnimatedRoute>
-            <EditPackage />
+            <ProtectedRoute requiredRole="admin">
+              <EditPackage />
+            </ProtectedRoute>
           </AnimatedRoute>
         } />
         <Route path="/admin/add-package" element={
           <AnimatedRoute>
-            <AddPackage />
+            <ProtectedRoute requiredRole="admin">
+              <AddPackage />
+            </ProtectedRoute>
           </AnimatedRoute>
         } />
         <Route path="/admin/billing" element={
           <AnimatedRoute>
-            <OrdersBilling />
+            <ProtectedRoute requiredRole="admin">
+              <OrdersBilling />
+            </ProtectedRoute>
           </AnimatedRoute>
         } />
         <Route path="*" element={<AnimatedRoute><NotFound /></AnimatedRoute>} />

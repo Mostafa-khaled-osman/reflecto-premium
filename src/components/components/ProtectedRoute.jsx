@@ -1,17 +1,17 @@
 /**
  * @typedef {Object} ProtectedRouteProps
  * @property {React.ReactNode} children
+ * @property {string} [requiredRole] - e.g. "admin" or "client"
  */
 
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
-
 /**
  * @param {ProtectedRouteProps} props
  */
-const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, isLoading } = useAuth();
+const ProtectedRoute = ({ children, requiredRole }) => {
+  const { isAuthenticated, isLoading, user } = useAuth();
   const location = useLocation();
 
   if (isLoading) {
@@ -24,6 +24,15 @@ const ProtectedRoute = ({ children }) => {
 
   if (!isAuthenticated) {
     return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  if (requiredRole && user?.role !== requiredRole) {
+    // If the user doesn't have the required role, redirect them to their respective dashboard
+    if (user?.role === 'admin') {
+      return <Navigate to="/admin" replace />;
+    } else {
+      return <Navigate to="/clientDashboard" replace />;
+    }
   }
 
   return children;

@@ -1,34 +1,41 @@
 /**
+ * AuthContext — manages authentication state with real token-based auth.
+ *
+ * Stores: access_token, refresh_token, user { id, full_name, role, phone }
+ * Provides: login (save tokens), logout (clear + call API), isAuthenticated, user, role checks
+ */
+
+import { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
+import {
+  getAccessToken,
+  getRefreshToken,
+  getStoredUser,
+  setTokens,
+  clearTokens,
+  authService,
+} from '../services/api';
+
+// ─── Types ───────────────────────────────────────────────────
+
+/**
+ * @typedef {Object} AuthUser
+ * @property {string} id
+ * @property {string} full_name
+ * @property {string} role - "client" | "admin"
+ * @property {string} [phone]
+ */
+
+/**
  * @typedef {Object} AuthState
  * @property {boolean} isAuthenticated
- * @property {Object|null} user
- * @property {string|null} phone
+ * @property {AuthUser|null} user
+ * @property {string|null} phone - phone number used during OTP flow (before verify)
  * @property {boolean} isLoading
  */
 
-/**
- * @typedef {Object} AuthContextValue
- * @property {boolean} isAuthenticated
- * @property {Object|null} user
- * @property {string|null} phone
- * @property {boolean} isLoading
- * @property {(phone: string) => void} login
- * @property {() => void} logout
- */
+// ─── Context ─────────────────────────────────────────────────
 
-/**
- * @typedef {'LOGIN' | 'LOGOUT' | 'SET_LOADING'} AuthActionType
- */
-
-/**
- * @typedef {Object} AuthAction
- * @property {AuthActionType} type
- * @property {{ phone?: string }=} payload
- */
-
-import { createContext, useContext, useReducer, useEffect } from 'react';
-
-const AuthContext = createContext(/** @type {AuthContextValue|null} */ (null));
+const AuthContext = createContext(null);
 
 const initialState = /** @type {AuthState} */ ({
   isAuthenticated: false,
@@ -37,20 +44,22 @@ const initialState = /** @type {AuthState} */ ({
   isLoading: true,
 });
 
-/**
- * @param {AuthState} state
- * @param {AuthAction} action
- * @returns {AuthState}
- */
+// ─── Reducer ─────────────────────────────────────────────────
+
 const authReducer = (state, action) => {
   switch (action.type) {
-    case 'LOGIN':
+    case 'LOGIN_SUCCESS':
       return {
         ...state,
         isAuthenticated: true,
-        phone: action.payload?.phone || null,
-        user: { phone: action.payload?.phone },
+        user: action.payload.user,
+        phone: action.payload.user?.phone || state.phone,
         isLoading: false,
+      };
+    case 'SET_PHONE':
+      return {
+        ...state,
+        phone: action.payload,
       };
     case 'LOGOUT':
       return {
@@ -67,50 +76,93 @@ const authReducer = (state, action) => {
   }
 };
 
-/**
- * @param {{ children: React.ReactNode }} props
- */
+// ─── Provider ────────────────────────────────────────────────
+
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
+  // Restore session from localStorage on mount
   useEffect(() => {
-    const storedAuth = localStorage.getItem('reflecto_auth');
-    if (storedAuth) {
-      try {
-        const parsed = JSON.parse(storedAuth);
-        dispatch({ type: 'LOGIN', payload: { phone: parsed.phone } });
-      } catch {
-        localStorage.removeItem('reflecto_auth');
+    const token = getAccessToken();
+    const user = getStoredUser();
+
+    if (token && user) {
+      dispatch({ type: 'LOGIN_SUCCESS', payload: { user } });
+    } else {
+      // Also check legacy key for backwards compat
+      const legacy = localStorage.getItem('reflecto_auth');
+      if (legacy) {
+        try {
+          const parsed = JSON.parse(legacy);
+          // Migrate: treat as authenticated but with minimal user info
+          dispatch({
+            type: 'LOGIN_SUCCESS',
+            payload: { user: { phone: parsed.phone, role: 'client' } },
+          });
+        } catch {
+          localStorage.removeItem('reflecto_auth');
+          dispatch({ type: 'SET_LOADING', payload: false });
+        }
+      } else {
         dispatch({ type: 'SET_LOADING', payload: false });
       }
-    } else {
-      dispatch({ type: 'SET_LOADING', payload: false });
     }
   }, []);
 
   /**
-   * @param {string} phone
+   * Save the phone number being used for OTP (before verification).
+   * Called from LoginView after successfully sending OTP.
    */
-  const login = (phone) => {
-    const authData = { phone, timestamp: Date.now() };
-    localStorage.setItem('reflecto_auth', JSON.stringify(authData));
-    dispatch({ type: 'LOGIN', payload: { phone } });
-  };
+  const setPhone = useCallback((phone) => {
+    dispatch({ type: 'SET_PHONE', payload: phone });
+  }, []);
 
-  const logout = () => {
-    localStorage.removeItem('reflecto_auth');
+  /**
+   * Complete login — called after OTP verification succeeds.
+   * Saves tokens to localStorage and updates context.
+   *
+   * @param {{ access_token: string, refresh_token: string, user: AuthUser }} data
+   */
+  const login = useCallback((data) => {
+    setTokens({
+      access_token: data.access_token,
+      refresh_token: data.refresh_token,
+      user: data.user,
+    });
+    dispatch({ type: 'LOGIN_SUCCESS', payload: { user: data.user } });
+  }, []);
+
+  /**
+   * Logout — clears tokens locally and notifies the server.
+   */
+  const logout = useCallback(async () => {
+    try {
+      await authService.logout();
+    } catch {
+      // Server call failed — still clear local state
+    }
+    clearTokens();
     dispatch({ type: 'LOGOUT' });
-  };
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ ...state, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        ...state,
+        setPhone,
+        login,
+        logout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
 
+// ─── Hook ────────────────────────────────────────────────────
+
 /**
- * @returns {AuthContextValue}
+ * @returns {{ isAuthenticated: boolean, user: AuthUser|null, phone: string|null, isLoading: boolean, setPhone: Function, login: Function, logout: Function }}
  */
 export const useAuth = () => {
   const context = useContext(AuthContext);
